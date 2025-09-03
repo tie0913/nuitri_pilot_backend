@@ -1,0 +1,37 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.so
+
+# Virtual environment
+venv/
+.env/
+
+# VSCode settings
+.vscode/
+
+# Distribution / packaging
+*.egg-info/
+dist/
+build/
+
+# Log files
+*.log
+
+# Unit test cache
+.pytest_cache/
+
+# Environment variables
+.env
+
+# macOS/Linux system files
+.DS_Store
+Thumbs.db
+
+# mypy and coverage
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Jupyter (if ever used)
+.ipynb_checkpoints/
