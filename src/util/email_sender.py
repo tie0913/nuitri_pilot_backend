@@ -2,35 +2,30 @@
 import smtplib
 
 from .logger import get_logger
+from .config import get_settings
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
-
-SMTP_SERVER = "smtp.gmail.com"
-SMTP_PORT = 587
-
-EMAIL_ADDRESS = "nuitripilot@gmail.com"
-EMAIL_PASSWORD = "jeic myvu opql afef"
 
 #
 # sending email util code
 #
 def send_email(to_email: str, subject: str, body: str) -> bool:
-
+    conf = get_settings()
     feedback = False
     logger = get_logger("send_email")
     try:
         msg = MIMEMultipart()
-        msg["From"] = EMAIL_ADDRESS
+        msg["From"] = conf.SMTP_FROM
         msg["To"] = to_email
         msg["Subject"] = subject
         msg.attach(MIMEText(body, "plain"))
 
-        server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT, timeout=10)
+        server = smtplib.SMTP(conf.SMTP_HOST, conf.SMTP_PORT, timeout=10)
         server.starttls()
 
-        server.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+        server.login(conf.EMAIL_ADDRESS, conf.EMAIL_PASSWORD)
 
-        result = server.sendmail(EMAIL_ADDRESS, to_email, msg.as_string())
+        result = server.sendmail(conf.EMAIL_ADDRESS, to_email, msg.as_string())
         server.quit()
 
         if not result:
@@ -48,5 +43,5 @@ def send_email(to_email: str, subject: str, body: str) -> bool:
 
 
 if __name__ == "__main__":
-    res = send_email("wang9431@saskpolytech.ca", "测试邮件", "你好，这是一封来自 Python 的测试邮件！")
+    res = send_email("wang9431@saskpolytech.ca", "Test Email", "Hello, this is an email coming from Nuitri Pilot")
     print(res)

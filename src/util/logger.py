@@ -1,8 +1,13 @@
 import logging
+from .config import get_settings
 
 def get_logger(name:str = __name__):
+
+
+    conf = get_settings()
+
     logger = logging.getLogger(name)
-    logger.setLevel(logging.INFO)
+    logger.setLevel(conf.LOG_LEVEL)
 
     if not logger.handlers:
         ch = logging.StreamHandler()
