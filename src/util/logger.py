@@ -1,5 +1,5 @@
 import logging
-from .config import get_settings
+from src.util.config import get_settings
 
 def get_logger(name:str = __name__):
 

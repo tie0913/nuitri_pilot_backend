@@ -1,14 +1,33 @@
 from fastapi import FastAPI
 import uvicorn
-from util.logger import get_logger
-from util.config import get_settings
-app = FastAPI()
+from src.util.logger import get_logger
+from src.util.config import get_settings
+from src.ctx import context
+
+app = FastAPI(lifespan=context)
+
+
+from src.user.router import user_router
+app.include_router(user_router)
 
 @app.get("/")
 async def root():
     get_logger().info("This is a log")
     return "Welcome to Nuitri Pilot"
 
+@app.post("/")
+async def home():
+    return {
+        "success":True,
+        "bizCode":0,
+        "message":"",
+        "data":{
+            "code":"1234567890"
+        }
+    }
+
+
+
 if __name__ == "__main__":
     conf = get_settings()
-    uvicorn.run("main:app", port=conf.PORT, reload=True)
+    uvicorn.run("src.main:app", port=conf.PORT, reload=True)

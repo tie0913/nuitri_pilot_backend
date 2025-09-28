@@ -1,4 +1,3 @@
-# app/core/config.py
 from functools import lru_cache
 from typing import Literal, Optional
 from pydantic_settings import BaseSettings, SettingsConfigDict
@@ -20,7 +19,16 @@ class Settings(BaseSettings):
     LOG_LEVEL: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "INFO"
     LOG_JSON: bool = False
 
-    # Settings 行为
+    # MongoDB Connection Configuration
+    MONGO_HOST: str = ""
+    MONGO_PORT: int = 50070
+    MONGO_USER: str = ""
+    MONGO_PWD: str = ""
+    MONGO_SCHEMA_NAME : str = "nutripilot"
+    MONGO_MAX_POOL_SIZE: int = 5
+    MONGO_MIN_POOL_SIZE: int = 1
+
+    # Settings 
     model_config = SettingsConfigDict(
         env_file=".env",              
         env_file_encoding="utf-8",
@@ -28,6 +36,10 @@ class Settings(BaseSettings):
         case_sensitive=False,         
         extra="ignore"
     )
+
+
+    def getMongoDBUrl(self) -> str:
+        return f"mongodb://{self.MONGO_USER}:{self.MONGO_PWD}@{self.MONGO_HOST}:{self.MONGO_PORT}"
 
 @lru_cache
 def get_settings() -> Settings:

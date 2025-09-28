@@ -1,8 +1,8 @@
 
 import smtplib
 
-from .logger import get_logger
-from .config import get_settings
+from src.util.logger import get_logger
+from src.util.config import get_settings
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
