@@ -13,19 +13,18 @@ class MongoDBPool:
     db = None
 
     @classmethod
-    async def connect_to_db(this):
-        if this.client is None:
-            print(get_settings().getMongoDBUrl())            
-            this.client = AsyncIOMotorClient(get_settings().getMongoDBUrl())
-            this.db = this.client[get_settings().MONGO_SCHEMA_NAME]
+    async def connect_to_db(cls):
+        if cls.client is None:
+            cls.client = AsyncIOMotorClient(get_settings().getMongoDBUrl())
+            cls.db = cls.client[get_settings().MONGO_SCHEMA_NAME]
 
     @classmethod
-    async def close(this):
-        if this.client is not None:
-            this.client.close()
-            this.client = None
-            this.db = None
+    async def close(cls):
+        if cls.client is not None:
+            cls.client.close()
+            cls.client = None
+            cls.db = None
 
     @classmethod
-    def get_db():
+    def get_db(cls):
         return MongoDBPool.db
