@@ -20,7 +20,7 @@ class Settings(BaseSettings):
     LOG_JSON: bool = False
 
     # MongoDB Connection Configuration
-    MONGO_HOST: str = ""
+    MONGO_URL: str = ""
     MONGO_PORT: int = 50070
     MONGO_USER: str = ""
     MONGO_PWD: str = ""
@@ -39,7 +39,7 @@ class Settings(BaseSettings):
 
 
     def getMongoDBUrl(self) -> str:
-        return f"mongodb://{self.MONGO_USER}:{self.MONGO_PWD}@{self.MONGO_HOST}:{self.MONGO_PORT}"
+        return f"mongodb://{self.MONGO_USER}:{self.MONGO_PWD}@{self.MONGO_URL}:{self.MONGO_PORT}"
 
 @lru_cache
 def get_settings() -> Settings:

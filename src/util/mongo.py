@@ -15,7 +15,10 @@ class MongoDBPool:
     @classmethod
     async def connect_to_db(cls):
         if cls.client is None:
-            cls.client = AsyncIOMotorClient(get_settings().getMongoDBUrl())
+            url = get_settings().getMongoDBUrl()
+            logger = get_logger()
+            logger.info(url)
+            cls.client = AsyncIOMotorClient(url)
             cls.db = cls.client[get_settings().MONGO_SCHEMA_NAME]
 
     @classmethod
@@ -27,4 +30,6 @@ class MongoDBPool:
 
     @classmethod
     def get_db(cls):
+        print('-----------------------------------------------------')
+        print(cls.client.address)
         return MongoDBPool.db

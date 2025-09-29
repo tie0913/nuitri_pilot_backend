@@ -10,7 +10,7 @@ class UserService:
 
 
     async def send_otp_for_reset_password(self, email:str):
-        await self.repository.get_user_by_email(email)
+        return await self.repository.get_user_by_email(email)
     
 
 

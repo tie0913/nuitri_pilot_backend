@@ -8,7 +8,8 @@ class UserRepository:
         self.collection = db["users"]
 
     async def get_user_by_email(self, email:str):
-        return await self.collection.find_one({"email": email})
+        person = await self.collection.find_one({"email": email})
+        return person
 
 
 def get_user_repository(db = Depends(MongoDBPool.get_db)) -> UserRepository:
