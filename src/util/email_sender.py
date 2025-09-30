@@ -23,9 +23,9 @@ def send_email(to_email: str, subject: str, body: str) -> bool:
         server = smtplib.SMTP(conf.SMTP_HOST, conf.SMTP_PORT, timeout=10)
         server.starttls()
 
-        server.login(conf.EMAIL_ADDRESS, conf.EMAIL_PASSWORD)
+        server.login(conf.SMTP_FROM, conf.SMTP_PASSWORD)
 
-        result = server.sendmail(conf.EMAIL_ADDRESS, to_email, msg.as_string())
+        result = server.sendmail(conf.SMTP_FROM, to_email, msg.as_string())
         server.quit()
 
         if not result:
