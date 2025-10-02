@@ -1,6 +1,6 @@
 from functools import lru_cache
 from fastapi import Depends
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 
 from src.util.email_sender import send_email
 from src.user.repository import UserRepository, get_user_repository
@@ -35,7 +35,7 @@ class UserService:
             return (1, 'user does not exist')
         else:
             otp = generate_otp(6)
-            expireAt = datetime.now() + timedelta(minutes=20)
+            expireAt = datetime.now(timezone.utc) + timedelta(minutes=20)
             otp_saved = await self.repository.save_user_otp(email=email, otp=otp, busId="1", expireAt=expireAt)
 
             if otp_saved is False : return (1, 'sending otp code has error')

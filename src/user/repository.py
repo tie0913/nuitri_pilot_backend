@@ -4,6 +4,7 @@ from motor.motor_asyncio import AsyncIOMotorDatabase
 from src.util.mongo import MongoDBPool
 from datetime import datetime
 
+from src.util.logger import get_logger
 class UserRepository:
 
     def __init__(self, db: AsyncIOMotorDatabase):
@@ -16,7 +17,8 @@ class UserRepository:
 
     # insert a otp code for a business method by a email
     async def save_user_otp(self, email:str, otp:str, busId:str, expireAt:datetime) -> bool:
-
+        logger = get_logger()
+        logger.info("expireAt=" + str(expireAt))
         res = None
         async with await self.db.client.start_session() as session:
             async with session.start_transaction():
