@@ -7,7 +7,7 @@ from datetime import datetime
 from src.util.logger import get_logger
 class UserRepository:
 
-    def __init__(self, db: AsyncIOMotorDatabase):
+    def __init__(self, db):
         self.db = db
 
     async def get_user_by_email(self, email:str):
@@ -36,7 +36,7 @@ class UserRepository:
             return res.acknowledged
 
     
-    async def get_otp_by_email_and_bus_id(self, email:str, bus_id:str) -> str:
+    async def get_otp_by_email_and_bus_id(self, email:str, bus_id:str):
         return await self.db['otps'].find_one({"email":email, "busId": bus_id})
 
     async def update_password_and_delete_otp(self, email:str, bus_id:str, password:str):

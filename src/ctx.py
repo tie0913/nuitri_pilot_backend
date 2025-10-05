@@ -17,6 +17,6 @@ async def context(ap:FastAPI):
 
     yield
     logger.info("Start closing MongoDB Connections")
-    MongoDBPool.close()
+    await MongoDBPool.close()
     logger.info("MongoDB Connections distinguish has been done")
 
