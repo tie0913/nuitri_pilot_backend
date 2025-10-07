@@ -15,5 +15,7 @@ SMTP_FROM="nuitripilot@gmail.com"
 #Logger Configuration
 LOG_LEVEL="INFO"
 
-
-
+#JWT TOKEN
+JWT__SECRET=super-secret-dev-key
+JWT__ALGORITHM=HS256
+JWT__ACCESS_TOKEN_EXPIRE_MINUTES=300

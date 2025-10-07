@@ -1,0 +1,14 @@
+# utils/encode.py
+from datetime import datetime
+from bson import ObjectId, Decimal128
+from fastapi.encoders import jsonable_encoder
+
+def to_json(data):
+    return jsonable_encoder(
+        data,
+        custom_encoder={
+            ObjectId: str,                         # 64位16进制字符串
+            datetime: lambda dt: dt.isoformat(),   # ISO8601
+            Decimal128: lambda d: str(d.to_decimal()),  # 或者 float(...)，但注意精度
+        },
+    )

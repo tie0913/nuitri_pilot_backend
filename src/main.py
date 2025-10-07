@@ -8,7 +8,9 @@ app = FastAPI(lifespan=context)
 
 
 from src.user.router import user_router
+from src.auth.router import auth_router
 app.include_router(user_router)
+app.include_router(auth_router)
 
 @app.get("/")
 async def root():

@@ -28,6 +28,12 @@ class Settings(BaseSettings):
     MONGO_MAX_POOL_SIZE: int = 5
     MONGO_MIN_POOL_SIZE: int = 1
 
+    #JWT TOKEN
+    JWT__SECRET: str = "nutri-pilot-dev-key"
+    JWT__ALGORITHM: str = "HS256"
+    JWT__ACCESS_TOKEN_EXPIRE_MINUTES: int=0
+
+
     # Settings 
     model_config = SettingsConfigDict(
         env_file=".env",              

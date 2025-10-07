@@ -1,5 +1,4 @@
 from functools import lru_cache
-from fastapi import Depends
 from datetime import datetime, timedelta, timezone
 
 from src.util.email_sender import send_email
@@ -13,6 +12,11 @@ class UserService:
 
     def __init__(self, repository: UserRepository):
         self.repository = repository
+
+
+    async def get_user_by_email(self, email:str):
+        return await self.repository.get_user_by_email(email)
+
 
     async def confirm_otp_and_reset_password(self, email:str, otp:str, password:str) :
         otp_record = await self.repository.get_otp_by_email_and_bus_id(email, "1")
