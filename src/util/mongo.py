@@ -9,7 +9,7 @@ from src.util.logger import get_logger
 
 class MongoDBPool:
 
-    client: AsyncIOMotorClient = None
+    client = None
     db = None
 
     @classmethod
@@ -20,7 +20,6 @@ class MongoDBPool:
             logger.info(url)
             cls.client = AsyncIOMotorClient(url)
             cls.db = cls.client[get_settings().MONGO_SCHEMA_NAME]
-
     @classmethod
     async def close(cls):
         if cls.client is not None:
@@ -30,6 +29,4 @@ class MongoDBPool:
 
     @classmethod
     def get_db(cls):
-        print('-----------------------------------------------------')
-        print(cls.client.address)
-        return MongoDBPool.db
+        return cls.db

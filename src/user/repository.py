@@ -40,6 +40,9 @@ class UserRepository:
     async def get_otp_by_email_and_bus_id(self, email:str, bus_id:str) -> str:
         user = await self.db['otps'].find_one({"email":email, "busId": bus_id})
         return to_json(user)
+    async def get_otp_by_email_and_bus_id(self, email:str, bus_id:str):
+        otp = await self.db['otps'].find_one({"email":email, "busId": bus_id})
+        return to_json(otp)
 
     async def update_password_and_delete_otp(self, email:str, bus_id:str, password:str):
 
