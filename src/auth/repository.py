@@ -1,6 +1,8 @@
 
 from functools import lru_cache
 
+from bson import ObjectId
+
 from src.util.mongo import MongoDBPool
 
 
@@ -13,7 +15,7 @@ class SessionRepository:
     # 这个方法保存登录用户的session信息，未来可以扩展相关的字段
     async def save_session(self, user_id, expire_at):
         await self.db['sessions'].insert_one({
-            "user_id": user_id,
+            "user_id": ObjectId(user_id),
             "expire_at": expire_at
         })
 

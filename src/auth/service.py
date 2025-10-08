@@ -22,7 +22,7 @@ class AuthService:
     async def signIn(self, email:str, password:str) -> tuple:
         user = await self.user_repository.get_user_by_email(email)
         if user is not None and password == user['password']:
-            user_id = user['_id']
+            user_id = str(user['_id'])
             token = self.token_service.create_token(user_id)
             expire_at = datetime.now(timezone.utc) + timedelta(minutes=15)
             await self.session_repository.save_session(user_id = user_id, expire_at = expire_at)

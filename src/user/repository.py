@@ -13,8 +13,7 @@ class UserRepository:
 
     async def get_user_by_email(self, email:str):
         collection = self.db['users']
-        person = await collection.find_one({"email": email})
-        return to_json(person)
+        return await collection.find_one({"email": email})
 
     # insert a otp code for a business method by a email
     async def save_user_otp(self, email:str, otp:str, busId:str, expireAt:datetime) -> bool:
@@ -38,11 +37,8 @@ class UserRepository:
 
     
     async def get_otp_by_email_and_bus_id(self, email:str, bus_id:str) -> str:
-        user = await self.db['otps'].find_one({"email":email, "busId": bus_id})
-        return to_json(user)
-    async def get_otp_by_email_and_bus_id(self, email:str, bus_id:str):
-        otp = await self.db['otps'].find_one({"email":email, "busId": bus_id})
-        return to_json(otp)
+        return await self.db['otps'].find_one({"email":email, "busId": bus_id})
+
 
     async def update_password_and_delete_otp(self, email:str, bus_id:str, password:str):
 
