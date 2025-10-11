@@ -15,7 +15,8 @@ class TokenService:
     def create_token(self, what_ever:str) -> str :
         now = datetime.now(timezone.utc)
         pay_load = {"text": what_ever, "iat": int(now.timestamp())}
-        return jwt.encode(pay_load, self.secret, self.algorithm) 
+        token = jwt.encode(pay_load, self.secret, self.algorithm) 
+        return token
     
     # 这个方法会在验证出现问题的时候抛出 JWT Error
     # 所以最好的办法是分别定义好正确结果以及错误结果对应的代码和错误提示

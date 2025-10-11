@@ -19,6 +19,9 @@ class SessionRepository:
             "expire_at": expire_at
         })
 
+    async def remove_by_user_id(self, user_id):
+        await self.db['session'].delete_many({"user_id":ObjectId(user_id)})
+
 
 @lru_cache
 def get_session_repository() -> SessionRepository :

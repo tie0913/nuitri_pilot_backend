@@ -36,7 +36,7 @@ class UserRepository:
             return res.acknowledged
 
     
-    async def get_otp_by_email_and_bus_id(self, email:str, bus_id:str) -> str:
+    async def get_otp_by_email_and_bus_id(self, email:str, bus_id:str):
         return await self.db['otps'].find_one({"email":email, "busId": bus_id})
 
 
