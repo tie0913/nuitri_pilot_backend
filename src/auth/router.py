@@ -15,12 +15,12 @@ async def signin(body:dict = Body(...), auth_service:AuthService=Depends(get_aut
 
 @auth_router.post("/forget-password")
 async def reset_password(body:dict = Body(...), service: AuthService = Depends(get_auth_service)):
-    result_tuple = await service.send_otp_for_reset_password(body['email'])
+    result_tuple = await service.forget_password(body['email'])
     return generate_result(result_tuple)
 
 @auth_router.post("/reset-password")
 async def confirm_otp_and_reset_password(body:dict = Body(...), service: AuthService = Depends(get_auth_service)):
-    result_tuple = await service.confirm_otp_and_reset_password(body['email'], body['otp'], body['password'])
+    result_tuple = await service.reset_password(body['email'], body['otp'], body['password'])
     return generate_result(result_tuple)
 
 @auth_router.post("/sign-out", dependencies=[Depends(JWTUserGuard())])

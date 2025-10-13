@@ -3,7 +3,7 @@ from typing import Optional, Tuple, AsyncGenerator
 from fastapi import Header, HTTPException, status
 from fastapi.responses import JSONResponse
 from src.util.ctx import RequestContext, get_ctx, _set_ctx, _reset_ctx
-from src.auth.token import get_token_service
+from src.auth.token import decode_token
 from src.util.json import generate_result
 
 class JWTUserGuard:
@@ -46,7 +46,7 @@ class JWTUserGuard:
         user_id = None
         # ---- 2) JWT 验证与解析 —— 用你现有的逻辑（在此处调用即可）----
         try:
-            decode_res = get_token_service().decode_token(token)
+            decode_res = decode_token(token)
             if decode_res[0] == 0:
                 get_ctx().user_id = decode_res[1]['text']
             else:

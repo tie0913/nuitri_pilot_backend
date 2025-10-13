@@ -3,6 +3,7 @@
 # We are supposed to use one client instance in this whole backend server
 # because all the coroutine will share it thus we will not consume too much resources
 
+from datetime import timezone
 from motor.motor_asyncio import AsyncIOMotorClient
 from src.util.config import get_settings
 from src.util.logger import get_logger
@@ -16,9 +17,7 @@ class MongoDBPool:
     async def connect_to_db(cls):
         if cls.client is None:
             url = get_settings().getMongoDBUrl()
-            logger = get_logger()
-            logger.info(url)
-            cls.client = AsyncIOMotorClient(url)
+            cls.client = AsyncIOMotorClient(url, tz_aware=True, tzinfo=timezone.utc)
             cls.db = cls.client[get_settings().MONGO_SCHEMA_NAME]
     @classmethod
     async def close(cls):
