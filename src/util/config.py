@@ -27,7 +27,8 @@ class Settings(BaseSettings):
     MONGO_SCHEMA_NAME : str = "nutripilot"
     MONGO_MAX_POOL_SIZE: int = 5
     MONGO_MIN_POOL_SIZE: int = 1
-
+    MONGO_DIRECT_CONNECTION: str = "false"
+    MONGO_DEFAILT_REPLICA_SET_NAME: str= ""
     #JWT TOKEN
     JWT__SECRET: str = "nutri-pilot-dev-key"
     JWT__ALGORITHM: str = "HS256"
@@ -45,7 +46,15 @@ class Settings(BaseSettings):
 
 
     def getMongoDBUrl(self) -> str:
-        return f"mongodb://{self.MONGO_USER}:{self.MONGO_PWD}@{self.MONGO_URL}:{self.MONGO_PORT}"
+        url = f"mongodb://{self.MONGO_USER}:{self.MONGO_PWD}@{self.MONGO_URL}:{self.MONGO_PORT}?"
+        if len(self.MONGO_DEFAILT_REPLICA_SET_NAME) > 0:
+            url += f"replicaSet={self.MONGO_DEFAILT_REPLICA_SET_NAME}"
+        if self.MONGO_DIRECT_CONNECTION == "true":
+            url += f"&directConnection={self.MONGO_DIRECT_CONNECTION}"
+        print(url)
+        return url
+
+        
 
 @lru_cache
 def get_settings() -> Settings:
