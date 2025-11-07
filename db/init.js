@@ -41,12 +41,12 @@ db.chronics.createIndex({
 })
 
 
-db.allergics.insertOne({"name":"Peanuts"});
-db.allergics.insertOne({"name":"Eggs"});
-db.allergics.insertOne({"name":"Fish"});
-db.allergics.insertOne({"name":"Gluten"});
+db.allergies.insertOne({"name":"Peanuts"});
+db.allergies.insertOne({"name":"Eggs"});
+db.allergies.insertOne({"name":"Fish"});
+db.allergies.insertOne({"name":"Gluten"});
 
-db.allergics.createIndex({
+db.allergies.createIndex({
     "name":1
 }, {
     "unique":true

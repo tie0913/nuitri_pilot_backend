@@ -29,8 +29,18 @@ class WellnessService:
         wellnessRepo = WellnessRepo(self.db)
         wellness = await wellnessRepo.get_user_wellness_items_lists(request_user_id())
         return {
-            "chronics":convert_id(chronicList),
+            "items":convert_id(chronicList),
             "selectedIds": wellness['chronics']
+        }
+    
+    async def get_user_allergies(self):
+        allergiesRepo = AllergiesRepo(self.db)
+        wellnessRepo = WellnessRepo(self.db)
+        allergies = await allergiesRepo.get_allergies_list()
+        wellness = await wellnessRepo.get_user_wellness_items_lists(request_user_id())
+        return {
+            "items": convert_id(allergies),
+            "selectedIds": wellness['allergies']
         }
 
 @lru_cache
