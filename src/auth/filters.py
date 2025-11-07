@@ -44,7 +44,7 @@ class JWTUserGuard:
             )
 
         user_id = None
-        # ---- 2) JWT 验证与解析 —— 用你现有的逻辑（在此处调用即可）----
+        # ---- 2) JWT 验证与解析 —— 
         try:
             decode_res = decode_token(token)
             if decode_res[0] == 0:

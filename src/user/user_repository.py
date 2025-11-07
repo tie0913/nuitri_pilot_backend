@@ -9,7 +9,7 @@ class UserRepository(BaseRepository):
         return "users"
 
     async def get_user_by_email(self, email:str):
-        return await self.find_one({"email": email})
+        return await self.find_one({"email": email}, True)
 
     async def update_password(self, email:str, password:str):
         await self.update_one({"email":email}, {"$set": {"password":password}})

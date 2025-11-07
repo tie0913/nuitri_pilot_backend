@@ -22,3 +22,46 @@ db.users.insert({
 db.sessions.createIndex({expire_at:1}, {expireAfterSeconds:0})
 db.otps.createIndex({expire_at:1}, {expireAfterSeconds:0})
 db.users.createIndex({email:1}, {unique:true})
+
+
+
+
+db.chronics.insertOne({"name":"Hypertension"});
+db.chronics.insertOne({"name":"Stroke"});
+db.chronics.insertOne({"name":"Asthma"});
+db.chronics.insertOne({"name":"Gout"});
+db.chronics.insertOne({"name":"Obesity"});
+db.chronics.insertOne({"name":"Epilepsy"});
+
+
+db.chronics.createIndex({
+    "name":1
+}, {
+    "unique":true
+})
+
+
+db.allergics.insertOne({"name":"Peanuts"});
+db.allergics.insertOne({"name":"Eggs"});
+db.allergics.insertOne({"name":"Fish"});
+db.allergics.insertOne({"name":"Gluten"});
+
+db.allergics.createIndex({
+    "name":1
+}, {
+    "unique":true
+})
+
+
+db.wellness.insertOne({
+    "user_id": ObjectId("68fd58dd220815d496c6c0fd"),
+    "chronics":[],
+    "allergies":[]
+})
+
+
+db.wellness.createIndex({
+    "user_id":1
+}, {
+    "unique": true
+})

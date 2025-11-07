@@ -19,5 +19,12 @@ class BaseRepository(ABC):
     async def delete_many(self, param:dict):
         await self.collection.delete_many(param)
 
-    async def find_one(self, param:dict):
-        return await self.collection.find_one(param)
+    async def find_one(self, param:dict, with_id:bool = False):
+        if with_id:
+            return await self.collection.find_one(param)
+        else:
+            return await self.collection.find_one(param, {'_id': 0})
+
+    async def find_all(self):
+        cursor = self.collection.find({})
+        return await cursor.to_list(length=None)
