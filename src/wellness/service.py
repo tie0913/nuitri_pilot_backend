@@ -10,42 +10,28 @@ class WellnessService:
     def __init__(self, db):
         self.db = db
 
-
-    async def get_user_wellness(self):
-        chronicsRepo = ChronicsRepo(self.db)
-        allergiesRepo = AllergiesRepo(self.db)
-        wellnessRepo = WellnessRepo(self.db)
-        chronicList = await chronicsRepo.get_chronic_list()
-        allergyList = await allergiesRepo.get_allergies_list()
-        wellness = await wellnessRepo.get_user_wellness_items_lists(request_user_id())
-        return {
-            "chronicList": convert_id(chronicList),
-            "allergyList": allergyList,
-            "wellness": wellness
-        }
-
-    async def get_user_chronics(self):
-        chronicsRepo = ChronicsRepo(self.db)
-        chronicList = await chronicsRepo.get_chronic_list()
+    async def get_user_wellness(self, catalogName):
+        item_repo = self.get_wellness_item_repo(catalogName)
+        item_list = await item_repo.get_item_list()
         wellnessRepo = WellnessRepo(self.db)
         wellness = await wellnessRepo.get_user_wellness_items_lists(request_user_id())
         return {
-            "items":convert_id(chronicList),
-            "selectedIds": wellness['chronics']
-        }
-    
-    async def get_user_allergies(self):
-        allergiesRepo = AllergiesRepo(self.db)
-        wellnessRepo = WellnessRepo(self.db)
-        allergies = await allergiesRepo.get_allergies_list()
-        wellness = await wellnessRepo.get_user_wellness_items_lists(request_user_id())
-        return {
-            "items": convert_id(allergies),
-            "selectedIds": wellness['allergies']
+            "items": convert_id(item_list),
+            "selectedIds": wellness[catalogName]
         }
 
     async def add_wellness_catalog_item(self, catalogName, name):
+        repo = self.get_wellness_item_repo(catalogName)
+        try:
+            return await repo.create_new_item(name)
+        except DuplicateKeyError as e:
+            return await repo.get_item_by_name(name)
+    
+    async def save_user_selected_wellness_item_ids(self, catalogName, selectedIds):
+        wellnessRepo = WellnessRepo(self.db)
+        await wellnessRepo.save_user_selected_wellness_item_ids(request_user_id(), catalogName, selectedIds)
 
+    def get_wellness_item_repo(self, catalogName):
         repo = None
         if catalogName == "chronics":
             repo = ChronicsRepo(self.db)
@@ -53,11 +39,7 @@ class WellnessService:
             repo = AllergiesRepo(self.db)
         else:
             raise Exception("unsupported catalogName")
-
-        try:
-            return await repo.create_new_item(name)
-        except DuplicateKeyError as e:
-            return await repo.get_item_by_name(name)
+        return repo
 
 @lru_cache
 def get_wellness_service() -> WellnessService:

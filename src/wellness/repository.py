@@ -9,7 +9,7 @@ class ChronicsRepo(BaseRepository):
     def get_collection_name(self):
         return 'chronics'
 
-    async def get_chronic_list(self):
+    async def get_item_list(self):
         return await self.find_all()
 
     async def create_new_item(self, name):
@@ -30,7 +30,7 @@ class AllergiesRepo(BaseRepository):
     def get_collection_name(self):
         return 'allergies'
 
-    async def get_allergies_list(self):
+    async def get_item_list(self):
          return await self.find_all()
 
     async def create_new_item(self, name):
@@ -52,3 +52,7 @@ class WellnessRepo(BaseRepository):
 
     async def get_user_wellness_items_lists(self, user_id):
         return await self.find_one({"user_id": ObjectId(user_id)})
+
+    async def save_user_selected_wellness_item_ids(self, user_id, catalogName, selectedIds):
+        await self.update_one({"user_id": ObjectId(user_id)}, {"$set": {catalogName: selectedIds}})
+        
