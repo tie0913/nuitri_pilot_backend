@@ -4,15 +4,22 @@ from bson import ObjectId
 class ChronicsRepo(BaseRepository):
 
     def __init__(self, db):
-          super().__init__(db)
+        super().__init__(db)
 
     def get_collection_name(self):
-         return 'chronics'
+        return 'chronics'
 
     async def get_chronic_list(self):
-         return await self.find_all()
-    
+        return await self.find_all()
 
+    async def create_new_item(self, name):
+        doc = {"name": name}
+        result = await self.insert(doc)
+        doc['_id'] = result.inserted_id
+        return doc
+    
+    async def get_item_by_name(self, name):
+        return await self.find_one({"name": name}, with_id=True)
 
 
 class AllergiesRepo(BaseRepository):
@@ -26,8 +33,14 @@ class AllergiesRepo(BaseRepository):
     async def get_allergies_list(self):
          return await self.find_all()
 
-        
+    async def create_new_item(self, name):
+        doc = {"name": name}
+        result = await self.insert(doc)
+        doc['_id'] = result.inserted_id
+        return doc
 
+    async def get_item_by_name(self, name):
+        return await self.find_one({"name": name}, with_id=True)
 
 class WellnessRepo(BaseRepository):
 

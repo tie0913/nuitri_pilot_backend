@@ -11,7 +11,7 @@ class BaseRepository(ABC):
         pass
 
     async def insert(self, object:dict):
-        await self.collection.insert_one(object)
+        return await self.collection.insert_one(object)
 
     async def update_one(self, param:dict, updated:dict):
         await self.collection.update_one(param, updated)

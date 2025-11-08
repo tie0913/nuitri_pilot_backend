@@ -3,6 +3,7 @@ from src.user.bson_util import convert_id
 from src.wellness.repository import ChronicsRepo, AllergiesRepo, WellnessRepo
 from src.util.ctx import request_user_id
 from src.util.mongo import MongoDBPool
+from pymongo.errors import DuplicateKeyError
 
 class WellnessService:
 
@@ -42,6 +43,21 @@ class WellnessService:
             "items": convert_id(allergies),
             "selectedIds": wellness['allergies']
         }
+
+    async def add_wellness_catalog_item(self, catalogName, name):
+
+        repo = None
+        if catalogName == "chronics":
+            repo = ChronicsRepo(self.db)
+        elif catalogName == "allergies":
+            repo = AllergiesRepo(self.db)
+        else:
+            raise Exception("unsupported catalogName")
+
+        try:
+            return await repo.create_new_item(name)
+        except DuplicateKeyError as e:
+            return await repo.get_item_by_name(name)
 
 @lru_cache
 def get_wellness_service() -> WellnessService:
