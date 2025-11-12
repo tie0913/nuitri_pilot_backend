@@ -1,5 +1,5 @@
 from functools import lru_cache
-from src.user.bson_util import convert_id
+from src.util.json import convert_id
 from src.wellness.repository import ChronicsRepo, AllergiesRepo, WellnessRepo
 from src.util.ctx import request_user_id
 from src.util.mongo import MongoDBPool
