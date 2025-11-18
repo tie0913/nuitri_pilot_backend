@@ -32,3 +32,7 @@ class BaseRepository(ABC):
     async def find_all(self):
         cursor = self.collection.find({})
         return await cursor.to_list(length=None)
+    
+    async def find_page(self, param:dict, sort, page:int =10):
+        cursor = self.collection.find(param).sort(sort).limit(page);
+        return await cursor.to_list(length=None)

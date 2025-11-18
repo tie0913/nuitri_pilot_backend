@@ -5,7 +5,19 @@ from openai import AsyncOpenAI
 import json
 
 
-
+#{{
+#  "code": 0,
+#  message:"",
+#  mark":98,
+#  feedback":{{
+#     "level: 1,
+#     "explaination":"xxxxxxxx"
+#  },
+#  recommendation":[
+#     "xxxxx",
+#     "yyyyy",
+#     "zzzzz"
+#}}
 class AIAgent:
     @abstractmethod
     def get(self, base64_img, chronics, allergies):
@@ -23,9 +35,7 @@ class OpenAIAgent(AIAgent):
 
         system_ins = self.__get_system_instruction()
         user_ins = self.__get_user_instruction(base64_img, chronics, allergies)
-        print(user_ins)
         messages = [system_ins, user_ins]
-        ##messages=[{"role": "system", "content": "You are a nutrition assistant."},{"role": "user", "content": "Say hello in JSON: {\"ok\": true}"}],
 
         resp = await self.client.chat.completions.create(
             model=config.OPEN_AI_MODEL,
