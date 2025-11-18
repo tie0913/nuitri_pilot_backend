@@ -4,7 +4,7 @@ from bson import ObjectId, Decimal128
 from fastapi.encoders import jsonable_encoder
 
 def convert_id(collection) :
-    return list(map(lambda d: {**d, "_id": str(d["_id"])}, collection))
+    return list(map(lambda d: to_json(d), collection))
 
 def to_json(data):
     return jsonable_encoder(
