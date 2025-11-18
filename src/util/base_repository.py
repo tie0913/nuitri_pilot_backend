@@ -24,6 +24,10 @@ class BaseRepository(ABC):
             return await self.collection.find_one(param)
         else:
             return await self.collection.find_one(param, {'_id': 0})
+    
+    async def find_many(self, param:dict):
+        cursor = self.collection.find(param)
+        return await cursor.to_list(length=None)
 
     async def find_all(self):
         cursor = self.collection.find({})

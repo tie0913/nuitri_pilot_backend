@@ -35,6 +35,10 @@ class Settings(BaseSettings):
     JWT__ACCESS_TOKEN_EXPIRE_MINUTES: int=0
 
 
+    #OPENAI PARAMS
+    OPEN_AI_MODEL: str = "gpt-4o-mini"
+    OPEN_AI_API_KEY : str = ""
+
     # Settings 
     model_config = SettingsConfigDict(
         env_file=".env",              

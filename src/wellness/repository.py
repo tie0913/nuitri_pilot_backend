@@ -21,6 +21,11 @@ class ChronicsRepo(BaseRepository):
     async def get_item_by_name(self, name):
         return await self.find_one({"name": name}, with_id=True)
 
+    async def get_item_list_by_ids(self, ids):
+        return await self.find_many({
+            "_id":{"$in":[ObjectId(id) for id in ids]}
+        })
+
 
 class AllergiesRepo(BaseRepository):
      
@@ -41,6 +46,13 @@ class AllergiesRepo(BaseRepository):
 
     async def get_item_by_name(self, name):
         return await self.find_one({"name": name}, with_id=True)
+
+    async def get_item_list_by_ids(self, ids):
+        return await self.find_many({
+            "_id":{"$in":[ObjectId(id) for id in ids]}
+        })
+
+
 
 class WellnessRepo(BaseRepository):
 
