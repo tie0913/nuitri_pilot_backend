@@ -17,9 +17,8 @@ class SuggestionRepo(BaseRepository):
         record['_id'] = result.inserted_id
         return record
 
-    async def find_page(self, user_id, last_id):
+    async def find_suggestions_page(self, user_id, last_id):
         condition = {'user_id': ObjectId(user_id)}
         if last_id is not None:
             condition['_id'] = {'$lt': ObjectId(last_id)}
-
         return await self.find_page(condition, {'_id':-1})

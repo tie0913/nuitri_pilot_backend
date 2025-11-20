@@ -4,7 +4,7 @@ from src.auth.filters import JWTUserGuard
 from src.suggestion.service import SuggestionService, get_suggestion_service
 from src.util.ctx import request_user_id
 from src.util.image_util import image_to_base64_with_thumbnail
-from src.util.json import generate_result, to_json
+from src.util.json import bson_col_to_json, generate_result, to_json
 
 suggestion_router = APIRouter(prefix="/suggestion")
 
@@ -19,6 +19,7 @@ async def ask_for_suggesstion(img:UploadFile=File(...), suggestion_service:Sugge
         else:
             raise Exception(b64_result['error'])
     except Exception as e:
+        print(e)
         logger = get_logger()
         logger.error("we have errors", e)
         return generate_result((1, "error"))
@@ -30,7 +31,7 @@ async def get_suggestion_page(body:dict=Body(...), suggestion_serivce:Suggestion
         last_id = body['last_id']
     try:
         page = await suggestion_serivce.read_suggestion_page(request_user_id(), last_id)
-        return generate_result((0, page))
+        return generate_result((0, bson_col_to_json(page)))
     except Exception as e:
         return generate_result((1, "reading suggestions list has error"))
 

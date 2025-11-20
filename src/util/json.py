@@ -3,7 +3,7 @@ from datetime import datetime
 from bson import ObjectId, Decimal128
 from fastapi.encoders import jsonable_encoder
 
-def convert_id(collection) :
+def bson_col_to_json(collection) :
     return list(map(lambda d: to_json(d), collection))
 
 def to_json(data):

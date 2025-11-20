@@ -1,5 +1,5 @@
 from functools import lru_cache
-from src.util.json import convert_id
+from src.util.json import bson_col_to_json
 from src.wellness.repository import ChronicsRepo, AllergiesRepo, WellnessRepo
 from src.util.ctx import request_user_id
 from src.util.mongo import MongoDBPool
@@ -16,7 +16,7 @@ class WellnessService:
         wellnessRepo = WellnessRepo(self.db)
         wellness = await wellnessRepo.get_user_wellness_items_lists(request_user_id())
         return {
-            "items": convert_id(item_list),
+            "items": bson_col_to_json(item_list),
             "selectedIds": wellness[catalogName]
         }
 

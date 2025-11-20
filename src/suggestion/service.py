@@ -16,7 +16,7 @@ class SuggestionService:
 
     async def read_suggestion_page(self, user_id, last_id):
         suggestion_repo = SuggestionRepo(self.db)
-        return await suggestion_repo.find_page(user_id, last_id)
+        return await suggestion_repo.find_suggestions_page(user_id, last_id)
 
     async def get_suggestion(self, base64_img, base64_thumbnail, user_id):
         wellness_repo = WellnessRepo(self.db)

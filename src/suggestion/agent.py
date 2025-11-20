@@ -9,7 +9,7 @@ import json
 #  "code": 0,
 #  message:"",
 #  mark":98,
-#  feedback":{{
+#  feedback":{
 #     "level: 1,
 #     "explaination":"xxxxxxxx"
 #  },
