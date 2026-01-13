@@ -1,5 +1,4 @@
 from functools import lru_cache
-from multiprocessing import get_logger
 from src.auth.token import create_token 
 from src.user.otp_repository import OTPRepository
 from src.user.user_repository import UserRepository
@@ -12,6 +11,8 @@ from src.util.tx_executor import with_txn
 
 AUTH_SERVICE_FORGET_PASSWORD_BUS_ID = "1"
 AUTH_SERVICE_SIGN_UP_BUS_ID = "2"
+
+REQUEST_OTP_ALLOWED_LIST = [AUTH_SERVICE_FORGET_PASSWORD_BUS_ID, AUTH_SERVICE_SIGN_UP_BUS_ID]
 
 NOT_MATCHED_TEXT = (1, 'Email and Password are not matched')
 class AuthService:
@@ -46,10 +47,11 @@ class AuthService:
         user_repo = UserRepository(self.db)
         return await user_repo.get_user_by_email(email)
 
-    async def reset_password(self, email:str, otp:str, password:str) :
+    async def confirm_password(self, email:str, otp:str, password:str, biz_id:str) :
         otp_repo = OTPRepository(self.db)
         user_repo = UserRepository(self.db)
-        otp_record = await otp_repo.get_otp_by_email_and_bus_id(email, bus_id=AUTH_SERVICE_FORGET_PASSWORD_BUS_ID)
+
+        otp_record = await otp_repo.get_otp_by_email_and_bus_id(email, bus_id=biz_id)
         if otp_record is None:
             return (1, 'otp has expired')
         elif otp_record['otp'] != otp:
@@ -58,37 +60,49 @@ class AuthService:
             return (1, 'otp has expired')
         else:
             async def delete_otp_and_update_user():
-                await otp_repo.delete_otp(email, bus_id=AUTH_SERVICE_FORGET_PASSWORD_BUS_ID)
+                await otp_repo.delete_otp(email, bus_id=biz_id)
                 return await user_repo.update_password(email=email, password=password)
+            
+            async def delete_otp_and_create_user():
+                await otp_repo.delete_otp(email=email, bus_id=biz_id)
+                return await user_repo.create_user(email=email, password=password)
+
             try:
-                await with_txn(self.db, delete_otp_and_update_user)
-                return (0, 'password has been reset')
+                if biz_id == AUTH_SERVICE_FORGET_PASSWORD_BUS_ID:
+                    await with_txn(self.db, delete_otp_and_update_user)
+                    return (0, 'password has been reset')
+                elif biz_id == AUTH_SERVICE_SIGN_UP_BUS_ID:
+                    await with_txn(self.db, delete_otp_and_create_user)
+                    return (0, 'signing up succeed')
             except Exception as e:
                 print(e)
-
                 return (3, 'reset password has error')
 
 
-    async def forget_password(self, email:str) -> tuple:
+    async def request_otp(self, email:str, biz_id: str) -> tuple:
 
         user_repo = UserRepository(self.db)
         otp_repo = OTPRepository(self.db)
 
         user = await user_repo.get_user_by_email(email)
-        if user is None:
+
+        if biz_id == AUTH_SERVICE_SIGN_UP_BUS_ID and user is not None:
+            return (1, "email exists already")
+
+        elif biz_id == AUTH_SERVICE_FORGET_PASSWORD_BUS_ID and user is None:
             return (1, 'user does not exist')
-        else:
+        elif biz_id in REQUEST_OTP_ALLOWED_LIST:
+            print('----------------------Here is Sending OTP-----------------')
             otp = generate_otp(6)
             expire_at = datetime.now(timezone.utc) + timedelta(minutes=20)
-
             async def reset():
-                await otp_repo.delete_otp(email=email, bus_id=AUTH_SERVICE_FORGET_PASSWORD_BUS_ID)
-                await otp_repo.save_otp(email=email, otp=otp, bus_id=AUTH_SERVICE_FORGET_PASSWORD_BUS_ID, expire_at=expire_at)
-
+                await otp_repo.delete_otp(email=email, bus_id=biz_id)
+                await otp_repo.save_otp(email=email, otp=otp, bus_id=biz_id, expire_at=expire_at)
             try:
                 await with_txn(self.db, reset)
-                email_content = AuthService.get_email(otp, expire_at)
-                email_send = send_email(user['email'], 'Reset Your Password - Nutri Pilot', email_content)
+                email_title = AuthService.get_email_title(biz_id=biz_id)
+                email_content = AuthService.get_email(otp, expire_at, biz_id)
+                email_send = send_email(email, email_title, email_content)
                 if email_send :
                     return (0, 'otp code has been sent')
                 else:
@@ -96,13 +110,34 @@ class AuthService:
             except Exception as e:
                 print(e)
                 return (1, "saving otp code has error")
+        else:
+            print('unkown biz id ')
+            return (1, "unknown biz id" + str(biz_id))
 
     @classmethod
-    def get_email(cls, opt, expireAt) -> str:
+    def get_email_title(cls, biz_id) -> str:
+        if biz_id == AUTH_SERVICE_FORGET_PASSWORD_BUS_ID:
+            return "Reset Your Password - Nutri Pilot"
+        elif biz_id == AUTH_SERVICE_SIGN_UP_BUS_ID:
+            return "Sign up Your Account - Nutri Pilot"
+        else:
+            raise Exception("Unrecognized business id")
+
+    @classmethod
+    def get_email(cls, opt, expireAt, biz_id) -> str:
+
+        reason = ""
+        if biz_id == AUTH_SERVICE_FORGET_PASSWORD_BUS_ID:
+            reason = "resetting your password"
+        elif biz_id == AUTH_SERVICE_SIGN_UP_BUS_ID:
+            reason = "signing up"
+        else:
+            raise Exception("Unrecognized business id")
+        
         email_template = f"""
             Dear User,
 
-                Here is your OTP number for resetting your password.
+                Here is your OTP number for {reason}.
             If you did not request for this, please ignore it.
 
                 {opt}

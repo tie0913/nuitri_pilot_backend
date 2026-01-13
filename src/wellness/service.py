@@ -15,6 +15,10 @@ class WellnessService:
         item_list = await item_repo.get_item_list()
         wellnessRepo = WellnessRepo(self.db)
         wellness = await wellnessRepo.get_user_wellness_items_lists(request_user_id())
+        if wellness == None:
+            wellness = {catalogName:[]}
+        elif catalogName not in wellness:
+            wellness[catalogName] = []
         return {
             "items": bson_col_to_json(item_list),
             "selectedIds": wellness[catalogName]

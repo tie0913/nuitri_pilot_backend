@@ -66,5 +66,5 @@ class WellnessRepo(BaseRepository):
         return await self.find_one({"user_id": ObjectId(user_id)})
 
     async def save_user_selected_wellness_item_ids(self, user_id, catalogName, selectedIds):
-        await self.update_one({"user_id": ObjectId(user_id)}, {"$set": {catalogName: selectedIds}})
+        await self.update_one({"user_id": ObjectId(user_id)}, {"$set": {catalogName: selectedIds}}, upsert=True)
         

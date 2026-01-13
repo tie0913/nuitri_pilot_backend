@@ -5,7 +5,6 @@ from src.util.json import generate_result
 from src.util.ctx import request_user_id
 auth_router = APIRouter(prefix="/auth")
 
-
 @auth_router.post("/sign-in")
 async def signin(body:dict = Body(...), auth_service:AuthService=Depends(get_auth_service)):
     email = body['email']
@@ -13,14 +12,20 @@ async def signin(body:dict = Body(...), auth_service:AuthService=Depends(get_aut
     result_tuple = await auth_service.signIn(email= email, password= password)
     return generate_result(result_tuple)
 
-@auth_router.post("/forget-password")
-async def reset_password(body:dict = Body(...), service: AuthService = Depends(get_auth_service)):
-    result_tuple = await service.forget_password(body['email'])
+@auth_router.post("/request-otp")
+async def request_otp(body:dict = Body(...), service: AuthService = Depends(get_auth_service)):
+    result_tuple = await service.request_otp(body['email'], body['biz_id'])
+    print(result_tuple)
     return generate_result(result_tuple)
 
-@auth_router.post("/reset-password")
-async def confirm_otp_and_reset_password(body:dict = Body(...), service: AuthService = Depends(get_auth_service)):
-    result_tuple = await service.reset_password(body['email'], body['otp'], body['password'])
+#@auth_router.post("/forget-password")
+#async def reset_password(body:dict = Body(...), service: AuthService = Depends(get_auth_service)):
+#    result_tuple = await service.forget_password(body['email'])
+#    return generate_result(result_tuple)
+
+@auth_router.post("/confirm-password")
+async def confirm_password(body:dict = Body(...), service: AuthService = Depends(get_auth_service)):
+    result_tuple = await service.confirm_password(body['email'], body['otp'], body['password'], body['biz_id'])
     return generate_result(result_tuple)
 
 @auth_router.post("/sign-out", dependencies=[Depends(JWTUserGuard())])

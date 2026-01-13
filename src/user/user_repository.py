@@ -13,3 +13,9 @@ class UserRepository(BaseRepository):
 
     async def update_password(self, email:str, password:str):
         await self.update_one({"email":email}, {"$set": {"password":password}})
+
+    async def create_user(self, email:str, password:str):
+        return await self.insert({
+            "email": email,
+            "password": password
+        })

@@ -13,8 +13,8 @@ class BaseRepository(ABC):
     async def insert(self, object:dict):
         return await self.collection.insert_one(object)
 
-    async def update_one(self, param:dict, updated:dict):
-        await self.collection.update_one(param, updated)
+    async def update_one(self, param:dict, updated:dict, upsert:bool = False):
+        await self.collection.update_one(param, updated, upsert)
 
     async def delete_many(self, param:dict):
         await self.collection.delete_many(param)
