@@ -25,6 +25,7 @@ MarkupSafe==3.0.2
 mdurl==0.1.2
 motor==3.7.1
 openai==2.8.1
+pillow==12.1.0
 pyasn1==0.6.1
 pycparser==2.23
 pydantic==2.11.7
