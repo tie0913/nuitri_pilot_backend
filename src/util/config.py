@@ -1,4 +1,5 @@
 from functools import lru_cache
+import os
 from typing import Literal, Optional
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
@@ -41,7 +42,7 @@ class Settings(BaseSettings):
 
     # Settings 
     model_config = SettingsConfigDict(
-        env_file=".env",              
+        env_file=".env" if os.path.exists(".env") else None,              
         env_file_encoding="utf-8",
         env_prefix="",                
         case_sensitive=False,         
