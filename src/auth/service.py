@@ -32,12 +32,11 @@ class AuthService:
         if user is not None and password == user['password']:
             user_id = str(user['_id'])
             token = create_token(user_id)
-            expire_at = datetime.now(timezone.utc) + timedelta(minutes=15)
+            expire_at = datetime.now(timezone.utc) + timedelta(days=10)
             await sess_repo.save_session(user_id = user_id, expire_at = expire_at)
             return (0, token)
         else:
             return NOT_MATCHED_TEXT
-
 
     async def signOut(self, user_id:str):
         sess_repo = SessionRepository(self.db)
@@ -155,4 +154,26 @@ class AuthService:
         
 @lru_cache
 def get_auth_service() -> AuthService:
-    return AuthService(MongoDBPool.get_db());
+    return AuthService(MongoDBPool.get_db())
+
+
+
+class SessionService:
+
+    def __init__(self, db):
+        self.db = db
+
+    
+    async def is_user_timeout(self, user_id) -> bool:
+        sess_repo = SessionRepository(self.db)
+        session = await sess_repo.get_by_user_id(user_id=user_id)
+        if session is None:
+            return True
+        else:
+            now = datetime.now(timezone.utc)
+            return now > session['expire_at']
+
+
+@lru_cache
+def get_session_service() -> SessionService:
+    return SessionService(MongoDBPool.get_db())

@@ -1,7 +1,6 @@
 from bson import ObjectId
 from src.util.base_repository import BaseRepository
 
-
 class SessionRepository(BaseRepository):
 
     def __init__(self, db):
@@ -19,3 +18,7 @@ class SessionRepository(BaseRepository):
 
     async def remove_by_user_id(self, user_id):
         await self.delete_many({"user_id":ObjectId(user_id)})
+
+
+    async def get_by_user_id(self, user_id):
+        return await self.find_one({"user_id": ObjectId(user_id)})

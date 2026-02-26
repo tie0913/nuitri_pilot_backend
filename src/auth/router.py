@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends, Body
 from src.auth.filters import JWTUserGuard
-from src.auth.service import AuthService, get_auth_service
+from src.auth.service import AuthService, get_auth_service, SessionService, get_session_service
 from src.util.json import generate_result
 from src.util.ctx import request_user_id
 auth_router = APIRouter(prefix="/auth")
@@ -37,3 +37,7 @@ async def signout(auth_service:AuthService=Depends(get_auth_service)):
         print(e)
         return generate_result((1, "Signing out has error"))
     
+@auth_router.post("/me", dependencies=[Depends(JWTUserGuard())])
+async def me():
+    return generate_result((0, "OK"))
+

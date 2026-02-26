@@ -5,6 +5,7 @@ from fastapi.responses import JSONResponse
 from src.util.ctx import RequestContext, get_ctx, _set_ctx, _reset_ctx
 from src.auth.token import decode_token
 from src.util.json import generate_result
+from src.auth.service import get_session_service, SessionService
 
 class JWTUserGuard:
     """
@@ -37,10 +38,9 @@ class JWTUserGuard:
                 token = v[7:].strip() if v.lower().startswith("bearer ") else v
                 break
         if not token:
-            return JSONResponse(
-                generate_result((-1, 'Token is missing, please sign in')),
+            raise HTTPException(
                 status_code=401,
-                headers={"WWW-Authenticate": 'Bearer realm="api"'},
+                detail='Token is invalid, please sign in'
             )
 
         user_id = None
@@ -48,14 +48,24 @@ class JWTUserGuard:
         try:
             decode_res = decode_token(token)
             if decode_res[0] == 0:
-                get_ctx().user_id = decode_res[1]['text']
+                user_id = decode_res[1]['text']
+                timeout = await get_session_service().is_user_timeout(user_id=user_id) 
+                if timeout:
+                    raise HTTPException(
+                        status_code=401,
+                        detail='Token is timeout, please sign in'
+                    ) 
+                else:
+                    get_ctx().user_id = decode_res[1]['text']
             else:
-                raise ValueError("empty_user_id")
+                raise HTTPException(
+                    status_code=401,
+                    detail='Token is invalid, please sign in'
+                )
         except Exception:
-            return JSONResponse(
-                generate_result((-1, 'Token is invalid, please sign in')),
+            raise HTTPException(
                 status_code=401,
-                headers={"WWW-Authenticate": 'Bearer error="invalid_token"'},
+                detail='Validate token has error, please try again'
             )
 
         # ---- 3) 写入协程上下文；请求结束后清理 ----
