@@ -11,28 +11,18 @@ from src.user.router import user_router
 from src.auth.router import auth_router
 from src.wellness.router import wellness_router
 from src.suggestion.router import suggestion_router
+from src.util.TimezoneMiddleware import TimezoneMiddleware
+
 app.include_router(user_router)
 app.include_router(auth_router)
 app.include_router(wellness_router)
 app.include_router(suggestion_router)
 
+app.add_middleware(TimezoneMiddleware)
 @app.get("/")
 async def root():
     get_logger().info("This is a log")
     return "Welcome to Nuitri Pilot"
-
-@app.post("/")
-async def home():
-    return {
-        "success":True,
-        "bizCode":0,
-        "message":"",
-        "data":{
-            "code":"1234567890"
-        }
-    }
-
-
 
 if __name__ == "__main__":
     conf = get_settings()

@@ -72,7 +72,7 @@ class OpenAIAgent(AIAgent):
     def __get_instruction(self, chronics, allergies):
         return f"""
             Ok, now you are a professional health food advisor. 
-            the content given is a screenshot of ingredient list and my heathy status including chronics and allergies.
+            the content given is a screenshot, which might be an ingredient list or some food, and my heathy status including chronics and allergies.
 
             please give me suggestions from following perspectives.
             1. give me a mark to display if I can take this food. the mark is from 0 to 100, 100 is the most healthy.
@@ -80,7 +80,7 @@ class OpenAIAgent(AIAgent):
             3. Do you have other recommendations? please give me 3-4 names of similarities
 
 
-            If you find that the scheenshot has no ingredient list or you can not read a ingredient list from it. please give me an error result code.
+            If you find that the scheenshot has neither ingredient list nor food, or you can not read a ingredient list from it. please give me an error result code.
             Let's see the feedback structure, please note you are going to use json to have communication with me.
 
             code indicates if this request succeed. 0 means success, 1 means failure

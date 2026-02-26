@@ -1,6 +1,5 @@
-# app/deps/auth_guard.py
 from typing import Optional, Tuple, AsyncGenerator
-from fastapi import Header, HTTPException, status
+from fastapi import Header, HTTPException
 from fastapi.responses import JSONResponse
 from src.util.ctx import RequestContext, get_ctx, _set_ctx, _reset_ctx
 from src.auth.token import decode_token

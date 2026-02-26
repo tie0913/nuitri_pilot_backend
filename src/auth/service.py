@@ -4,10 +4,12 @@ from src.user.otp_repository import OTPRepository
 from src.user.user_repository import UserRepository
 from src.auth.session_repository import SessionRepository
 from datetime import datetime, timedelta, timezone
+from zoneinfo import ZoneInfo
 from src.util.email_sender import send_email
 from src.util.mongo import MongoDBPool
 from src.util.otp_generator import generate_otp
 from src.util.tx_executor import with_txn
+from src.util.ctx import get_ctx
 
 AUTH_SERVICE_FORGET_PASSWORD_BUS_ID = "1"
 AUTH_SERVICE_SIGN_UP_BUS_ID = "2"
@@ -93,14 +95,16 @@ class AuthService:
         elif biz_id in REQUEST_OTP_ALLOWED_LIST:
             print('----------------------Here is Sending OTP-----------------')
             otp = generate_otp(6)
-            expire_at = datetime.now(timezone.utc) + timedelta(minutes=20)
+            expire_at = datetime.now(timezone.utc) + timedelta(minutes=10)
             async def reset():
                 await otp_repo.delete_otp(email=email, bus_id=biz_id)
                 await otp_repo.save_otp(email=email, otp=otp, bus_id=biz_id, expire_at=expire_at)
             try:
                 await with_txn(self.db, reset)
                 email_title = AuthService.get_email_title(biz_id=biz_id)
-                email_content = AuthService.get_email(otp, expire_at, biz_id)
+                user_timezone = get_ctx().timezone
+                expire_at_user_local = expire_at.astimezone(ZoneInfo(user_timezone))
+                email_content = AuthService.get_email(otp, expire_at_user_local, biz_id)
                 email_send = send_email(email, email_title, email_content)
                 if email_send :
                     return (0, 'otp code has been sent')

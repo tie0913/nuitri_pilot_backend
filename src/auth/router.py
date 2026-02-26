@@ -18,11 +18,6 @@ async def request_otp(body:dict = Body(...), service: AuthService = Depends(get_
     print(result_tuple)
     return generate_result(result_tuple)
 
-#@auth_router.post("/forget-password")
-#async def reset_password(body:dict = Body(...), service: AuthService = Depends(get_auth_service)):
-#    result_tuple = await service.forget_password(body['email'])
-#    return generate_result(result_tuple)
-
 @auth_router.post("/confirm-password")
 async def confirm_password(body:dict = Body(...), service: AuthService = Depends(get_auth_service)):
     result_tuple = await service.confirm_password(body['email'], body['otp'], body['password'], body['biz_id'])
