@@ -1,7 +1,7 @@
 from functools import lru_cache
 from src.util.json import bson_col_to_json
 from src.wellness.repository import ChronicsRepo, AllergiesRepo, WellnessRepo
-from src.util.ctx import request_user_id
+from src.util.ctx import get_ctx
 from src.util.mongo import MongoDBPool
 from pymongo.errors import DuplicateKeyError
 
@@ -14,7 +14,7 @@ class WellnessService:
         item_repo = self.get_wellness_item_repo(catalogName)
         item_list = await item_repo.get_item_list()
         wellnessRepo = WellnessRepo(self.db)
-        wellness = await wellnessRepo.get_user_wellness_items_lists(request_user_id())
+        wellness = await wellnessRepo.get_user_wellness_items_lists(get_ctx().user_id)
         if wellness == None:
             wellness = {catalogName:[]}
         elif catalogName not in wellness:
@@ -33,7 +33,7 @@ class WellnessService:
     
     async def save_user_selected_wellness_item_ids(self, catalogName, selectedIds):
         wellnessRepo = WellnessRepo(self.db)
-        await wellnessRepo.save_user_selected_wellness_item_ids(request_user_id(), catalogName, selectedIds)
+        await wellnessRepo.save_user_selected_wellness_item_ids(get_ctx().user_id, catalogName, selectedIds)
 
     def get_wellness_item_repo(self, catalogName):
         repo = None

@@ -1,9 +1,7 @@
-from typing import Optional, Tuple, AsyncGenerator
+from typing import Optional, Tuple
 from fastapi import Header, HTTPException
-from fastapi.responses import JSONResponse
-from src.util.ctx import RequestContext, get_ctx, _set_ctx, _reset_ctx
+from src.util.ctx import get_ctx
 from src.auth.token import decode_token
-from src.util.json import generate_result
 from src.auth.service import get_session_service, SessionService
 
 class JWTUserGuard:
@@ -25,7 +23,7 @@ class JWTUserGuard:
         self,
         authentication: Optional[str] = Header(default=None, alias="Authentication"),
         authorization: Optional[str] = Header(default=None, alias="Authorization"),
-    ) -> AsyncGenerator[None, None] | JSONResponse:
+    ):
         # ---- 1) 取 token ----
         token: Optional[str] = None
         for name in self.pref:
@@ -55,28 +53,20 @@ class JWTUserGuard:
                         detail='Token is timeout, please sign in'
                     ) 
                 else:
-                    get_ctx().user_id = decode_res[1]['text']
+                    ctx = get_ctx()
+                    ctx.user_id = decode_res[1]['text']
+                    ctx.token = token
             else:
                 raise HTTPException(
                     status_code=401,
                     detail='Token is invalid, please sign in'
                 )
+        except HTTPException as e:
+            raise e
         except Exception:
             raise HTTPException(
                 status_code=401,
                 detail='Validate token has error, please try again'
             )
 
-        # ---- 3) 写入协程上下文；请求结束后清理 ----
-        async def _gen() -> AsyncGenerator[None, None]:
-            ctx = get_ctx()
-            ctx.user_id = str(user_id)
-            ctx.token = token
-            tok = _set_ctx(ctx)
-            try:
-                print("here is gen " + token)
-                yield
-            finally:
-                _reset_ctx(tok)
-
-        return _gen()
+       

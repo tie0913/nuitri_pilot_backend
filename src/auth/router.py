@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, Body
 from src.auth.filters import JWTUserGuard
 from src.auth.service import AuthService, get_auth_service, SessionService, get_session_service
 from src.util.json import generate_result
-from src.util.ctx import request_user_id
+from src.util.ctx import get_ctx
 auth_router = APIRouter(prefix="/auth")
 
 @auth_router.post("/sign-in")
@@ -26,7 +26,7 @@ async def confirm_password(body:dict = Body(...), service: AuthService = Depends
 @auth_router.post("/sign-out", dependencies=[Depends(JWTUserGuard())])
 async def signout(auth_service:AuthService=Depends(get_auth_service)):
     try:
-        await auth_service.signOut(request_user_id())
+        await auth_service.signOut(get_ctx().user_id)
         return generate_result((0, "You have signed out"))
     except Exception as e:
         print(e)

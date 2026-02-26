@@ -145,7 +145,7 @@ class AuthService:
 
                 {opt}
 
-                It will expire at {expireAt.strftime('%Y-%m-%d %H:%M:%S')}
+                It will expire at {expireAt.strftime('%Y-%m-%d %H:%M')}
 
             Thank you.
 

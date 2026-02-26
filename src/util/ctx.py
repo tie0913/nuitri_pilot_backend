@@ -6,20 +6,15 @@ from contextvars import ContextVar
 class RequestContext:
     user_id: Optional[str] = None
     token: Optional[str] = None
+    timezone:Optional[str] = None
 
-_ctx: ContextVar[RequestContext] = ContextVar("request_ctx", default=RequestContext())
+_ctx: ContextVar[RequestContext] = ContextVar("request_ctx")
 
 def get_ctx() -> RequestContext:
     return _ctx.get()
 
-def _set_ctx(ctx: RequestContext):
+def set_ctx(ctx: RequestContext):
     return _ctx.set(ctx)
 
-def _reset_ctx(token):
+def reset_ctx(token):
     _ctx.reset(token)
-
-def request_user_id():
-    user_id = _ctx.get().user_id
-    if not user_id:
-        raise RuntimeError("You should have use filter for your method")
-    return user_id
