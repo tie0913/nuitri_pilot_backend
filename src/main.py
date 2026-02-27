@@ -19,8 +19,8 @@ app.include_router(auth_router)
 app.include_router(wellness_router)
 app.include_router(suggestion_router)
 
-app.add_middleware(ContextMiddleware)
 app.add_middleware(TimezoneMiddleware)
+app.add_middleware(ContextMiddleware)
 @app.get("/")
 async def root():
     get_logger().info("This is a log")
