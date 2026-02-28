@@ -16,6 +16,9 @@ class BaseRepository(ABC):
     async def update_one(self, param:dict, updated:dict, upsert:bool = False):
         await self.collection.update_one(param, updated, upsert)
 
+    async def delete_by_primary_key(self, param:dict):
+        await self.collection.delete_one(param)
+
     async def delete_many(self, param:dict):
         await self.collection.delete_many(param)
 

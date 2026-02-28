@@ -8,7 +8,6 @@ from src.util.json import bson_col_to_json, generate_result, to_json
 
 suggestion_router = APIRouter(prefix="/suggestion", dependencies=[Depends(JWTUserGuard())])
 
-
 @suggestion_router.post('/ask')
 async def ask_for_suggesstion(img:UploadFile=File(...), suggestion_service:SuggestionService=Depends(get_suggestion_service)):
     try:
@@ -35,3 +34,17 @@ async def get_suggestion_page(body:dict=Body(...), suggestion_serivce:Suggestion
     except Exception as e:
         return generate_result((1, "reading suggestions list has error"))
 
+
+@suggestion_router.post('/delete_by_id')
+async def delete_by_id(body:dict=Body(...), suggestion_service:SuggestionService=Depends(get_suggestion_service)):
+    id = None
+    if 'id' in body:
+        id = body['id']
+    try:
+        print('____________________________________')
+        print(body)
+        await suggestion_service.delete_by_id(id=id)
+        return generate_result((0, True))
+    except Exception as e:
+        return generate_result((1, "deleting records has error"))
+                        

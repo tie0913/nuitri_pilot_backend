@@ -22,3 +22,6 @@ class SuggestionRepo(BaseRepository):
         if last_id is not None:
             condition['_id'] = {'$lt': ObjectId(last_id)}
         return await self.find_page(condition, {'_id':-1})
+
+    async def delete_by_id(self, id):
+        await self.delete_by_primary_key({'_id': ObjectId(id)})

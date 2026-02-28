@@ -14,6 +14,11 @@ class SuggestionService:
     def __init__(self, db):
         self.db = db
 
+
+    async def delete_by_id(self,id=id):
+        suggesstion_repo = SuggestionRepo(self.db)
+        await suggesstion_repo.delete_by_id(id=id)
+
     async def read_suggestion_page(self, user_id, last_id):
         suggestion_repo = SuggestionRepo(self.db)
         return await suggestion_repo.find_suggestions_page(user_id, last_id)
