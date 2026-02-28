@@ -41,8 +41,6 @@ async def delete_by_id(body:dict=Body(...), suggestion_service:SuggestionService
     if 'id' in body:
         id = body['id']
     try:
-        print('____________________________________')
-        print(body)
         await suggestion_service.delete_by_id(id=id)
         return generate_result((0, True))
     except Exception as e:
