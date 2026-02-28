@@ -111,7 +111,6 @@ class AuthService:
                 else:
                     return (1, 'sending otp code has error')
             except Exception as e:
-                print(e)
                 return (1, "saving otp code has error")
         else:
             print('unkown biz id ')
@@ -127,34 +126,104 @@ class AuthService:
             raise Exception("Unrecognized business id")
 
     @classmethod
-    def get_email(cls, opt, expireAt, biz_id) -> str:
+    def get_email(cls, otp, expireAt, biz_id) -> str:
+
+        def format_time(dt):
+            day = dt.day
+
+            # 计算序数后缀
+            if 11 <= day <= 13:
+                suffix = "th"
+            else:
+                suffix = {1: "st", 2: "nd", 3: "rd"}.get(day % 10, "th")
+
+            return dt.strftime(f"%b {day}{suffix}, %Y %H:%M")
 
         reason = ""
         if biz_id == AUTH_SERVICE_FORGET_PASSWORD_BUS_ID:
-            reason = "resetting your password"
+            reason = "Resetting Password"
         elif biz_id == AUTH_SERVICE_SIGN_UP_BUS_ID:
-            reason = "signing up"
+            reason = "Signing Up"
         else:
             raise Exception("Unrecognized business id")
-        
-        email_template = f"""
-            Dear User,
+        return f"""
+            <!DOCTYPE html>
+            <html>
+            <head>
+            <meta charset="UTF-8">
+            <title>NutriPilot</title>
+            </head>
 
-                Here is your OTP number for {reason}.
-            If you did not request for this, please ignore it.
+            <body style="margin:0; padding:0; background-color:#EAF4EA; font-family:Arial, sans-serif;">
 
-                {opt}
+            <table width="100%" cellpadding="0" cellspacing="0" border="0">
+            <tr>
+            <td align="center">
 
-                It will expire at {expireAt.strftime('%Y-%m-%d %H:%M')}
+            <!-- Container -->
+            <table width="600" cellpadding="0" cellspacing="0" border="0" 
+            style="background:#ffffff; margin:40px auto; border-radius:16px; overflow:hidden; box-shadow:0 8px 28px rgba(0,0,0,0.12);">
 
-            Thank you.
+            <!-- Header -->
+            <tr>
+            <td style="background:#F7FBF7; padding:32px; text-align:center; border-bottom:1px solid #E0E0E0;">
+            <img src="cid:logo" alt="Nutri Pilot" width="100" style="display:block; margin:auto;">
+            </td>
+            </tr>
 
-            Regards
+            <!-- Content -->
+            <tr>
+            <td style="padding:48px 48px 24px 48px; text-align:center;">
 
-            Nutri Pilot
+            <h2 style="margin:0; color:#1B5E20; font-size:26px; font-weight:700;">
+            Your {reason} OTP Code
+            </h2>
 
-        """
-        return email_template
+            <p style="margin:20px 0 30px 0; color:#555; font-size:16px;">
+            Use the code below to continue your healthy journey with NutriPilot.
+            </p>
+
+            <!-- Code Box -->
+            <div style="
+              margin:30px auto;
+              padding:22px 30px;
+              display:inline-block;
+              background:#ffffff;
+              border-radius:12px;
+              border:2px solid #66BB6A;
+              font-size:36px;
+              letter-spacing:8px;
+              color:#1B5E20;
+              font-weight:bold;
+              box-shadow:0 4px 12px rgba(0,0,0,0.08);
+            ">
+            {otp}
+            </div>
+
+            <p style="margin-top:32px; color:#777; font-size:14px;">
+            This code will expire at {format_time(expireAt)}
+            </p>
+
+            </td>
+            </tr>
+
+            <!-- Footer -->
+            <tr>
+            <td style="padding:24px; text-align:center; font-size:12px; color:#999; background:#FAFAFA;">
+            NutriPilot — Your AI Nutrition Companion<br>
+            All times are shown in your local time.
+            </td>
+            </tr>
+
+            </table>
+
+            </td>
+            </tr>
+            </table>
+
+            </body>
+            </html>
+        """    
         
 @lru_cache
 def get_auth_service() -> AuthService:

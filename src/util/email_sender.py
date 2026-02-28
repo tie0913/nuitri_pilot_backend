@@ -4,6 +4,7 @@ import smtplib
 from src.util.logger import get_logger
 from src.util.config import get_settings
 from email.mime.text import MIMEText
+from email.mime.image import MIMEImage
 from email.mime.multipart import MIMEMultipart
 
 #
@@ -18,12 +19,17 @@ def send_email(to_email: str, subject: str, body: str) -> bool:
         msg["From"] = conf.SMTP_FROM
         msg["To"] = to_email
         msg["Subject"] = subject
-        msg.attach(MIMEText(body, "plain"))
+
+        logo = MIMEImage(open('static/email/favicon.png', 'rb').read())
+        logo.add_header('Content-ID', '<logo>')
+        msg.attach(logo)
+
+        msg.attach(MIMEText(body, "html"))
 
         server = smtplib.SMTP(conf.SMTP_HOST, conf.SMTP_PORT, timeout=10)
         server.starttls()
 
-        server.login(conf.SMTP_FROM, conf.SMTP_PASSWORD)
+        server.login(conf.SMTP_USER, conf.SMTP_PASSWORD)
 
         result = server.sendmail(conf.SMTP_FROM, to_email, msg.as_string())
         server.quit()
@@ -41,7 +47,6 @@ def send_email(to_email: str, subject: str, body: str) -> bool:
     
     return feedback
 
-
 if __name__ == "__main__":
-    res = send_email("wang9431@saskpolytech.ca", "Test Email", "Hello, this is an email coming from Nuitri Pilot")
+    res = send_email("wangtie0913@gmail.com", "Registration OTP", "<h1>Hello This is your OTP : 123456</h1>")
     print(res)
