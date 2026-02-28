@@ -6,10 +6,10 @@ from src.util.ctx import get_ctx
 from src.util.image_util import image_to_base64_with_thumbnail
 from src.util.json import bson_col_to_json, generate_result, to_json
 
-suggestion_router = APIRouter(prefix="/suggestion")
+suggestion_router = APIRouter(prefix="/suggestion", dependencies=[Depends(JWTUserGuard())])
 
 
-@suggestion_router.post('/ask', dependencies=[Depends(JWTUserGuard())])
+@suggestion_router.post('/ask')
 async def ask_for_suggesstion(img:UploadFile=File(...), suggestion_service:SuggestionService=Depends(get_suggestion_service)):
     try:
         b64_result = await image_to_base64_with_thumbnail(img)
@@ -24,7 +24,7 @@ async def ask_for_suggesstion(img:UploadFile=File(...), suggestion_service:Sugge
         logger.error("we have errors", e)
         return generate_result((1, "error"))
 
-@suggestion_router.post('/get', dependencies=[Depends(JWTUserGuard())])
+@suggestion_router.post('/get')
 async def get_suggestion_page(body:dict=Body(...), suggestion_serivce:SuggestionService=Depends(get_suggestion_service)):
     last_id = None
     if 'last_id' in body:

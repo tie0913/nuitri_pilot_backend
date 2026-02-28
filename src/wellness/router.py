@@ -5,9 +5,9 @@ from src.auth.filters import JWTUserGuard
 from src.util.json import generate_result, to_json
 
 
-wellness_router = APIRouter(prefix="/wellness")
+wellness_router = APIRouter(prefix="/wellness", dependencies=[Depends(JWTUserGuard())])
 
-@wellness_router.post("/get_user_wellness_and_items", dependencies=[Depends(JWTUserGuard())])
+@wellness_router.post("/get_user_wellness_and_items")
 async def get_user_wellness(catalogName, wellness_service: WellnessService=Depends(get_wellness_service)):
     try:
         wellness = await wellness_service.get_user_wellness(catalogName)
@@ -16,7 +16,7 @@ async def get_user_wellness(catalogName, wellness_service: WellnessService=Depen
         return generate_result((1, "get_user_wellness_and_items has error"))
 
 
-@wellness_router.post("/add_wellness_catalog_item", dependencies=[Depends(JWTUserGuard())])
+@wellness_router.post("/add_wellness_catalog_item")
 async def add_wellness_catalog_item(catalogName, body:dict=Body(...), wellness_service:WellnessService=Depends(get_wellness_service)):
 
     name = body['name']
@@ -29,7 +29,7 @@ async def add_wellness_catalog_item(catalogName, body:dict=Body(...), wellness_s
         return generate_result((1, "add wellness catalog item has error"))
 
     
-@wellness_router.post("/save_user_selected_ids", dependencies=[Depends(JWTUserGuard())])
+@wellness_router.post("/save_user_selected_ids")
 async def save_user_selected_wellness_items_ids(catalogName, body:dict=Body(...), wellness_service:WellnessService=Depends(get_wellness_service)):
     
     if "selectedIds" not in body:
