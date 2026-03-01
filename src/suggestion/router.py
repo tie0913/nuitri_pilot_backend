@@ -15,19 +15,16 @@ async def ask_for_suggesstion(img:UploadFile=File(...), suggestion_service:Sugge
         user_id = get_ctx().user_id
         img_info = await dealwith_img(img=img, user_id=user_id)
         if img_info['success']:
-            logger.info("upload succeeds")
             resp = await suggestion_service.get_suggestion(
                 img_info=img_info,
                 user_id=user_id)
-            logger.info("analysis succeeds")
             return generate_result((0, to_json(resp)))
         else:
             logger.error("upload failed")
             raise Exception(str(img_info['errors']))
     except Exception as e:
-        print(e)
         logger.error("we have errors", e)
-        return generate_result((1, "error"))
+        return generate_result((1, "Analysis has error, please try again later"))
 
 @suggestion_router.post('/get')
 async def get_suggestion_page(body:dict=Body(...), suggestion_serivce:SuggestionService=Depends(get_suggestion_service)):
