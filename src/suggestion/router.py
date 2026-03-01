@@ -3,23 +3,29 @@ from fastapi import APIRouter, Body, Depends, File, UploadFile
 from src.auth.filters import JWTUserGuard
 from src.suggestion.service import SuggestionService, get_suggestion_service
 from src.util.ctx import get_ctx
-from src.util.image_util import image_to_base64_with_thumbnail
+from src.util.image_util import dealwith_img
 from src.util.json import bson_col_to_json, generate_result, to_json
 
 suggestion_router = APIRouter(prefix="/suggestion", dependencies=[Depends(JWTUserGuard())])
 
 @suggestion_router.post('/ask')
 async def ask_for_suggesstion(img:UploadFile=File(...), suggestion_service:SuggestionService=Depends(get_suggestion_service)):
+    logger = get_logger()
     try:
-        b64_result = await image_to_base64_with_thumbnail(img)
-        if(b64_result['success']):
-            resp = await suggestion_service.get_suggestion(b64_result['base64_img'], b64_result['base64_thumbnail'], get_ctx().user_id)
+        user_id = get_ctx().user_id
+        img_info = await dealwith_img(img=img, user_id=user_id)
+        if img_info['success']:
+            logger.info("upload succeeds")
+            resp = await suggestion_service.get_suggestion(
+                img_info=img_info,
+                user_id=user_id)
+            logger.info("analysis succeeds")
             return generate_result((0, to_json(resp)))
         else:
-            raise Exception(b64_result['error'])
+            logger.error("upload failed")
+            raise Exception(str(img_info['errors']))
     except Exception as e:
         print(e)
-        logger = get_logger()
         logger.error("we have errors", e)
         return generate_result((1, "error"))
 

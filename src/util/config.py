@@ -40,6 +40,15 @@ class Settings(BaseSettings):
     OPEN_AI_MODEL: str = "gpt-4o-mini"
     OPEN_AI_API_KEY : str = ""
 
+
+
+    #CDN
+    CDN_R2_ENDPOINT: str= ""
+    CDN_ACCESS_KEY: str = ""
+    CDN_SECRET_KEY: str= ""
+    CDN_BUCKET_NAME: str= ""
+    CDN_READ_PREFIX: str= ""
+
     # Settings 
     model_config = SettingsConfigDict(
         env_file=".env" if os.path.exists(".env") else None,              
