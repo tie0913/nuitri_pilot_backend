@@ -20,6 +20,7 @@ db.users.insert({
 })
 
 db.sessions.createIndex({expire_at:1}, {expireAfterSeconds:0})
+db.session.createIndex({user_id:1}, {unique:true})
 db.otps.createIndex({expire_at:1}, {expireAfterSeconds:0})
 db.users.createIndex({email:1}, {unique:true})
 

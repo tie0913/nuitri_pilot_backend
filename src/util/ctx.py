@@ -7,6 +7,7 @@ class RequestContext:
     user_id: Optional[str] = None
     token: Optional[str] = None
     timezone:Optional[str] = None
+    uid:Optional[str] = None
 
 _ctx: ContextVar[RequestContext] = ContextVar("request_ctx")
 

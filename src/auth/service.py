@@ -35,7 +35,8 @@ class AuthService:
             user_id = str(user['_id'])
             token = create_token(user_id)
             expire_at = datetime.now(timezone.utc) + timedelta(days=10)
-            await sess_repo.save_session(user_id = user_id, expire_at = expire_at)
+            uid = get_ctx().uid
+            await sess_repo.save_session(user_id = user_id, uid=uid, expire_at = expire_at)
             return (0, token)
         else:
             return NOT_MATCHED_TEXT
@@ -236,15 +237,22 @@ class SessionService:
     def __init__(self, db):
         self.db = db
 
-    
-    async def is_user_timeout(self, user_id) -> bool:
+
+    async def is_user_still_online(self, user_id, uid):
         sess_repo = SessionRepository(self.db)
         session = await sess_repo.get_by_user_id(user_id=user_id)
+        print('--------------session------------------')
+        print(session)
         if session is None:
-            return True
+            return (101, 'session expires, please sign in again')
         else:
             now = datetime.now(timezone.utc)
-            return now > session['expire_at']
+            if uid != session['uid']:
+                return (102, 'You account signed in on other devices')
+            elif now > session['expire_at']:
+                return (101, 'session expires, please sign in again')
+            else:
+                return (0, True)
 
 
 @lru_cache

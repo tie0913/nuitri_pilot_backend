@@ -46,11 +46,14 @@ class JWTUserGuard:
             decode_res = decode_token(token)
             if decode_res[0] == 0:
                 user_id = decode_res[1]['text']
-                timeout = await get_session_service().is_user_timeout(user_id=user_id) 
-                if timeout:
+                uid = get_ctx().uid
+
+                is_online = await get_session_service().is_user_still_online(user_id=user_id, uid=uid)
+
+                if is_online[0] != 0:
                     raise HTTPException(
                         status_code=401,
-                        detail='Token is timeout, please sign in'
+                        detail=is_online[1]
                     ) 
                 else:
                     ctx = get_ctx()
