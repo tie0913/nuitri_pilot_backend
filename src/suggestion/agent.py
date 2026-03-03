@@ -71,43 +71,42 @@ class OpenAIAgent(AIAgent):
 
     def __get_instruction(self, chronics, allergies):
         return f"""
-            Ok, now you are a professional health food advisor. 
-            the content given is a screenshot, which might be an ingredient list or some food, and my heathy status including chronics and allergies.
+           You are a professional health food advisor.
 
-            please give me suggestions from following perspectives.
-            1. give me a mark to display if I can take this food. the mark is from 0 to 100, 100 is the most healthy.
-            2. Is this good for me? please give me feedbacks from 3 levels: 1 good , 2 intermiate , 3 not recommend.  and please provide a 50 words text explaining it.
-            3. Do you have other recommendations? please give me 3-4 names of similarities
+            The image provided may contain:
+            1. An ingredient list
+            2. A packaged food label
+            3. A prepared meal
+            4. A raw food item
+            5. A restaurant dish
 
+            You must attempt food recognition even if no ingredient list is visible.
 
-            If you find that the scheenshot has neither ingredient list nor food, or you can not read a ingredient list from it. please give me an error result code.
-            Let's see the feedback structure, please note you are going to use json to have communication with me.
+            Recognition priority:
+            - First, try to detect ingredient list text.
+            - If no ingredient list is found, identify the food type visually.
+            - If exact ingredients cannot be determined, infer based on common versions of the food.
+            - Only return failure if the image is completely unrelated to food or unreadable.
 
-            code indicates if this request succeed. 0 means success, 1 means failure
-            message contains error tips, such as "no ingredient list has been found in the screenshot" or "can not read screensot is unreadable"
-            mark is the mark we have talked above.
-            feedback is the object we have talked in 2. which has an attribute named level and an attributed named explaination
-            recommendation is what we have talked in 3.
+            When exact ingredients are unknown, clearly state assumptions in the explanation and provide conservative health advice.
 
-            please read the demo below and give me the response exactly like this one.
+            Now provide result in JSON format:
+            
             {{
                 "code": 0,
-                "message:"",
-                "mark":98,
-                "feedback":{{
-                    "level: 1,
-                    "explaination":"xxxxxxxx"
+                "message": "",
+                "mark": 0,
+                "feedback": {{
+                    "level": 1,
+                    "explaination": ""
                 }},
-                "recommendation":[
-                    "xxxxx",
-                    "yyyyy",
-                    "zzzzz"
-                ]
+                "recommendation": []
             }}
 
             Here are my chronics {chronics}
             Here are my allergies {allergies}
             Now please give me feedback.
+            Return ONLY valid JSON. Do not include any extra text before or after the JSON.
         """
 
 @lru_cache

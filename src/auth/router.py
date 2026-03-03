@@ -27,12 +27,12 @@ async def confirm_password(body:dict = Body(...), service: AuthService = Depends
 async def signout(auth_service:AuthService=Depends(get_auth_service)):
     try:
         await auth_service.signOut(get_ctx().user_id)
-        return generate_result((0, "You have signed out"))
+        return generate_result((0, True))
     except Exception as e:
         print(e)
-        return generate_result((1, "Signing out has error"))
+        return generate_result((1, False))
     
 @auth_router.post("/me", dependencies=[Depends(JWTUserGuard())])
 async def me():
-    return generate_result((0, "OK"))
+    return generate_result((0, True))
 

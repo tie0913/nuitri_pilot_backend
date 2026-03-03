@@ -18,7 +18,11 @@ async def ask_for_suggesstion(img:UploadFile=File(...), suggestion_service:Sugge
             resp = await suggestion_service.get_suggestion(
                 img_info=img_info,
                 user_id=user_id)
-            return generate_result((0, to_json(resp)))
+
+            if resp[0] == 0:
+                return generate_result((0, to_json(resp[1])))
+            else:
+                return generate_result(resp)
         else:
             logger.error("upload failed")
             raise Exception(str(img_info['errors']))

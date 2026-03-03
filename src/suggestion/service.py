@@ -44,17 +44,24 @@ class SuggestionService:
         suggestion = await agent.get(img_info['base64_img'], chronics_names, allergies_names)
 
         suggestion_repo = SuggestionRepo(self.db)
-        record = {
-            "mark": suggestion["mark"],
-            "feedback": suggestion["feedback"],
-            "recommendation": suggestion["recommendation"],
-            "user_id": ObjectId(user_id),
-            "thumbnail":img_info['base64_thumbnail'],
-            "path" : img_info['path'],
-            "time": datetime.now(timezone.utc)
-        }
 
-        return await suggestion_repo.save(record)
+        print(suggestion)
+
+        if suggestion['code'] == 1 :
+            return (1, "The picture cannot be recognized")
+        else :
+            record = {
+                "mark": suggestion["mark"],
+                "feedback": suggestion["feedback"],
+                "recommendation": suggestion["recommendation"],
+                "user_id": ObjectId(user_id),
+                "thumbnail":img_info['base64_thumbnail'],
+                "path" : img_info['path'],
+                "time": datetime.now(timezone.utc)
+            }
+
+            res = await suggestion_repo.save(record)
+            return (0, res)
 
 @lru_cache
 def get_suggestion_service():
