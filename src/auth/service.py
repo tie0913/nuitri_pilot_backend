@@ -5,6 +5,7 @@ from src.user.user_repository import UserRepository
 from src.auth.session_repository import SessionRepository
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
+from src.util.date_format_util import format_time
 from src.util.email_sender import send_email
 from src.util.mongo import MongoDBPool
 from src.util.otp_generator import generate_otp
@@ -88,11 +89,14 @@ class AuthService:
 
         user = await user_repo.get_user_by_email(email)
 
-        if biz_id == AUTH_SERVICE_SIGN_UP_BUS_ID and user is not None:
-            return (1, "email exists already")
+        prev_otp = await otp_repo.get_otp_by_email_and_bus_id(email=email, bus_id=biz_id)
 
-        elif biz_id == AUTH_SERVICE_FORGET_PASSWORD_BUS_ID and user is None:
-            return (1, 'user does not exist')
+        if user is None:
+            return (1, "We cannot send OTP to this mailbox")
+        elif prev_otp is not None:
+            user_timezone = get_ctx().timezone
+            expire_at_user_local = prev_otp['expire_at'].astimezone(ZoneInfo(user_timezone))
+            return (1, f"You have sent an email before,\n don't send email again before {format_time(expire_at_user_local)}")
         elif biz_id in REQUEST_OTP_ALLOWED_LIST:
             print('----------------------Here is Sending OTP-----------------')
             otp = generate_otp(6)
@@ -128,18 +132,6 @@ class AuthService:
 
     @classmethod
     def get_email(cls, otp, expireAt, biz_id) -> str:
-
-        def format_time(dt):
-            day = dt.day
-
-            # 计算序数后缀
-            if 11 <= day <= 13:
-                suffix = "th"
-            else:
-                suffix = {1: "st", 2: "nd", 3: "rd"}.get(day % 10, "th")
-
-            return dt.strftime(f"%b {day}{suffix}, %Y %H:%M")
-
         reason = ""
         if biz_id == AUTH_SERVICE_FORGET_PASSWORD_BUS_ID:
             reason = "Resetting Password"
