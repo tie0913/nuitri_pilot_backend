@@ -94,3 +94,13 @@ db.suggestions.createIndex({
     '_id':-1
 })
 
+db.cooldowns.insertOne({
+  _id: "123:/suggestion/ask",
+  start_at: new Date(),
+  expire_at: new Date(Date.now() + 30000)
+})
+
+db.cooldowns.createIndex(
+  { expire_at: 1 },
+  { expireAfterSeconds: 0 }
+)
