@@ -33,6 +33,7 @@ Thumbs.db
 .coverage
 htmlcov/
 test_reports/
+tests/ai_eval/runs/
 
 # Jupyter (if ever used)
 .ipynb_checkpoints/

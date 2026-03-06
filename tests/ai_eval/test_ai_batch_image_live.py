@@ -12,6 +12,7 @@ from pathlib import Path
 import pytest
 
 from src.suggestion.agent import get_agent
+from src.ai.audit import run_ai_audit
 
 
 IMAGES_DIR = Path(__file__).resolve().parent / "images"
@@ -75,6 +76,24 @@ def _collect_case_rows(payload: dict) -> list[dict]:
 
         recs = _norm_list(normalized.get("recommendation", raw.get("recommendation", [])))
         feedback = str(normalized.get("feedback", raw.get("feedback", "")) or "").strip()
+        audit = normalized.get("audit", raw.get("audit"))
+        if not isinstance(audit, dict):
+            audit = {}
+        audit_passed = audit.get("passed", "")
+        audit_issues = audit.get("issues", [])
+        if not isinstance(audit_issues, list):
+            audit_issues = []
+        issue_codes = []
+        fact_issue_count = 0
+        for issue in audit_issues:
+            if not isinstance(issue, dict):
+                continue
+            code = str(issue.get("code", "") or "").strip().upper()
+            if not code:
+                continue
+            issue_codes.append(code)
+            if code == "FACT":
+                fact_issue_count += 1
 
         code = normalized.get("code", raw.get("code", ""))
         mark = normalized.get("mark", raw.get("mark", ""))
@@ -92,6 +111,9 @@ def _collect_case_rows(payload: dict) -> list[dict]:
                 "recommendation_count": len(recs),
                 "recommendation": " | ".join(recs),
                 "feedback": feedback,
+                "audit_passed": audit_passed,
+                "audit_issue_codes": " | ".join(issue_codes),
+                "fact_issue_count": fact_issue_count,
                 "unreadable_feedback": unreadable_phrase in feedback.lower(),
                 "error": item.get("error", ""),
             }
@@ -114,6 +136,9 @@ def _write_case_csv(json_path: Path, payload: dict) -> Path:
         "recommendation_count",
         "recommendation",
         "feedback",
+        "audit_passed",
+        "audit_issue_codes",
+        "fact_issue_count",
         "unreadable_feedback",
         "error",
     ]
@@ -150,11 +175,22 @@ def _write_case_html(json_path: Path, payload: dict) -> Path:
     success_rate_txt = f"{float(success_rate) * 100:.2f}%" if isinstance(success_rate, (float, int)) else "n/a"
     scored_count = summary.get("scored_with_feedback_count", metrics.get("scored_with_feedback_count", "n/a"))
     unreadable_count = summary.get("unreadable_feedback_count", metrics.get("unreadable_feedback_count", "n/a"))
+    audit_passed_calls = metrics.get("audit_passed_calls", "n/a")
+    audit_failed_calls = metrics.get("audit_failed_calls", "n/a")
+    fact_issue_total = metrics.get("fact_issue_total", "n/a")
+    issue_counts = summary.get("audit_issue_counts", {})
+    if not isinstance(issue_counts, dict):
+        issue_counts = {}
+    next_actions = summary.get("next_actions", [])
+    if not isinstance(next_actions, list):
+        next_actions = []
 
     table_rows: list[str] = []
     for r in rows:
         row_class = ""
         if not r.get("ok", True):
+            row_class = ' class="bad"'
+        elif r.get("audit_passed") is False:
             row_class = ' class="bad"'
         elif r.get("unreadable_feedback"):
             row_class = ' class="warn"'
@@ -172,11 +208,19 @@ def _write_case_html(json_path: Path, payload: dict) -> Path:
             + f"<td>{escape(str(r.get('latency_s', '')))}</td>"
             + f"<td>{escape(str(r.get('recommendation_count', '')))}</td>"
             + f"<td>{escape(str(r.get('feedback', '')))}</td>"
+            + f"<td>{escape(str(r.get('audit_passed', '')))}</td>"
+            + f"<td>{escape(str(r.get('audit_issue_codes', '')))}</td>"
+            + f"<td>{escape(str(r.get('fact_issue_count', '')))}</td>"
             + f"<td>{escape(str(r.get('error', '')))}</td>"
             + "</tr>"
         )
 
     failure_items = "".join(f"<li>{escape(str(x))}</li>" for x in failures) or "<li>None</li>"
+    issue_items = "".join(
+        f"<li><strong>{escape(str(k))}</strong>: {escape(str(v))}</li>"
+        for k, v in sorted(issue_counts.items(), key=lambda kv: (-int(kv[1]), str(kv[0])))
+    ) or "<li>None</li>"
+    action_items = "".join(f"<li>{escape(str(x))}</li>" for x in next_actions) or "<li>None</li>"
 
     html = f"""<!doctype html>
 <html lang="en">
@@ -205,20 +249,33 @@ def _write_case_html(json_path: Path, payload: dict) -> Path:
   <h1>NutriPilot AI Image Batch Report</h1>
   <div class="meta">Generated: {escape(datetime.now().isoformat())} | Source: {escape(str(json_path.name))}</div>
 
-  <div class="kpis">
-    <div class="kpi"><div class="label">Total Cases</div><div class="value">{escape(str(n))}</div></div>
-    <div class="kpi"><div class="label">Scored (code=0, mark&gt;0)</div><div class="value">{escape(str(scored_count))}</div></div>
-    <div class="kpi"><div class="label">Unreadable Feedback</div><div class="value">{escape(str(unreadable_count))}</div></div>
-    <div class="kpi"><div class="label">Success Calls</div><div class="value">{escape(str(success_calls))}</div></div>
-    <div class="kpi"><div class="label">Expected Fail Calls</div><div class="value">{escape(str(expected_fail_calls))}</div></div>
-    <div class="kpi"><div class="label">Call Exceptions</div><div class="value">{escape(str(fail_calls))}</div></div>
-    <div class="kpi"><div class="label">Timeout Calls</div><div class="value">{escape(str(timeout_calls))}</div></div>
-    <div class="kpi"><div class="label">Success Rate</div><div class="value">{escape(success_rate_txt)}</div></div>
+    <div class="kpis">
+      <div class="kpi"><div class="label">Total Cases</div><div class="value">{escape(str(n))}</div></div>
+      <div class="kpi"><div class="label">Scored (code=0, mark&gt;0)</div><div class="value">{escape(str(scored_count))}</div></div>
+      <div class="kpi"><div class="label">Unreadable Feedback</div><div class="value">{escape(str(unreadable_count))}</div></div>
+      <div class="kpi"><div class="label">Audit Passed</div><div class="value">{escape(str(audit_passed_calls))}</div></div>
+      <div class="kpi"><div class="label">Audit Failed</div><div class="value">{escape(str(audit_failed_calls))}</div></div>
+      <div class="kpi"><div class="label">FACT Issues</div><div class="value">{escape(str(fact_issue_total))}</div></div>
+      <div class="kpi"><div class="label">Success Calls</div><div class="value">{escape(str(success_calls))}</div></div>
+      <div class="kpi"><div class="label">Expected Fail Calls</div><div class="value">{escape(str(expected_fail_calls))}</div></div>
+      <div class="kpi"><div class="label">Call Exceptions</div><div class="value">{escape(str(fail_calls))}</div></div>
+      <div class="kpi"><div class="label">Timeout Calls</div><div class="value">{escape(str(timeout_calls))}</div></div>
+      <div class="kpi"><div class="label">Success Rate</div><div class="value">{escape(success_rate_txt)}</div></div>
   </div>
 
   <div class="panel">
     <h2>Failure Summary</h2>
     <ul>{failure_items}</ul>
+  </div>
+
+  <div class="panel">
+    <h2>Audit Issue Breakdown</h2>
+    <ul>{issue_items}</ul>
+  </div>
+
+  <div class="panel">
+    <h2>What To Do Next</h2>
+    <ul>{action_items}</ul>
   </div>
 
   <div class="panel">
@@ -236,6 +293,9 @@ def _write_case_html(json_path: Path, payload: dict) -> Path:
           <th>Latency(s)</th>
           <th>Recs</th>
           <th>Feedback</th>
+          <th>Audit Passed</th>
+          <th>Issue Codes</th>
+          <th>FACT Count</th>
           <th>Error</th>
         </tr>
       </thead>
@@ -266,6 +326,34 @@ def _generate_profiles(n: int, seed: int) -> list[dict]:
         }
         for i in range(1, n + 1)
     ]
+
+
+def _next_actions(
+    issue_counts: dict[str, int],
+    unreadable_feedback_count: int,
+    fail_calls: int,
+    timeout_calls: int,
+) -> list[str]:
+    actions: list[str] = []
+    if issue_counts.get("FACT", 0) > 0:
+        actions.append(
+            "Reduce unsupported claims: feedback should cite detected ingredients/nutrition, or state uncertainty clearly."
+        )
+    if unreadable_feedback_count > 0:
+        actions.append(
+            "Improve label readability outcomes: request close-up ingredient photos and improve image preprocessing."
+        )
+    if fail_calls > 0:
+        actions.append(
+            "Call exceptions found: reduce image size, validate model config, and retry with lower concurrency."
+        )
+    if timeout_calls > 0:
+        actions.append(
+            "Timeouts detected: increase AI_PER_CALL_TIMEOUT or lower AI_CONCURRENCY."
+        )
+    if not actions:
+        actions.append("No major issues detected. Expand edge-case coverage and keep baseline snapshots updated.")
+    return actions
 
 
 async def _agent_call(base64_img: str, chronics: list[str], allergies: list[str]) -> dict:
@@ -311,6 +399,8 @@ async def test_ai_image_batch_100_live():
     # Quality gates
     min_success_rate = float(os.getenv("AI_MIN_SUCCESS_RATE", "0.6"))
     max_p95_latency_s = float(os.getenv("AI_MAX_P95_LATENCY_S", "0"))  # 0 disables gate
+    max_failed_audit = int(os.getenv("AI_MAX_FAILED_AUDIT", "-1"))  # -1 disables gate
+    diagnostic_mode = os.getenv("AI_DIAGNOSTIC_MODE", "0") == "1"
 
     images = _load_images()
     cases = _generate_profiles(n, seed)
@@ -323,6 +413,9 @@ async def test_ai_image_batch_100_live():
     timeout_calls = 0  # how many calls hit asyncio timeout
     success_calls = 0  # code == 0
     expected_fail_calls = 0  # code == 1
+    audit_passed_calls = 0
+    audit_failed_calls = 0
+    fact_issue_total = 0
     latencies_s: list[float] = []
 
     sem = asyncio.Semaphore(concurrency)
@@ -330,6 +423,7 @@ async def test_ai_image_batch_100_live():
 
     async def _run_one(c: dict) -> None:
         nonlocal fail_calls, timeout_calls, success_calls, expected_fail_calls
+        nonlocal audit_passed_calls, audit_failed_calls, fact_issue_total
 
         img = random.choice(images)
         b64 = _img_to_b64(img)
@@ -437,6 +531,36 @@ async def test_ai_image_batch_100_live():
             detected = []
         if not isinstance(detected, list):
             failures.append(f"{c['id']}: detected_ingredients must be a list (got {type(detected).__name__})")
+            detected = []
+        detected = [str(x).strip() for x in detected if str(x).strip()]
+
+        # Deterministic audit check so batch report can show factual/truth issues.
+        audit_result = run_ai_audit(
+            ai_output={
+                "code": code_int if code_int in (0, 1) else suggestion.get("code"),
+                "message": msg,
+                "mark": mark,
+                "level": suggestion.get("level", 2),
+                "feedback": feedback,
+                "recommendation": recs,
+                "detected_ingredients": detected,
+            },
+            user_allergies=[str(x).strip() for x in (c.get("allergies") or []) if str(x).strip()],
+            detected_ingredients=detected,
+            nutrition=None,
+        )
+        audit = {
+            "passed": audit_result.passed,
+            "issues": audit_result.issues,
+            "judge_notes": audit_result.judge_notes,
+        }
+        if audit_result.passed:
+            audit_passed_calls += 1
+        else:
+            audit_failed_calls += 1
+        for issue in (audit_result.issues or []):
+            if isinstance(issue, dict) and str(issue.get("code", "")).upper() == "FACT":
+                fact_issue_total += 1
 
         # -------------------------
         # Branch: expected failure vs success
@@ -579,6 +703,21 @@ async def test_ai_image_batch_100_live():
 
     scored_with_feedback_count = len(scored_with_feedback)
     unreadable_feedback_count = len(unreadable_feedback_cases)
+    audit_issue_counts: dict[str, int] = {}
+    for item in results:
+        normalized = item.get("normalized", {}) if isinstance(item, dict) else {}
+        audit_obj = normalized.get("audit") if isinstance(normalized, dict) else None
+        if not isinstance(audit_obj, dict):
+            continue
+        issues = audit_obj.get("issues", [])
+        if not isinstance(issues, list):
+            continue
+        for issue in issues:
+            if not isinstance(issue, dict):
+                continue
+            code_name = str(issue.get("code", "UNKNOWN") or "UNKNOWN").upper()
+            audit_issue_counts[code_name] = audit_issue_counts.get(code_name, 0) + 1
+    next_actions = _next_actions(audit_issue_counts, unreadable_feedback_count, fail_calls, timeout_calls)
 
     # Quality gate
     if total_returned > 0 and success_rate < min_success_rate:
@@ -590,6 +729,22 @@ async def test_ai_image_batch_100_live():
     # Optional latency gate (disabled by default)
     if max_p95_latency_s > 0 and p95 is not None and p95 > max_p95_latency_s:
         failures.append(f"p95 latency too high: {p95:.2f}s (need <= {max_p95_latency_s:.2f}s)")
+    if max_failed_audit >= 0 and audit_failed_calls > max_failed_audit:
+        failures.append(f"audit_failed_calls too high: {audit_failed_calls} > {max_failed_audit}")
+
+    gate_prefixes = (
+        "success_rate too low:",
+        "p95 latency too high:",
+        "audit_failed_calls too high:",
+    )
+    gate_failures = [f for f in failures if isinstance(f, str) and f.startswith(gate_prefixes)]
+    if diagnostic_mode:
+        # Keep signal in report but don't fail run on high-level quality gates.
+        failures = [f for f in failures if not (isinstance(f, str) and f.startswith(gate_prefixes))]
+        if gate_failures:
+            next_actions.append(
+                "Diagnostic mode is ON: quality gate failures were recorded but did not fail the run."
+            )
 
     out = _write_run(
         f"image_batch_{n}",
@@ -601,6 +756,9 @@ async def test_ai_image_batch_100_live():
                 "unreadable_feedback_count": unreadable_feedback_count,
                 "scored_with_feedback_samples": scored_with_feedback[:20],
                 "unreadable_feedback_samples": unreadable_feedback_cases[:20],
+                "audit_issue_counts": audit_issue_counts,
+                "next_actions": next_actions,
+                "gate_failures": gate_failures,
             },
             "metrics": {
                 "n": n,
@@ -610,6 +768,9 @@ async def test_ai_image_batch_100_live():
                 "timeout_calls": timeout_calls,
                 "success_calls": success_calls,
                 "expected_fail_calls": expected_fail_calls,
+                "audit_passed_calls": audit_passed_calls,
+                "audit_failed_calls": audit_failed_calls,
+                "fact_issue_total": fact_issue_total,
                 "total_returned": total_returned,
                 "success_rate": success_rate,
                 "expected_fail_rate": expected_fail_rate,
@@ -620,6 +781,8 @@ async def test_ai_image_batch_100_live():
                 "p95_latency_s": p95,
                 "min_success_rate": min_success_rate,
                 "max_p95_latency_s": (max_p95_latency_s if max_p95_latency_s > 0 else None),
+                "max_failed_audit": (max_failed_audit if max_failed_audit >= 0 else None),
+                "diagnostic_mode": diagnostic_mode,
             },
         },
     )

@@ -24,6 +24,10 @@ class AIClient:
 
         self.base_url = os.getenv("AI_BASE_URL", "https://api.openai.com/v1")
         self.timeout = int(os.getenv("AI_TIMEOUT_SECONDS", "30"))
+        try:
+            self.temperature = float(os.getenv("AI_TEMPERATURE", "0"))
+        except Exception:
+            self.temperature = 0.0
 
     def _extract_text_from_responses_api(self, data: dict) -> str:
         """
@@ -88,7 +92,7 @@ class AIClient:
         payload = {
             "model": self.model,
             "input": prompt,
-            "temperature": 0,
+            "temperature": self.temperature,
         }
 
         response = requests.post(url, headers=headers, json=payload, timeout=self.timeout)

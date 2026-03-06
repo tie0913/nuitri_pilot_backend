@@ -27,6 +27,20 @@ ALLERGEN_KEYWORDS = {
     "shellfish": ["shrimp", "prawn", "crab", "lobster"],
     "sesame": ["sesame", "tahini"],
 }
+GROUNDING_STOPWORDS = {
+    "and",
+    "the",
+    "for",
+    "with",
+    "from",
+    "this",
+    "that",
+    "your",
+    "food",
+    "meal",
+    "label",
+    "ingredients",
+}
 
 
 @dataclass
@@ -66,6 +80,91 @@ def _detect_allergen_hits(user_allergies: List[str], detected_ingredients: List[
                         break
 
     return sorted(list(set(hits)))
+
+
+def _require_grounded_feedback() -> bool:
+    return os.getenv("AI_AUDIT_REQUIRE_GROUNDED_FEEDBACK", "1") != "0"
+
+
+def _extract_ingredient_tokens(detected_ingredients: List[str]) -> List[str]:
+    text = " ".join(_lower_list(detected_ingredients))
+    raw = re.findall(r"[a-z]{4,}", text)
+    return sorted(list({t for t in raw if t not in GROUNDING_STOPWORDS}))
+
+
+def _feedback_has_any_evidence_token(feedback_text: str, ingredient_tokens: List[str]) -> bool:
+    fb = str(feedback_text or "").lower()
+    for t in ingredient_tokens:
+        if re.search(rf"\b{re.escape(t)}\b", fb):
+            return True
+    return False
+
+
+def _feedback_asserts_presence(feedback_text: str, token: str) -> bool:
+    fb = str(feedback_text or "").lower()
+    t = re.escape(token.lower())
+    neg_patterns = [
+        rf"\b(no|not|without)\b[^.]*\b{t}\b",
+        rf"\bdoes\s+not\s+(contain|include|list)\b[^.]*\b{t}\b",
+        rf"\bdoesn't\s+(contain|include|list)\b[^.]*\b{t}\b",
+        rf"\bfree\s+of\b[^.]*\b{t}\b",
+        rf"\b{t}\b[^.]*\b(not\s+present|absent|not\s+listed)\b",
+    ]
+    if any(re.search(p, fb) for p in neg_patterns):
+        return False
+
+    patterns = [
+        rf"\bcontains\b[^.]*\b{t}\b",
+        rf"\bincludes?\b[^.]*\b{t}\b",
+        rf"\bhas\b[^.]*\b{t}\b",
+        rf"\b{t}\b[^.]*\b(allergen|ingredient)\b",
+    ]
+    return any(re.search(p, fb) for p in patterns)
+
+
+def _check_feedback_grounding(
+    result: Dict[str, Any],
+    detected_ingredients: List[str],
+) -> List[ValidationIssue]:
+    issues: List[ValidationIssue] = []
+    if not _require_grounded_feedback():
+        return issues
+
+    try:
+        code = int(result.get("code", 0))
+    except Exception:
+        code = 0
+    if code != 0:
+        return issues
+
+    feedback_text = str(result.get("feedback", "") or "").strip()
+    ingredient_tokens = _extract_ingredient_tokens(detected_ingredients)
+    ingredients_text = " ".join(_lower_list(detected_ingredients))
+
+    if ingredient_tokens and not _feedback_has_any_evidence_token(feedback_text, ingredient_tokens):
+        issues.append(
+            ValidationIssue(
+                code="FACT",
+                message="feedback is not grounded in detected ingredients (missing evidence terms)",
+            )
+        )
+
+    mismatched: List[str] = []
+    for allergy, kws in ALLERGEN_KEYWORDS.items():
+        terms = [allergy] + list(kws or [])
+        if any(_feedback_asserts_presence(feedback_text, term) for term in terms):
+            if not any(re.search(rf"\b{re.escape(term.lower())}\b", ingredients_text) for term in terms):
+                mismatched.append(allergy)
+
+    if mismatched:
+        issues.append(
+            ValidationIssue(
+                code="FACT",
+                message=f"feedback claims unsupported allergen presence: {sorted(set(mismatched))}",
+            )
+        )
+
+    return issues
 
 
 # NOTE: tests pass max_recs=... so we accept it + **kwargs for safety.
@@ -218,6 +317,9 @@ def validate_ai_result(
 
     for e in validate_content_rules(result):
         issues.append(ValidationIssue(code="CONTENT", message=e))
+
+    for issue in _check_feedback_grounding(result, detected_ingredients):
+        issues.append(issue)
 
     hits = _detect_allergen_hits(user_allergies, detected_ingredients)
     if hits:

@@ -27,6 +27,60 @@ class OpenAIAgent(AIAgent):
             return s
         return f"data:{default_mime};base64,{s}"
 
+    @staticmethod
+    def _json_contract_errors(obj: Any, required_keys: Optional[List[str]]) -> List[str]:
+        errors: List[str] = []
+        if not isinstance(obj, dict):
+            return ["json output must be an object"]
+        for k in (required_keys or []):
+            if k not in obj:
+                errors.append(f"missing key: {k}")
+        return errors
+
+    @staticmethod
+    def _is_not_found_text(txt: str) -> bool:
+        s = str(txt or "").strip().upper()
+        return (not s) or s == "NOT_FOUND"
+
+    async def _repair_json_once(
+        self,
+        model: str,
+        original_user_text: str,
+        invalid_output: str,
+        required_keys: Optional[List[str]],
+        timeout_s: float,
+        max_output_tokens: int,
+    ) -> Dict[str, Any]:
+        required = ", ".join(required_keys or []) or "(no required keys)"
+        repair_system = "You fix invalid model outputs. Return ONLY valid JSON. No markdown."
+        repair_user = (
+            "Fix the previous response so it is a single valid JSON object.\n"
+            f"Required keys: {required}\n"
+            "Do not add explanations. Keep original intent.\n\n"
+            f"Original task:\n{original_user_text}\n\n"
+            f"Invalid output:\n{invalid_output[:1800]}"
+        )
+
+        resp = await asyncio.wait_for(
+            self.client.responses.create(
+                model=model,
+                input=[
+                    {"role": "system", "content": [{"type": "input_text", "text": repair_system}]},
+                    {"role": "user", "content": [{"type": "input_text", "text": repair_user}]},
+                ],
+                temperature=0,
+                max_output_tokens=max_output_tokens,
+            ),
+            timeout=timeout_s,
+        )
+
+        repaired_text = (resp.output_text or "").strip()
+        repaired_obj = json.loads(repaired_text)
+        repair_errors = self._json_contract_errors(repaired_obj, required_keys)
+        if repair_errors:
+            raise ValueError("json repair failed contract: " + "; ".join(repair_errors[:5]))
+        return repaired_obj
+
     # -----------------------------
     # Public entry
     # -----------------------------
@@ -56,18 +110,18 @@ class OpenAIAgent(AIAgent):
             return min(call_timeout_s, max(1.0, remaining))
 
         try:
-            # 1) OCR pass first (faster and more reliable than a separate route call).
-            kind = "UNKNOWN"
-            ing_text = await self._extract_ingredients_text(
+            # 1) Route first so meal photos (pizza, burger, etc.) don't fail OCR-first.
+            kind = await self._route_image_kind(
                 model=config.OPEN_AI_MODEL,
                 image_url=image_url,
                 timeout_s=_next_timeout_s(),
                 retries=max_retries,
             )
 
-            if not ing_text or ing_text.strip().upper() == "NOT_FOUND":
-                # Fallback: run a best-effort image-only score pass before
-                # returning hard failure. This reduces false "unreadable" cases.
+            if kind == "NON_FOOD":
+                return self._code1_non_food_image_response()
+
+            if kind == "FOOD":
                 scored_photo = await self._score_from_food_photo(
                     model=config.OPEN_AI_MODEL,
                     image_url=image_url,
@@ -75,14 +129,63 @@ class OpenAIAgent(AIAgent):
                     allergies=allergies,
                     timeout_s=_next_timeout_s(),
                     retries=max_retries,
-                    expected_kind=kind,
+                    expected_kind="FOOD",
+                    force_best_effort=True,
                 )
                 normalized_photo = self._normalize_ai_output(scored_photo)
+                if self._is_non_food_signal(
+                    normalized_photo.get("feedback", ""),
+                    normalized_photo.get("detected_ingredients", []),
+                ):
+                    return self._code1_non_food_image_response()
+                if int(normalized_photo.get("code", 1) or 1) == 0:
+                    return normalized_photo
+                return self._code0_food_photo_best_effort_response(
+                    chronics=chronics,
+                    allergies=allergies,
+                    seed=normalized_photo,
+                )
+
+            # 2) LABEL/UNKNOWN: OCR-first path with a relaxed OCR rescue pass.
+            ing_text = await self._extract_ingredients_text(
+                model=config.OPEN_AI_MODEL,
+                image_url=image_url,
+                timeout_s=_next_timeout_s(),
+                retries=max_retries,
+                relaxed=False,
+            )
+
+            if self._is_not_found_text(ing_text):
+                ing_text = await self._extract_ingredients_text(
+                    model=config.OPEN_AI_MODEL,
+                    image_url=image_url,
+                    timeout_s=_next_timeout_s(),
+                    retries=max_retries,
+                    relaxed=True,
+                )
+
+            if self._is_not_found_text(ing_text):
+                scored_photo = await self._score_from_food_photo(
+                    model=config.OPEN_AI_MODEL,
+                    image_url=image_url,
+                    chronics=chronics,
+                    allergies=allergies,
+                    timeout_s=_next_timeout_s(),
+                    retries=max_retries,
+                    expected_kind="LABEL",
+                    force_best_effort=False,
+                )
+                normalized_photo = self._normalize_ai_output(scored_photo)
+                if self._is_non_food_signal(
+                    normalized_photo.get("feedback", ""),
+                    normalized_photo.get("detected_ingredients", []),
+                ):
+                    return self._code1_non_food_image_response()
                 if int(normalized_photo.get("code", 1) or 1) == 0:
                     return normalized_photo
                 return self._code1_uncertain_label_response(chronics, allergies)
 
-            # 2) Score pass: text-only scoring (stable)
+            # 3) Score pass: text-only scoring (stable when OCR has signal)
             scored = await self._score_from_ingredients_text(
                 model=config.OPEN_AI_MODEL,
                 ingredients_text=ing_text,
@@ -93,6 +196,11 @@ class OpenAIAgent(AIAgent):
             )
 
             normalized_scored = self._normalize_ai_output(scored)
+            if self._is_non_food_signal(
+                normalized_scored.get("feedback", ""),
+                normalized_scored.get("detected_ingredients", []),
+            ):
+                return self._code1_non_food_image_response()
             if int(normalized_scored.get("code", 1) or 1) == 0:
                 return normalized_scored
 
@@ -105,8 +213,14 @@ class OpenAIAgent(AIAgent):
                 timeout_s=_next_timeout_s(),
                 retries=max_retries,
                 expected_kind="LABEL",
+                force_best_effort=False,
             )
             normalized_photo = self._normalize_ai_output(scored_photo)
+            if self._is_non_food_signal(
+                normalized_photo.get("feedback", ""),
+                normalized_photo.get("detected_ingredients", []),
+            ):
+                return self._code1_non_food_image_response()
             if int(normalized_photo.get("code", 1) or 1) == 0:
                 return normalized_photo
 
@@ -150,14 +264,15 @@ class OpenAIAgent(AIAgent):
     # -----------------------------
     async def _route_image_kind(self, model: str, image_url: str, timeout_s: float, retries: int) -> str:
         """
-        Returns: 'LABEL' or 'FOOD'
+        Returns: 'LABEL' or 'FOOD' or 'NON_FOOD'
         Cheap classifier. Keeps the expensive OCR pipeline only for likely label images.
         """
-        system_text = "You are a strict classifier. Reply with ONLY one token: LABEL or FOOD."
+        system_text = "You are a strict classifier. Reply with ONLY one token: LABEL, FOOD, or NON_FOOD."
         user_text = (
-            "Decide if the image contains a readable ingredient list / food label text. "
-            "If it is a close-up label with text, return LABEL. "
-            "If it is a food photo, front-of-package with no readable ingredients, or text is unreadable, return FOOD."
+            "Decide if the image is a readable food label, a food image, or unrelated to food. "
+            "Return LABEL for close-up ingredient/nutrition labels with readable text. "
+            "Return FOOD for meals, packaged food, or food photos without readable labels. "
+            "Return NON_FOOD for landscapes, people, pets, buildings, documents, or any non-food scene."
         )
 
         raw = await self._call_responses_json_or_text(
@@ -173,6 +288,8 @@ class OpenAIAgent(AIAgent):
         )
 
         token = (raw or "").strip().upper()
+        if "NON_FOOD" in token:
+            return "NON_FOOD"
         if "LABEL" in token:
             return "LABEL"
         return "FOOD"
@@ -180,19 +297,35 @@ class OpenAIAgent(AIAgent):
     # -----------------------------
     # Step 2: OCR extract
     # -----------------------------
-    async def _extract_ingredients_text(self, model: str, image_url: str, timeout_s: float, retries: int) -> str:
+    async def _extract_ingredients_text(
+        self,
+        model: str,
+        image_url: str,
+        timeout_s: float,
+        retries: int,
+        relaxed: bool = False,
+    ) -> str:
         """
         OCR step. Returns raw label text (ingredients and/or nutrition) or 'NOT_FOUND'.
         """
         system_text = "You extract text. Reply with ONLY text. No JSON. No markdown."
-        user_text = (
-            "Extract useful nutrition label text from the image.\n"
-            "Rules:\n"
-            "- If you see an 'Ingredients' section, copy the ingredients text.\n"
-            "- If ingredients are not visible but Nutrition Facts are readable, copy key nutrition lines.\n"
-            "- Return plain text only, no explanations.\n"
-            "- If you cannot read either ingredients or nutrition facts, reply with exactly: NOT_FOUND\n"
-        )
+        if not relaxed:
+            user_text = (
+                "Extract useful nutrition label text from the image.\n"
+                "Rules:\n"
+                "- If you see an 'Ingredients' section, copy the ingredients text.\n"
+                "- If ingredients are not visible but Nutrition Facts are readable, copy key nutrition lines.\n"
+                "- Return plain text only, no explanations.\n"
+                "- If you cannot read either ingredients or nutrition facts, reply with exactly: NOT_FOUND\n"
+            )
+        else:
+            user_text = (
+                "Best-effort OCR from a potentially blurry food label image.\n"
+                "Rules:\n"
+                "- Try to recover ANY readable tokens from ingredients and nutrition lines.\n"
+                "- If only partial text is visible, return that partial text (plain text, no JSON).\n"
+                "- Return NOT_FOUND only if absolutely no useful food-label text is visible.\n"
+            )
 
         txt = await self._call_responses_json_or_text(
             model=model,
@@ -271,6 +404,15 @@ Now respond with ONLY JSON.
             timeout_s=timeout_s,
             retries=retries,
             expect_json=True,
+            json_required_keys=[
+                "code",
+                "message",
+                "mark",
+                "level",
+                "feedback",
+                "recommendation",
+                "detected_ingredients",
+            ],
         )
 
         return raw_obj
@@ -284,14 +426,22 @@ Now respond with ONLY JSON.
         timeout_s: float,
         retries: int,
         expected_kind: str = "FOOD",
+        force_best_effort: bool = False,
     ) -> Dict[str, Any]:
         """
         Fallback when OCR extraction fails.
         Works for both food photos and label-like photos where OCR missed text.
         """
         system_text = "You are a nutrition assistant. Return ONLY valid JSON. No markdown. No extra text."
+        extra_force_rule = ""
+        if force_best_effort:
+            extra_force_rule = (
+                "- Rescue mode: if the image is a recognizable meal (pizza, burger, salad, bowl, snack), "
+                "you MUST return code=0 with best-effort inferred ingredients.\n"
+            )
+
         user_text = f"""
-You are given a food-related image. OCR extraction failed, so you must reason from visual cues.
+You are given a food-related image. Use all visible cues (label text, nutrition panel, package clues, and food appearance).
 Expected image type hint: {expected_kind}
 
 If it looks like a label with readable nutrition facts, use visible numbers/words.
@@ -311,7 +461,8 @@ Return JSON with this EXACT schema:
 
 Rules:
 - Keep code=0 unless the image is truly unusable/blank/too blurry.
-- Mention uncertainty clearly when ingredients are inferred.
+- For food photos, avoid code=1 unless image is blank/corrupted/unidentifiable.
+{extra_force_rule}- Mention uncertainty clearly when ingredients are inferred.
 - mark must be between 0 and 100.
 - level: 1=good, 2=intermediate, 3=not recommend.
 - recommendation must be 3-4 practical healthier alternatives.
@@ -334,6 +485,15 @@ Now respond with ONLY JSON.
             timeout_s=timeout_s,
             retries=retries,
             expect_json=True,
+            json_required_keys=[
+                "code",
+                "message",
+                "mark",
+                "level",
+                "feedback",
+                "recommendation",
+                "detected_ingredients",
+            ],
         )
         return raw_obj
 
@@ -351,6 +511,7 @@ Now respond with ONLY JSON.
         timeout_s: float,
         retries: int,
         expect_json: bool,
+        json_required_keys: Optional[List[str]] = None,
     ):
         last_err: Optional[Exception] = None
 
@@ -381,7 +542,18 @@ Now respond with ONLY JSON.
                 out_text = (resp.output_text or "").strip()
 
                 if expect_json:
-                    return json.loads(out_text)
+                    parsed = json.loads(out_text)
+                    contract_errors = self._json_contract_errors(parsed, json_required_keys)
+                    if contract_errors:
+                        return await self._repair_json_once(
+                            model=model,
+                            original_user_text=user_text,
+                            invalid_output=out_text,
+                            required_keys=json_required_keys,
+                            timeout_s=timeout_s,
+                            max_output_tokens=max_output_tokens,
+                        )
+                    return parsed
 
                 return out_text
 
@@ -425,6 +597,110 @@ Now respond with ONLY JSON.
             ),
             "recommendation": ["Greek salad", "Vegetable soup", "Oatmeal with fruit"],
             "detected_ingredients": [],
+        }
+
+    def _code1_non_food_image_response(self) -> Dict[str, Any]:
+        return {
+            "code": 1,
+            "message": "This image does not appear to be food.",
+            "mark": 0,
+            "level": 3,
+            "feedback": (
+                "I could not detect food or a nutrition label in this image. "
+                "Please upload a meal photo or a clear ingredient-label photo so I can score it."
+            ),
+            "recommendation": ["Greek salad", "Vegetable soup", "Oatmeal with fruit"],
+            "detected_ingredients": [],
+        }
+
+    @staticmethod
+    def _is_non_food_signal(feedback, detected_ingredients) -> bool:
+        detected = detected_ingredients if isinstance(detected_ingredients, list) else []
+        detected = [str(x).strip() for x in detected if str(x).strip()]
+        if detected:
+            return False
+
+        fb = str(feedback or "").lower()
+        non_food_phrases = [
+            "does not contain any food",
+            "no food items",
+            "not food",
+            "non-food",
+            "scenic photo",
+            "landscape",
+            "mountain",
+            "lake",
+            "nature photo",
+            "travel photo",
+            "please provide an image that includes food",
+            "food items or labels",
+        ]
+        return any(p in fb for p in non_food_phrases)
+
+    def _code0_food_photo_best_effort_response(self, chronics, allergies, seed: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+        """
+        Best-effort success response for recognizable food photos without readable labels.
+        Keeps uncertainty explicit but avoids hard failure for normal meal images.
+        """
+        src = seed if isinstance(seed, dict) else {}
+
+        recs = src.get("recommendation", src.get("recommendations", [])) or []
+        if isinstance(recs, str):
+            recs = [r.strip() for r in recs.split(",") if r.strip()]
+        if not isinstance(recs, list):
+            recs = []
+        recs = [str(r).strip() for r in recs if str(r).strip()]
+        if not recs:
+            recs = ["Greek salad", "Vegetable soup", "Oatmeal with fruit"]
+
+        detected = src.get("detected_ingredients", src.get("ingredients", [])) or []
+        if isinstance(detected, str):
+            detected = [x.strip() for x in detected.split(",") if x.strip()]
+        if not isinstance(detected, list):
+            detected = []
+        detected = [str(x).strip() for x in detected if str(x).strip()][:30]
+
+        try:
+            mark = float(src.get("mark", 0) or 0)
+        except Exception:
+            mark = 0.0
+        if mark <= 0:
+            mark = 55.0 if detected else 50.0
+        mark = max(0.0, min(100.0, mark))
+
+        try:
+            level = int(src.get("level", 2) or 2)
+        except Exception:
+            level = 2
+        if level not in (1, 2, 3):
+            level = 2
+        if level == 3 and mark >= 45:
+            level = 2
+
+        feedback = str(src.get("feedback", "") or "").strip()
+        if self._is_non_food_signal(feedback, detected):
+            return self._code1_non_food_image_response()
+
+        if len([w for w in feedback.split() if w.strip()]) < 20:
+            chronic_txt = ", ".join([str(x) for x in (chronics or []) if str(x).strip()]) or "your health goals"
+            allergy_txt = ", ".join([str(x) for x in (allergies or []) if str(x).strip()]) or "known allergens"
+            feedback = (
+                "This appears to be a food photo, so I am giving a best-effort score from visible cues only. "
+                "Because the ingredient label is not readable, treat this as approximate guidance for "
+                f"{chronic_txt}. For {allergy_txt}, confirm packaged ingredients before relying on this result."
+            )
+
+        if self._is_non_food_signal(feedback, detected):
+            return self._code1_non_food_image_response()
+
+        return {
+            "code": 0,
+            "message": "",
+            "mark": int(round(mark)),
+            "level": level,
+            "feedback": feedback,
+            "recommendation": recs[:4],
+            "detected_ingredients": detected,
         }
 
     def _code1_uncertain_label_response(self, chronics, allergies) -> Dict[str, Any]:
@@ -476,8 +752,15 @@ Now respond with ONLY JSON.
         ingredients = out.get("detected_ingredients") or []
         if not isinstance(ingredients, list):
             ingredients = []
+        recs = out.get("recommendation", out.get("recommendations", [])) or []
+        if not isinstance(recs, list):
+            recs = []
 
-        has_signal = (mark >= 25 and feedback_words >= 16) or len(ingredients) >= 2
+        has_signal = (
+            (mark >= 25 and feedback_words >= 16)
+            or len(ingredients) >= 2
+            or (feedback_words >= 28 and len(recs) >= 3)
+        )
         if code == 1 and has_signal:
             out["code"] = 0
             out["message"] = ""
