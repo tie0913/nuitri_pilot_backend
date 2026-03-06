@@ -16,13 +16,26 @@ async def image_to_base64_with_thumbnail(img, max_size=(200, 200), quality=35):
 
         # ---- 原图 Base64 ----
         original_base64 = base64.b64encode(file_bytes).decode("utf-8")
-        original_b64_url = f"data:{img.content_type};base64,{original_base64}"
+        original_b64_url = f"data:{(img.content_type or 'image/jpeg')};base64,{original_base64}"
 
         # ---- 生成缩略图 ----
         try:
             image = Image.open(io.BytesIO(file_bytes))
         except UnidentifiedImageError:
             raise ValueError("Uploaded file is not a valid image.")
+
+        if not str(img.content_type or "").lower().startswith("image/"):
+            fmt = (image.format or "").upper()
+            mime_map = {
+                "JPEG": "image/jpeg",
+                "JPG": "image/jpeg",
+                "PNG": "image/png",
+                "WEBP": "image/webp",
+                "GIF": "image/gif",
+                "BMP": "image/bmp",
+            }
+            mime = mime_map.get(fmt, "image/jpeg")
+            original_b64_url = f"data:{mime};base64,{original_base64}"
 
         # 部分图片格式必须转换为 RGB
         if image.mode not in ("RGB", "RGBA"):

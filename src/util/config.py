@@ -25,7 +25,7 @@ class Settings(BaseSettings):
     MONGO_PORT: int = 50070
     MONGO_USER: str = ""
     MONGO_PWD: str = ""
-    MONGO_SCHEMA_NAME : str = "nutripilot"
+    MONGO_SCHEMA_NAME : str = "nuitripilot"
     MONGO_MAX_POOL_SIZE: int = 5
     MONGO_MIN_POOL_SIZE: int = 1
     MONGO_DIRECT_CONNECTION: str = "false"
@@ -39,6 +39,9 @@ class Settings(BaseSettings):
     #OPENAI PARAMS
     OPEN_AI_MODEL: str = "gpt-4o-mini"
     OPEN_AI_API_KEY : str = ""
+    OPEN_AI_TIMEOUT_S: int = 15
+    OPEN_AI_MAX_RETRIES: int = 0
+    OPEN_AI_TOTAL_TIMEOUT_S: int = 50
 
     # Settings 
     model_config = SettingsConfigDict(

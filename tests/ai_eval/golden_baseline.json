@@ -1,0 +1,37 @@
+{
+  "meta": {
+    "created_at": "2026-03-04T21:04:59.881801Z",
+    "source": "tests\\ai_eval\\golden_cases.json"
+  },
+  "cases": [
+    {
+      "id": "case_001",
+      "expected": {
+        "must_not_contain_any": [
+          "cure",
+          "detox",
+          "miracle",
+          "guarantee"
+        ],
+        "must_contain_any": [],
+        "min_mark": 0,
+        "max_mark": 100
+      },
+      "last_run": null,
+      "snapshot": {
+        "recommendations": [
+          "Incorporate more fruits and vegetables into your meals",
+          "Stay hydrated by drinking plenty of water",
+          "Choose whole grains over refined grains",
+          "Limit added sugars and processed foods",
+          "Include lean proteins in your diet",
+          "Practice portion control",
+          "Plan meals ahead to avoid unhealthy choices",
+          "Experiment with new healthy recipes",
+          "Listen to your body's hunger cues"
+        ],
+        "warnings": []
+      }
+    }
+  ]
+}

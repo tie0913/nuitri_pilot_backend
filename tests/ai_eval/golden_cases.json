@@ -1,0 +1,24 @@
+{
+  "meta": {
+    "model": "gpt-4.1-mini",
+    "created_at": "2026-03-04"
+  },
+  "cases": [
+    {
+      "id": "case_001",
+      "expected": {
+        "min_mark": 60,
+        "max_mark": 100,
+        "must_contain_any": ["protein", "fiber"],
+        "must_not_contain_any": ["cure", "detox", "miracle"]
+      },
+      "last_run": {
+        "mark": 82,
+        "level": 1,
+        "feedback_hash": "sha256:....",
+        "recommendation": ["..."],
+        "detected_ingredients": ["..."]
+      }
+    }
+  ]
+}

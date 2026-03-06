@@ -1,0 +1,642 @@
+{
+  "failures": [
+    "case_001: missing 'mark' score in response",
+    "case_002: missing 'mark' score in response",
+    "case_003: missing 'mark' score in response",
+    "case_004: missing 'mark' score in response",
+    "case_005: missing 'mark' score in response",
+    "case_006: AI call failed: HTTPSConnectionPool(host='api.openai.com', port=443): Read timed out. (read timeout=30)",
+    "case_007: missing 'mark' score in response",
+    "case_008: missing 'mark' score in response",
+    "case_009: AI call failed: 400 Client Error: Bad Request for url: https://api.openai.com/v1/responses",
+    "case_010: AI call failed: 400 Client Error: Bad Request for url: https://api.openai.com/v1/responses",
+    "case_011: missing 'mark' score in response",
+    "case_012: AI call failed: HTTPSConnectionPool(host='api.openai.com', port=443): Read timed out. (read timeout=30)",
+    "case_013: missing 'mark' score in response",
+    "case_014: missing 'mark' score in response",
+    "case_015: missing 'mark' score in response",
+    "case_016: AI call failed: 400 Client Error: Bad Request for url: https://api.openai.com/v1/responses",
+    "case_017: AI call failed: 400 Client Error: Bad Request for url: https://api.openai.com/v1/responses"
+  ],
+  "results": [
+    {
+      "id": "case_001",
+      "image": "images (2).jpg",
+      "goal": "High-protein vegetarian advice for this meal.",
+      "user_profile": {
+        "chronics": [],
+        "allergies": [
+          "lactose"
+        ]
+      },
+      "success": true,
+      "error": null,
+      "data": {
+        "recommendations": [
+          "Include lentils or chickpeas for protein.",
+          "Add quinoa as a protein-rich grain.",
+          "Incorporate tofu or tempeh for a meat substitute.",
+          "Use nuts and seeds as toppings or snacks.",
+          "Consider Greek yogurt (lactose-free) for added protein.",
+          "Mix in spinach or kale for extra nutrients.",
+          "Opt for whole grain bread or wraps for fiber.",
+          "Use nutritional yeast for a cheesy flavor and protein boost.",
+          "Prepare a protein smoothie with plant-based protein powder."
+        ],
+        "warnings": []
+      },
+      "normalized": {
+        "recommendation": [
+          "Include lentils or chickpeas for protein.",
+          "Add quinoa as a protein-rich grain.",
+          "Incorporate tofu or tempeh for a meat substitute.",
+          "Use nuts and seeds as toppings or snacks.",
+          "Consider Greek yogurt (lactose-free) for added protein.",
+          "Mix in spinach or kale for extra nutrients.",
+          "Opt for whole grain bread or wraps for fiber.",
+          "Use nutritional yeast for a cheesy flavor and protein boost.",
+          "Prepare a protein smoothie with plant-based protein powder."
+        ],
+        "warnings": [],
+        "mark": null,
+        "audit": null
+      }
+    },
+    {
+      "id": "case_002",
+      "image": "0007667705717.webp",
+      "goal": "Is this meal PCOS-friendly? Provide suggestions.",
+      "user_profile": {
+        "chronics": [
+          "pcos"
+        ],
+        "allergies": [
+          "lactose"
+        ]
+      },
+      "success": true,
+      "error": null,
+      "data": {
+        "recommendations": [
+          "Incorporate more whole grains like quinoa and brown rice.",
+          "Add healthy fats such as avocados and nuts.",
+          "Include lean proteins like chicken, turkey, or legumes.",
+          "Focus on low-glycemic index fruits like berries and apples.",
+          "Increase fiber intake with vegetables like broccoli and spinach.",
+          "Stay hydrated with plenty of water.",
+          "Limit processed foods and sugars.",
+          "Consider omega-3 fatty acids from fish or flaxseeds.",
+          "Monitor portion sizes to maintain a healthy weight."
+        ],
+        "warnings": [
+          "Avoid dairy products due to lactose intolerance.",
+          "Limit refined carbohydrates and sugars to manage insulin levels."
+        ]
+      },
+      "normalized": {
+        "recommendation": [
+          "Incorporate more whole grains like quinoa and brown rice.",
+          "Add healthy fats such as avocados and nuts.",
+          "Include lean proteins like chicken, turkey, or legumes.",
+          "Focus on low-glycemic index fruits like berries and apples.",
+          "Increase fiber intake with vegetables like broccoli and spinach.",
+          "Stay hydrated with plenty of water.",
+          "Limit processed foods and sugars.",
+          "Consider omega-3 fatty acids from fish or flaxseeds.",
+          "Monitor portion sizes to maintain a healthy weight."
+        ],
+        "warnings": [
+          "Avoid dairy products due to lactose intolerance.",
+          "Limit refined carbohydrates and sugars to manage insulin levels."
+        ],
+        "mark": null,
+        "audit": null
+      }
+    },
+    {
+      "id": "case_003",
+      "image": "hq720.jpg",
+      "goal": "Low sugar / low GI advice for this meal.",
+      "user_profile": {
+        "chronics": [
+          "prediabetes"
+        ],
+        "allergies": [
+          "peanut"
+        ]
+      },
+      "success": true,
+      "error": null,
+      "data": {
+        "recommendations": [
+          "Choose whole grains like quinoa or brown rice instead of white rice.",
+          "Incorporate non-starchy vegetables like spinach, broccoli, and bell peppers.",
+          "Opt for lean proteins such as chicken, turkey, or fish.",
+          "Use healthy fats like olive oil or avocado instead of butter.",
+          "Limit processed foods and sugary snacks.",
+          "Include legumes like lentils or chickpeas for fiber and protein.",
+          "Stay hydrated with water or herbal teas instead of sugary drinks.",
+          "Consider portion sizes to manage carbohydrate intake."
+        ],
+        "warnings": [
+          "Avoid foods high in added sugars.",
+          "Be cautious with high-GI fruits like bananas and watermelon.",
+          "Limit refined carbohydrates such as white bread and pastries."
+        ]
+      },
+      "normalized": {
+        "recommendation": [
+          "Choose whole grains like quinoa or brown rice instead of white rice.",
+          "Incorporate non-starchy vegetables like spinach, broccoli, and bell peppers.",
+          "Opt for lean proteins such as chicken, turkey, or fish.",
+          "Use healthy fats like olive oil or avocado instead of butter.",
+          "Limit processed foods and sugary snacks.",
+          "Include legumes like lentils or chickpeas for fiber and protein.",
+          "Stay hydrated with water or herbal teas instead of sugary drinks.",
+          "Consider portion sizes to manage carbohydrate intake."
+        ],
+        "warnings": [
+          "Avoid foods high in added sugars.",
+          "Be cautious with high-GI fruits like bananas and watermelon.",
+          "Limit refined carbohydrates such as white bread and pastries."
+        ],
+        "mark": null,
+        "audit": null
+      }
+    },
+    {
+      "id": "case_004",
+      "image": "download (3).jpg",
+      "goal": "Is this meal PCOS-friendly? Provide suggestions.",
+      "user_profile": {
+        "chronics": [],
+        "allergies": [
+          "gluten"
+        ]
+      },
+      "success": true,
+      "error": null,
+      "data": {
+        "recommendations": [
+          "Focus on whole, unprocessed foods.",
+          "Incorporate lean proteins like chicken, fish, and legumes.",
+          "Add plenty of non-starchy vegetables to your meals.",
+          "Choose healthy fats such as avocados, nuts, and olive oil.",
+          "Limit refined carbohydrates and sugars.",
+          "Consider adding fiber-rich foods like whole grains (ensure gluten-free) and fruits.",
+          "Stay hydrated with water and herbal teas.",
+          "Monitor portion sizes to maintain a healthy weight."
+        ],
+        "warnings": [
+          "Avoid gluten-containing foods due to allergy.",
+          "Limit high-sugar foods that can spike insulin levels."
+        ]
+      },
+      "normalized": {
+        "recommendation": [
+          "Focus on whole, unprocessed foods.",
+          "Incorporate lean proteins like chicken, fish, and legumes.",
+          "Add plenty of non-starchy vegetables to your meals.",
+          "Choose healthy fats such as avocados, nuts, and olive oil.",
+          "Limit refined carbohydrates and sugars.",
+          "Consider adding fiber-rich foods like whole grains (ensure gluten-free) and fruits.",
+          "Stay hydrated with water and herbal teas.",
+          "Monitor portion sizes to maintain a healthy weight."
+        ],
+        "warnings": [
+          "Avoid gluten-containing foods due to allergy.",
+          "Limit high-sugar foods that can spike insulin levels."
+        ],
+        "mark": null,
+        "audit": null
+      }
+    },
+    {
+      "id": "case_005",
+      "image": "download (3).jpg",
+      "goal": "Is this meal PCOS-friendly? Provide suggestions.",
+      "user_profile": {
+        "chronics": [
+          "hypertension"
+        ],
+        "allergies": [
+          "peanut"
+        ]
+      },
+      "success": true,
+      "error": null,
+      "data": {
+        "recommendations": [
+          "Incorporate more whole grains like quinoa and brown rice.",
+          "Add plenty of leafy greens and colorful vegetables.",
+          "Choose lean proteins such as chicken, fish, or legumes.",
+          "Include healthy fats from sources like avocados and olive oil.",
+          "Limit processed sugars and refined carbohydrates.",
+          "Stay hydrated with water and herbal teas.",
+          "Consider adding omega-3 fatty acids from fish or flaxseeds.",
+          "Monitor portion sizes to maintain a balanced diet."
+        ],
+        "warnings": [
+          "Avoid high-sugar foods that can spike insulin levels.",
+          "Be cautious with dairy products if lactose intolerant.",
+          "Limit sodium intake to manage hypertension."
+        ]
+      },
+      "normalized": {
+        "recommendation": [
+          "Incorporate more whole grains like quinoa and brown rice.",
+          "Add plenty of leafy greens and colorful vegetables.",
+          "Choose lean proteins such as chicken, fish, or legumes.",
+          "Include healthy fats from sources like avocados and olive oil.",
+          "Limit processed sugars and refined carbohydrates.",
+          "Stay hydrated with water and herbal teas.",
+          "Consider adding omega-3 fatty acids from fish or flaxseeds.",
+          "Monitor portion sizes to maintain a balanced diet."
+        ],
+        "warnings": [
+          "Avoid high-sugar foods that can spike insulin levels.",
+          "Be cautious with dairy products if lactose intolerant.",
+          "Limit sodium intake to manage hypertension."
+        ],
+        "mark": null,
+        "audit": null
+      }
+    },
+    {
+      "id": "case_006",
+      "image": "download (6).jpg",
+      "goal": "Low sugar / low GI advice for this meal.",
+      "user_profile": {
+        "chronics": [
+          "hypertension"
+        ],
+        "allergies": [
+          "peanut"
+        ]
+      },
+      "success": false,
+      "error": "HTTPSConnectionPool(host='api.openai.com', port=443): Read timed out. (read timeout=30)",
+      "data": null
+    },
+    {
+      "id": "case_007",
+      "image": "download (1).jpg",
+      "goal": "Is this meal PCOS-friendly? Provide suggestions.",
+      "user_profile": {
+        "chronics": [],
+        "allergies": [
+          "soy"
+        ]
+      },
+      "success": true,
+      "error": null,
+      "data": {
+        "recommendations": [
+          "Include whole grains like quinoa or brown rice.",
+          "Opt for lean proteins such as chicken or fish.",
+          "Incorporate plenty of leafy greens and colorful vegetables.",
+          "Add healthy fats like avocado or nuts.",
+          "Choose low-glycemic fruits like berries or apples.",
+          "Stay hydrated with water or herbal teas.",
+          "Limit processed foods and sugars.",
+          "Consider adding legumes for fiber and protein."
+        ],
+        "warnings": [
+          "Avoid soy products due to allergy."
+        ]
+      },
+      "normalized": {
+        "recommendation": [
+          "Include whole grains like quinoa or brown rice.",
+          "Opt for lean proteins such as chicken or fish.",
+          "Incorporate plenty of leafy greens and colorful vegetables.",
+          "Add healthy fats like avocado or nuts.",
+          "Choose low-glycemic fruits like berries or apples.",
+          "Stay hydrated with water or herbal teas.",
+          "Limit processed foods and sugars.",
+          "Consider adding legumes for fiber and protein."
+        ],
+        "warnings": [
+          "Avoid soy products due to allergy."
+        ],
+        "mark": null,
+        "audit": null
+      }
+    },
+    {
+      "id": "case_008",
+      "image": "Group-2998.png.webp",
+      "goal": "High-protein vegetarian advice for this meal.",
+      "user_profile": {
+        "chronics": [
+          "hypertension"
+        ],
+        "allergies": [
+          "soy"
+        ]
+      },
+      "success": true,
+      "error": null,
+      "data": {
+        "recommendations": [
+          "Include lentils or chickpeas in your meal for protein.",
+          "Add quinoa as a base for your dish; it's high in protein.",
+          "Incorporate Greek yogurt or cottage cheese for extra protein.",
+          "Use nuts or seeds as toppings for added crunch and protein.",
+          "Consider a protein-rich smoothie with spinach, protein powder, and almond milk.",
+          "Opt for tofu or tempeh as a meat substitute in stir-fries.",
+          "Include a variety of beans in salads or soups for protein diversity.",
+          "Use whole grain bread or wraps for added protein content.",
+          "Add nutritional yeast to dishes for a cheesy flavor and protein boost."
+        ],
+        "warnings": [
+          "Avoid soy products due to your allergy.",
+          "Monitor sodium intake to manage hypertension."
+        ]
+      },
+      "normalized": {
+        "recommendation": [
+          "Include lentils or chickpeas in your meal for protein.",
+          "Add quinoa as a base for your dish; it's high in protein.",
+          "Incorporate Greek yogurt or cottage cheese for extra protein.",
+          "Use nuts or seeds as toppings for added crunch and protein.",
+          "Consider a protein-rich smoothie with spinach, protein powder, and almond milk.",
+          "Opt for tofu or tempeh as a meat substitute in stir-fries.",
+          "Include a variety of beans in salads or soups for protein diversity.",
+          "Use whole grain bread or wraps for added protein content.",
+          "Add nutritional yeast to dishes for a cheesy flavor and protein boost."
+        ],
+        "warnings": [
+          "Avoid soy products due to your allergy.",
+          "Monitor sodium intake to manage hypertension."
+        ],
+        "mark": null,
+        "audit": null
+      }
+    },
+    {
+      "id": "case_009",
+      "image": "nutella nutrition facts.jpg",
+      "goal": "Give healthier alternatives and portion guidance for this meal.",
+      "user_profile": {
+        "chronics": [
+          "pcos"
+        ],
+        "allergies": [
+          "peanut"
+        ]
+      },
+      "success": false,
+      "error": "400 Client Error: Bad Request for url: https://api.openai.com/v1/responses",
+      "data": null
+    },
+    {
+      "id": "case_010",
+      "image": "new-york-style-pizza2.jpg",
+      "goal": "Analyze this food photo and suggest if it's suitable for me.",
+      "user_profile": {
+        "chronics": [
+          "pcos"
+        ],
+        "allergies": [
+          "lactose"
+        ]
+      },
+      "success": false,
+      "error": "400 Client Error: Bad Request for url: https://api.openai.com/v1/responses",
+      "data": null
+    },
+    {
+      "id": "case_011",
+      "image": "download (3).jpg",
+      "goal": "Is this meal PCOS-friendly? Provide suggestions.",
+      "user_profile": {
+        "chronics": [],
+        "allergies": [
+          "gluten"
+        ]
+      },
+      "success": true,
+      "error": null,
+      "data": {
+        "recommendations": [
+          "Focus on whole, unprocessed foods.",
+          "Incorporate lean proteins like chicken, fish, and legumes.",
+          "Add plenty of non-starchy vegetables to your meals.",
+          "Choose healthy fats such as avocados, nuts, and olive oil.",
+          "Opt for low-glycemic index carbohydrates like quinoa and sweet potatoes.",
+          "Stay hydrated with water and herbal teas.",
+          "Limit sugar and refined carbs to manage insulin levels.",
+          "Consider adding omega-3 fatty acids from sources like flaxseeds or walnuts.",
+          "Monitor portion sizes to maintain a healthy weight."
+        ],
+        "warnings": [
+          "Avoid gluten-containing foods due to your allergy.",
+          "Be cautious with high-sugar fruits and processed snacks."
+        ]
+      },
+      "normalized": {
+        "recommendation": [
+          "Focus on whole, unprocessed foods.",
+          "Incorporate lean proteins like chicken, fish, and legumes.",
+          "Add plenty of non-starchy vegetables to your meals.",
+          "Choose healthy fats such as avocados, nuts, and olive oil.",
+          "Opt for low-glycemic index carbohydrates like quinoa and sweet potatoes.",
+          "Stay hydrated with water and herbal teas.",
+          "Limit sugar and refined carbs to manage insulin levels.",
+          "Consider adding omega-3 fatty acids from sources like flaxseeds or walnuts.",
+          "Monitor portion sizes to maintain a healthy weight."
+        ],
+        "warnings": [
+          "Avoid gluten-containing foods due to your allergy.",
+          "Be cautious with high-sugar fruits and processed snacks."
+        ],
+        "mark": null,
+        "audit": null
+      }
+    },
+    {
+      "id": "case_012",
+      "image": "Why-Do-Seafood-Labels-Matter.jpg",
+      "goal": "Is this meal PCOS-friendly? Provide suggestions.",
+      "user_profile": {
+        "chronics": [],
+        "allergies": [
+          "soy"
+        ]
+      },
+      "success": false,
+      "error": "HTTPSConnectionPool(host='api.openai.com', port=443): Read timed out. (read timeout=30)",
+      "data": null
+    },
+    {
+      "id": "case_013",
+      "image": "images (2).jpg",
+      "goal": "High-protein vegetarian advice for this meal.",
+      "user_profile": {
+        "chronics": [],
+        "allergies": []
+      },
+      "success": true,
+      "error": null,
+      "data": {
+        "recommendations": [
+          "Include lentils or chickpeas for protein.",
+          "Add quinoa or farro as a base grain.",
+          "Incorporate Greek yogurt or cottage cheese.",
+          "Use nuts or seeds for added crunch and protein.",
+          "Consider tofu or tempeh as a meat substitute.",
+          "Mix in spinach or kale for extra nutrients.",
+          "Top with a sprinkle of nutritional yeast for flavor.",
+          "Serve with a side of edamame for a protein boost.",
+          "Use a variety of colorful vegetables for a balanced meal."
+        ],
+        "warnings": []
+      },
+      "normalized": {
+        "recommendation": [
+          "Include lentils or chickpeas for protein.",
+          "Add quinoa or farro as a base grain.",
+          "Incorporate Greek yogurt or cottage cheese.",
+          "Use nuts or seeds for added crunch and protein.",
+          "Consider tofu or tempeh as a meat substitute.",
+          "Mix in spinach or kale for extra nutrients.",
+          "Top with a sprinkle of nutritional yeast for flavor.",
+          "Serve with a side of edamame for a protein boost.",
+          "Use a variety of colorful vegetables for a balanced meal."
+        ],
+        "warnings": [],
+        "mark": null,
+        "audit": null
+      }
+    },
+    {
+      "id": "case_014",
+      "image": "download (1).jpg",
+      "goal": "Give healthier alternatives and portion guidance for this meal.",
+      "user_profile": {
+        "chronics": [
+          "hypertension"
+        ],
+        "allergies": [
+          "peanut"
+        ]
+      },
+      "success": true,
+      "error": null,
+      "data": {
+        "recommendations": [
+          "Opt for grilled chicken instead of fried chicken.",
+          "Use olive oil or avocado oil for cooking instead of butter.",
+          "Incorporate more vegetables like spinach, broccoli, or bell peppers.",
+          "Choose whole grain options for bread or pasta.",
+          "Limit salt intake; use herbs and spices for flavor.",
+          "Consider a side salad with a vinaigrette dressing.",
+          "Replace sugary drinks with water or herbal tea.",
+          "Use low-sodium broth for soups or stews."
+        ],
+        "warnings": [
+          "Avoid peanuts and peanut oil due to allergies.",
+          "Monitor sodium intake to manage hypertension."
+        ]
+      },
+      "normalized": {
+        "recommendation": [
+          "Opt for grilled chicken instead of fried chicken.",
+          "Use olive oil or avocado oil for cooking instead of butter.",
+          "Incorporate more vegetables like spinach, broccoli, or bell peppers.",
+          "Choose whole grain options for bread or pasta.",
+          "Limit salt intake; use herbs and spices for flavor.",
+          "Consider a side salad with a vinaigrette dressing.",
+          "Replace sugary drinks with water or herbal tea.",
+          "Use low-sodium broth for soups or stews."
+        ],
+        "warnings": [
+          "Avoid peanuts and peanut oil due to allergies.",
+          "Monitor sodium intake to manage hypertension."
+        ],
+        "mark": null,
+        "audit": null
+      }
+    },
+    {
+      "id": "case_015",
+      "image": "download (2).jpg",
+      "goal": "Is this meal PCOS-friendly? Provide suggestions.",
+      "user_profile": {
+        "chronics": [],
+        "allergies": [
+          "gluten"
+        ]
+      },
+      "success": true,
+      "error": null,
+      "data": {
+        "recommendations": [
+          "Include more fiber-rich foods like vegetables and legumes.",
+          "Opt for lean proteins such as chicken, turkey, or fish.",
+          "Incorporate healthy fats from sources like avocados and nuts.",
+          "Choose whole grains that are gluten-free, like quinoa or brown rice.",
+          "Add anti-inflammatory foods like berries and leafy greens.",
+          "Stay hydrated with plenty of water throughout the day.",
+          "Limit processed foods and added sugars.",
+          "Consider incorporating omega-3 fatty acids from sources like flaxseeds or chia seeds."
+        ],
+        "warnings": [
+          "Avoid gluten-containing foods due to allergy.",
+          "Monitor carbohydrate intake to manage insulin levels."
+        ]
+      },
+      "normalized": {
+        "recommendation": [
+          "Include more fiber-rich foods like vegetables and legumes.",
+          "Opt for lean proteins such as chicken, turkey, or fish.",
+          "Incorporate healthy fats from sources like avocados and nuts.",
+          "Choose whole grains that are gluten-free, like quinoa or brown rice.",
+          "Add anti-inflammatory foods like berries and leafy greens.",
+          "Stay hydrated with plenty of water throughout the day.",
+          "Limit processed foods and added sugars.",
+          "Consider incorporating omega-3 fatty acids from sources like flaxseeds or chia seeds."
+        ],
+        "warnings": [
+          "Avoid gluten-containing foods due to allergy.",
+          "Monitor carbohydrate intake to manage insulin levels."
+        ],
+        "mark": null,
+        "audit": null
+      }
+    },
+    {
+      "id": "case_016",
+      "image": "new-york-style-pizza2.jpg",
+      "goal": "Analyze this food photo and suggest if it's suitable for me.",
+      "user_profile": {
+        "chronics": [
+          "hypertension"
+        ],
+        "allergies": [
+          "peanut"
+        ]
+      },
+      "success": false,
+      "error": "400 Client Error: Bad Request for url: https://api.openai.com/v1/responses",
+      "data": null
+    },
+    {
+      "id": "case_017",
+      "image": "nutella nutrition facts.jpg",
+      "goal": "High-protein vegetarian advice for this meal.",
+      "user_profile": {
+        "chronics": [
+          "pcos"
+        ],
+        "allergies": [
+          "soy"
+        ]
+      },
+      "success": false,
+      "error": "400 Client Error: Bad Request for url: https://api.openai.com/v1/responses",
+      "data": null
+    }
+  ]
+}

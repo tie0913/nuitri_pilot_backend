@@ -1,10 +1,13 @@
+import os
 from fastapi import FastAPI
 import uvicorn
 from src.util.logger import get_logger
 from src.util.config import get_settings
 from src.ctx import context
 
-app = FastAPI(lifespan=context)
+USE_LIFESPAN = os.getenv("ENV") != "test"
+
+app = FastAPI(lifespan=context if USE_LIFESPAN else None)
 
 
 from src.user.router import user_router

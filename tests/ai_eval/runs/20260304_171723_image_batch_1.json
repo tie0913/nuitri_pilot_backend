@@ -1,0 +1,44 @@
+{
+  "failures": [],
+  "results": [
+    {
+      "id": "case_001",
+      "image": "download (5).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Whole grain pasta",
+          "Quinoa",
+          "Brown rice"
+        ],
+        "mark": 60,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The ingredient list indicates a product that may be high in sodium and carbohydrates, which could be a concern for someone with prediabetes. It's important to monitor carbohydrate intake and choose options that are lower in sugar and refined carbs. Consider looking for alternatives that are more balanced in nutrients and lower in sodium."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 60,
+        "level": 2,
+        "feedback": "The ingredient list indicates a product that may be high in sodium and carbohydrates, which could be a concern for someone with prediabetes. It's important to monitor carbohydrate intake and choose options that are lower in sugar and refined carbs. Consider looking for alternatives that are more balanced in nutrients and lower in sodium.",
+        "recommendation": [
+          "Whole grain pasta",
+          "Quinoa",
+          "Brown rice"
+        ],
+        "detected_ingredients": [
+          "Total Fat",
+          "Sodium",
+          "Total Carbohydrates",
+          "Protein"
+        ]
+      }
+    }
+  ]
+}

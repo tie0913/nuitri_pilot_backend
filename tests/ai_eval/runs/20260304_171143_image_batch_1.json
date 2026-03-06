@@ -1,0 +1,43 @@
+{
+  "failures": [
+    "case_001: code != 0 (got 1) msg=The ingredient list is unreadable due to the image quality.",
+    "case_001: mark below min threshold 1.0 (got 0.0)"
+  ],
+  "results": [
+    {
+      "id": "case_001",
+      "image": "download (5).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Whole grain pasta",
+          "Quinoa",
+          "Brown rice",
+          "Zucchini noodles"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "The ingredient list is unreadable due to the image quality.",
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "The ingredient list is unreadable due to the image quality.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I am unable to read the ingredient list from the image provided. This makes it difficult to assess whether the product is suitable for your dietary needs, especially considering your prediabetes. It's important to know the carbohydrate content and types of ingredients to make informed choices. Please provide a clearer image or the ingredient list for better assistance.",
+        "recommendation": [
+          "Whole grain pasta",
+          "Quinoa",
+          "Brown rice",
+          "Zucchini noodles"
+        ],
+        "detected_ingredients": []
+      }
+    }
+  ]
+}

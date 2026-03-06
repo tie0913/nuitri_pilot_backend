@@ -1,0 +1,4149 @@
+{
+  "failures": [
+    "case_017: mark below min threshold 1.0 (got 0.0)",
+    "case_032: mark below min threshold 1.0 (got 0.0)",
+    "case_037: mark below min threshold 1.0 (got 0.0)",
+    "case_045: mark below min threshold 1.0 (got 0.0)",
+    "case_058: mark below min threshold 1.0 (got 0.0)",
+    "case_089: mark below min threshold 1.0 (got 0.0)",
+    "case_087: mark below min threshold 1.0 (got 0.0)",
+    "case_090: mark below min threshold 1.0 (got 0.0)",
+    "success_rate too low: 32/100 = 32.00% (need >= 60%)"
+  ],
+  "results": [
+    {
+      "id": "case_002",
+      "image": "download (1).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 6.1804,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_005",
+      "image": "download (2).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 6.765,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_001",
+      "image": "images (2).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 7.5345,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_004",
+      "image": "download.jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "latency_s": 7.6115,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_003",
+      "image": "download (4).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 7.755,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_007",
+      "image": "download (6).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 10.1771,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_006",
+      "image": "download (5).jpg",
+      "chronics": [],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "latency_s": 11.7285,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_008",
+      "image": "Group-2998.png.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 15.3297,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_011",
+      "image": "download (5).jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "latency_s": 15.4149,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_009",
+      "image": "00113_SL_ShrpChddr_Ecomm_CarouselNutrition__CompressedW10.png",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 19.4222,
+      "normalized": {
+        "recommendation": [
+          "Low-Sodium Cheese",
+          "Almond Milk",
+          "Cottage Cheese",
+          "Greek Yogurt"
+        ],
+        "mark": 75,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The extracted ingredients indicate that this product primarily consists of dairy components, which can be suitable for many individuals. However, those with hypertension should be cautious about sodium intake, as salt is present. It's important to monitor overall dietary sodium levels. Since you have a peanut allergy, this product appears safe as it does not list peanuts as an ingredient."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 75,
+        "level": 1,
+        "feedback": "The extracted ingredients indicate that this product primarily consists of dairy components, which can be suitable for many individuals. However, those with hypertension should be cautious about sodium intake, as salt is present. It's important to monitor overall dietary sodium levels. Since you have a peanut allergy, this product appears safe as it does not list peanuts as an ingredient.",
+        "recommendation": [
+          "Low-Sodium Cheese",
+          "Almond Milk",
+          "Cottage Cheese",
+          "Greek Yogurt"
+        ],
+        "detected_ingredients": [
+          "Pasteurized Milk",
+          "Cheese Culture",
+          "Salt",
+          "Enzymes",
+          "Annatto"
+        ]
+      }
+    },
+    {
+      "id": "case_010",
+      "image": "nutrition-facts.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 21.2077,
+      "normalized": {
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Stew",
+          "Lentil Soup"
+        ],
+        "mark": 85,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The extracted nutrition facts indicate a balanced food option with a good amount of dietary fiber and protein, which can be beneficial for overall health. The low sodium and cholesterol levels are also positive aspects. However, it's important to consider the total carbohydrate content in relation to your thyroid condition. Always consult with a healthcare provider for personalized advice."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 85,
+        "level": 1,
+        "feedback": "The extracted nutrition facts indicate a balanced food option with a good amount of dietary fiber and protein, which can be beneficial for overall health. The low sodium and cholesterol levels are also positive aspects. However, it's important to consider the total carbohydrate content in relation to your thyroid condition. Always consult with a healthcare provider for personalized advice.",
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Stew",
+          "Lentil Soup"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_012",
+      "image": "download.jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 21.2074,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_015",
+      "image": "download (2).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 25.8756,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_016",
+      "image": "download (1).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 25.9765,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_014",
+      "image": "hq720.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 26.4977,
+      "normalized": {
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Stew",
+          "Lentil Soup"
+        ],
+        "mark": 70,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutritional information provided indicates a low-calorie option with minimal fat and no sugars, which can be beneficial for managing PCOS. However, the lack of protein and dietary fiber may not provide sufficient satiety or nutritional balance. It's important to consider incorporating more nutrient-dense foods that can help support overall health."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 70,
+        "level": 2,
+        "feedback": "The nutritional information provided indicates a low-calorie option with minimal fat and no sugars, which can be beneficial for managing PCOS. However, the lack of protein and dietary fiber may not provide sufficient satiety or nutritional balance. It's important to consider incorporating more nutrient-dense foods that can help support overall health.",
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Stew",
+          "Lentil Soup"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_013",
+      "image": "0007667705717.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 27.6747,
+      "normalized": {
+        "recommendation": [
+          "Almond Flour Cookies",
+          "Oatmeal Chocolate Chip Cookies",
+          "Coconut Macaroons"
+        ],
+        "mark": 70,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The ingredients list indicates that this product contains wheat, soy, eggs, and milk, which may not be suitable for everyone, especially those with specific dietary restrictions. Additionally, the presence of sugar and oils may not align with dietary recommendations for managing PCOS. It's important to consider these factors when making food choices."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 70,
+        "level": 2,
+        "feedback": "The ingredients list indicates that this product contains wheat, soy, eggs, and milk, which may not be suitable for everyone, especially those with specific dietary restrictions. Additionally, the presence of sugar and oils may not align with dietary recommendations for managing PCOS. It's important to consider these factors when making food choices.",
+        "recommendation": [
+          "Almond Flour Cookies",
+          "Oatmeal Chocolate Chip Cookies",
+          "Coconut Macaroons"
+        ],
+        "detected_ingredients": [
+          "Wheat Flour",
+          "Semi-sweet Chocolate",
+          "Sugar",
+          "Vegetable Oil",
+          "Palm Oil",
+          "Palm Kernel Oil",
+          "Blackstrap Molasses",
+          "Salt",
+          "Dried Whole Eggs",
+          "Baking Soda",
+          "Natural Flavor",
+          "Artificial Flavor",
+          "Ammonium Bicarbonate",
+          "Modified Milk Ingredients",
+          "Soy Lecithin"
+        ]
+      }
+    },
+    {
+      "id": "case_020",
+      "image": "download (3).jpg",
+      "chronics": [],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 30.9591,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_021",
+      "image": "download (6).jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 32.589,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_019",
+      "image": "download (5).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 32.776,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_018",
+      "image": "Cheerios-nutrition-facts-1.jpg",
+      "chronics": [],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 32.9008,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_017",
+      "image": "00113_SL_ShrpChddr_Ecomm_CarouselNutrition__CompressedW10.png",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 33.3444,
+      "normalized": {
+        "recommendation": [
+          "Almond Milk Cheese",
+          "Coconut Yogurt",
+          "Lactose-Free Cream Cheese"
+        ],
+        "mark": 0,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The ingredients list includes pasteurized milk, which contains lactose. Since the user has a lactose allergy, this product is not recommended. Additionally, individuals with prediabetes should be cautious with dairy products that may affect blood sugar levels. It's important to choose alternatives that are both lactose-free and suitable for managing blood sugar."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 0,
+        "level": 3,
+        "feedback": "The ingredients list includes pasteurized milk, which contains lactose. Since the user has a lactose allergy, this product is not recommended. Additionally, individuals with prediabetes should be cautious with dairy products that may affect blood sugar levels. It's important to choose alternatives that are both lactose-free and suitable for managing blood sugar.",
+        "recommendation": [
+          "Almond Milk Cheese",
+          "Coconut Yogurt",
+          "Lactose-Free Cream Cheese"
+        ],
+        "detected_ingredients": [
+          "Pasteurized Milk",
+          "Cheese Culture",
+          "Salt",
+          "Enzymes",
+          "Annatto (Vegetable Color)"
+        ]
+      }
+    },
+    {
+      "id": "case_023",
+      "image": "download (2).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 38.4811,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_022",
+      "image": "hq720.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 41.9496,
+      "normalized": {
+        "recommendation": [
+          "Greek yogurt",
+          "Chickpeas",
+          "Quinoa",
+          "Lentils"
+        ],
+        "mark": 70,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutritional information provided indicates a low-calorie food with minimal fat and no sugars, which can be beneficial for maintaining a balanced diet. However, it lacks protein and dietary fiber, which are important for overall health, especially for someone with thyroid concerns. It's advisable to incorporate foods that provide these nutrients to support your dietary needs."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 70,
+        "level": 2,
+        "feedback": "The nutritional information provided indicates a low-calorie food with minimal fat and no sugars, which can be beneficial for maintaining a balanced diet. However, it lacks protein and dietary fiber, which are important for overall health, especially for someone with thyroid concerns. It's advisable to incorporate foods that provide these nutrients to support your dietary needs.",
+        "recommendation": [
+          "Greek yogurt",
+          "Chickpeas",
+          "Quinoa",
+          "Lentils"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_024",
+      "image": "0007066240203.webp",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 47.0925,
+      "normalized": {
+        "recommendation": [
+          "Low Sodium Vegetable Soup",
+          "Grilled Chicken Salad",
+          "Quinoa and Black Bean Bowl"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "The extracted label text is readable, but it contains high sodium content which is a concern for hypertension.",
+        "audit": null,
+        "feedback": "The nutrition facts indicate that this product has a high sodium content of 1530mg, which is 67% of the daily value. For someone with hypertension, it's important to limit sodium intake to help manage blood pressure. Additionally, the presence of saturated fat may not be ideal for heart health. Therefore, I would recommend considering alternatives that are lower in sodium and saturated fat."
+      },
+      "raw": {
+        "code": 1,
+        "message": "The extracted label text is readable, but it contains high sodium content which is a concern for hypertension.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "The nutrition facts indicate that this product has a high sodium content of 1530mg, which is 67% of the daily value. For someone with hypertension, it's important to limit sodium intake to help manage blood pressure. Additionally, the presence of saturated fat may not be ideal for heart health. Therefore, I would recommend considering alternatives that are lower in sodium and saturated fat.",
+        "recommendation": [
+          "Low Sodium Vegetable Soup",
+          "Grilled Chicken Salad",
+          "Quinoa and Black Bean Bowl"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_025",
+      "image": "Cheerios-nutrition-facts-1.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 47.9503,
+      "normalized": {
+        "recommendation": [
+          "Almond Butter",
+          "Sunflower Seed Butter",
+          "Coconut Yogurt"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredients not visible, making it difficult to assess the product's suitability.",
+        "audit": null,
+        "feedback": "The lack of visible ingredients raises concerns about potential allergens and the overall nutritional profile of the product. Without knowing the specific ingredients, it's challenging to determine if this product aligns with your dietary needs, especially considering your prediabetes and peanut allergy. It's advisable to avoid products with unclear ingredient lists."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredients not visible, making it difficult to assess the product's suitability.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "The lack of visible ingredients raises concerns about potential allergens and the overall nutritional profile of the product. Without knowing the specific ingredients, it's challenging to determine if this product aligns with your dietary needs, especially considering your prediabetes and peanut allergy. It's advisable to avoid products with unclear ingredient lists.",
+        "recommendation": [
+          "Almond Butter",
+          "Sunflower Seed Butter",
+          "Coconut Yogurt"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_027",
+      "image": "images.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 48.2731,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_026",
+      "image": "AdobeStock_389889678-scaled.webp",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 50.3726,
+      "normalized": {
+        "recommendation": [
+          "Quinoa Salad",
+          "Grilled Chicken Breast",
+          "Steamed Broccoli",
+          "Brown Rice"
+        ],
+        "mark": 75,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutrition facts provided indicate a low-fat and low-sodium product, which is generally suitable for someone with hypertension. However, the absence of detailed ingredient information makes it difficult to fully assess its suitability, especially considering your soy allergy. It's important to ensure that no soy products are included in the ingredients list."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 75,
+        "level": 2,
+        "feedback": "The nutrition facts provided indicate a low-fat and low-sodium product, which is generally suitable for someone with hypertension. However, the absence of detailed ingredient information makes it difficult to fully assess its suitability, especially considering your soy allergy. It's important to ensure that no soy products are included in the ingredients list.",
+        "recommendation": [
+          "Quinoa Salad",
+          "Grilled Chicken Breast",
+          "Steamed Broccoli",
+          "Brown Rice"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_029",
+      "image": "download (6).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 50.9903,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_031",
+      "image": "download (6).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 54.04,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_028",
+      "image": "0007667705717.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 57.1926,
+      "normalized": {
+        "recommendation": [
+          "Almond Flour Cookies",
+          "Chickpea Pasta",
+          "Quinoa Salad",
+          "Dark Chocolate Almonds"
+        ],
+        "mark": 70,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The product contains several ingredients that may not be ideal for someone with PCOS, such as refined sugars and wheat flour. While it does include some fats and proteins, the overall nutritional profile may not support hormonal balance effectively. It's important to consider alternatives that are lower in sugar and refined carbohydrates."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 70,
+        "level": 2,
+        "feedback": "The product contains several ingredients that may not be ideal for someone with PCOS, such as refined sugars and wheat flour. While it does include some fats and proteins, the overall nutritional profile may not support hormonal balance effectively. It's important to consider alternatives that are lower in sugar and refined carbohydrates.",
+        "recommendation": [
+          "Almond Flour Cookies",
+          "Chickpea Pasta",
+          "Quinoa Salad",
+          "Dark Chocolate Almonds"
+        ],
+        "detected_ingredients": [
+          "Wheat Flour",
+          "Semi-sweet Chocolate",
+          "Sugar",
+          "Vegetable Oil",
+          "Palm Oil",
+          "Blackstrap Molasses",
+          "Salt",
+          "Dried Whole Eggs",
+          "Baking Soda",
+          "Natural Flavor",
+          "Artificial Flavor",
+          "Ammonium Bicarbonate",
+          "Modified Milk Ingredients",
+          "Soy Lecithin"
+        ]
+      }
+    },
+    {
+      "id": "case_030",
+      "image": "Group-2998.png.webp",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 57.2568,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_033",
+      "image": "download (3).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 59.1812,
+      "normalized": {
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Stew",
+          "Grilled Chicken with Vegetables"
+        ],
+        "mark": 75,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutritional information provided indicates a moderate level of calories and fat, which may be suitable for someone managing PCOS. However, the balance of macronutrients could be improved, particularly with higher protein and fiber content. It's important to consider the overall dietary pattern rather than just individual foods."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 75,
+        "level": 2,
+        "feedback": "The nutritional information provided indicates a moderate level of calories and fat, which may be suitable for someone managing PCOS. However, the balance of macronutrients could be improved, particularly with higher protein and fiber content. It's important to consider the overall dietary pattern rather than just individual foods.",
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Stew",
+          "Grilled Chicken with Vegetables"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_032",
+      "image": "0007667705717.webp",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 62.3107,
+      "normalized": {
+        "recommendation": [
+          "Almond Flour Cookies",
+          "Oatmeal Chocolate Chip Cookies",
+          "Coconut Macaroons",
+          "Dark Chocolate Almond Bark"
+        ],
+        "mark": 0,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The product contains several ingredients that are not recommended for someone with prediabetes, particularly the high sugar content and the presence of soy, which the user is allergic to. It's important to avoid foods that can spike blood sugar levels and allergens. Therefore, this product is not suitable for your dietary needs."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 0,
+        "level": 3,
+        "feedback": "The product contains several ingredients that are not recommended for someone with prediabetes, particularly the high sugar content and the presence of soy, which the user is allergic to. It's important to avoid foods that can spike blood sugar levels and allergens. Therefore, this product is not suitable for your dietary needs.",
+        "recommendation": [
+          "Almond Flour Cookies",
+          "Oatmeal Chocolate Chip Cookies",
+          "Coconut Macaroons",
+          "Dark Chocolate Almond Bark"
+        ],
+        "detected_ingredients": [
+          "Wheat Flour",
+          "Semi-sweet Chocolate",
+          "Sugar",
+          "Vegetable Oil",
+          "Palm Oil",
+          "Palm Kernel Oil",
+          "Blackstrap Molasses",
+          "Salt",
+          "Dried Whole Eggs",
+          "Baking Soda",
+          "Natural Flavor",
+          "Artificial Flavor",
+          "Ammonium Bicarbonate",
+          "Modified Milk Ingredients",
+          "Soy Lecithin"
+        ]
+      }
+    },
+    {
+      "id": "case_034",
+      "image": "AdobeStock_389889678-scaled.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 62.8237,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_035",
+      "image": "images (2).jpg",
+      "chronics": [],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 63.0972,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_038",
+      "image": "download (2).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "latency_s": 67.2672,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_039",
+      "image": "download (4).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 68.3849,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_036",
+      "image": "Cheerios-nutrition-facts-1.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 71.9767,
+      "normalized": {
+        "recommendation": [
+          "Cheerios Original",
+          "Oatmeal",
+          "Rice Cakes",
+          "Almond Milk"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "The extracted label text is missing the ingredients information.",
+        "audit": null,
+        "feedback": "The ingredients for Honey Nut Cheerios were not found, which makes it difficult to assess its suitability for your dietary needs, especially considering your lactose intolerance and PCOS. Without knowing the specific ingredients, I cannot provide a reliable evaluation of this product. It's important to know what you're consuming to avoid any adverse reactions."
+      },
+      "raw": {
+        "code": 1,
+        "message": "The extracted label text is missing the ingredients information.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "The ingredients for Honey Nut Cheerios were not found, which makes it difficult to assess its suitability for your dietary needs, especially considering your lactose intolerance and PCOS. Without knowing the specific ingredients, I cannot provide a reliable evaluation of this product. It's important to know what you're consuming to avoid any adverse reactions.",
+        "recommendation": [
+          "Cheerios Original",
+          "Oatmeal",
+          "Rice Cakes",
+          "Almond Milk"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_037",
+      "image": "nutella nutrition facts.jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 73.5642,
+      "normalized": {
+        "recommendation": [
+          "Almond Milk Chocolate Spread",
+          "Coconut Cream Chocolate",
+          "Nut Butter Spread",
+          "Dark Chocolate Hazelnut Spread"
+        ],
+        "mark": 0,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The product contains skim milk and reduced minerals whey, both of which are dairy ingredients and can trigger lactose intolerance. Additionally, the high sugar content may not be ideal for someone with hypertension. It's important to choose alternatives that are lactose-free and lower in sugar to better manage your health conditions."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 0,
+        "level": 3,
+        "feedback": "The product contains skim milk and reduced minerals whey, both of which are dairy ingredients and can trigger lactose intolerance. Additionally, the high sugar content may not be ideal for someone with hypertension. It's important to choose alternatives that are lactose-free and lower in sugar to better manage your health conditions.",
+        "recommendation": [
+          "Almond Milk Chocolate Spread",
+          "Coconut Cream Chocolate",
+          "Nut Butter Spread",
+          "Dark Chocolate Hazelnut Spread"
+        ],
+        "detected_ingredients": [
+          "SUGAR",
+          "PALM OIL",
+          "HAZELNUTS",
+          "COCOA",
+          "SKIM MILK",
+          "REDUCED MINERALS WHEY",
+          "LECITHIN",
+          "VANILLIN"
+        ]
+      }
+    },
+    {
+      "id": "case_042",
+      "image": "download.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 74.5059,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_043",
+      "image": "download (1).jpg",
+      "chronics": [],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 75.5776,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_041",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 76.4783,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_040",
+      "image": "nutella nutrition facts.jpg",
+      "chronics": [],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 78.712,
+      "normalized": {
+        "recommendation": [
+          "Dark Chocolate",
+          "Nut Butter Spread",
+          "Greek Yogurt with Cocoa",
+          "Fruit and Nut Mix"
+        ],
+        "mark": 70,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The product contains several ingredients that may not be ideal for a balanced diet, such as sugar and palm oil. While it does include hazelnuts and cocoa, which can have some nutritional benefits, the overall composition leans towards being less healthy due to the high sugar content. It's important to consider moderation when consuming such products."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 70,
+        "level": 2,
+        "feedback": "The product contains several ingredients that may not be ideal for a balanced diet, such as sugar and palm oil. While it does include hazelnuts and cocoa, which can have some nutritional benefits, the overall composition leans towards being less healthy due to the high sugar content. It's important to consider moderation when consuming such products.",
+        "recommendation": [
+          "Dark Chocolate",
+          "Nut Butter Spread",
+          "Greek Yogurt with Cocoa",
+          "Fruit and Nut Mix"
+        ],
+        "detected_ingredients": [
+          "SUGAR",
+          "PALM OIL",
+          "HAZELNUTS",
+          "COCOA",
+          "SKIM MILK",
+          "REDUCED MINERALS WHEY (MILK)",
+          "LECITHIN AS EMULSIFIER (SOY)",
+          "VANILLIN"
+        ]
+      }
+    },
+    {
+      "id": "case_044",
+      "image": "download (5).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 79.6313,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_048",
+      "image": "images.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 84.3709,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_049",
+      "image": "download (2).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 84.4044,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_046",
+      "image": "00113_SL_ShrpChddr_Ecomm_CarouselNutrition__CompressedW10.png",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 86.4482,
+      "normalized": {
+        "recommendation": [
+          "Low-sodium cheese",
+          "Almond milk",
+          "Cottage cheese",
+          "Greek yogurt"
+        ],
+        "mark": 75,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The extracted food label indicates that the product contains pasteurized milk, cheese culture, salt, enzymes, and annatto. While these ingredients are generally safe for most individuals, those with hypertension should be cautious about the salt content. It is advisable to monitor sodium intake to manage blood pressure effectively. Overall, this product can be enjoyed in moderation."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 75,
+        "level": 1,
+        "feedback": "The extracted food label indicates that the product contains pasteurized milk, cheese culture, salt, enzymes, and annatto. While these ingredients are generally safe for most individuals, those with hypertension should be cautious about the salt content. It is advisable to monitor sodium intake to manage blood pressure effectively. Overall, this product can be enjoyed in moderation.",
+        "recommendation": [
+          "Low-sodium cheese",
+          "Almond milk",
+          "Cottage cheese",
+          "Greek yogurt"
+        ],
+        "detected_ingredients": [
+          "Pasteurized Milk",
+          "Cheese Culture",
+          "Salt",
+          "Enzymes",
+          "Annatto"
+        ]
+      }
+    },
+    {
+      "id": "case_045",
+      "image": "0007667705717.webp",
+      "chronics": [],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "latency_s": 89.2741,
+      "normalized": {
+        "recommendation": [
+          "Gluten-Free Chocolate Chip Cookies",
+          "Almond Flour Brownies",
+          "Coconut Flour Cookies"
+        ],
+        "mark": 0,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The product contains wheat flour and other ingredients that may trigger gluten allergies. It is important to avoid gluten-containing foods to prevent adverse reactions. Always check labels carefully for allergens, especially if you have a known allergy. Consider alternatives that are gluten-free to ensure safety and well-being."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 0,
+        "level": 3,
+        "feedback": "The product contains wheat flour and other ingredients that may trigger gluten allergies. It is important to avoid gluten-containing foods to prevent adverse reactions. Always check labels carefully for allergens, especially if you have a known allergy. Consider alternatives that are gluten-free to ensure safety and well-being.",
+        "recommendation": [
+          "Gluten-Free Chocolate Chip Cookies",
+          "Almond Flour Brownies",
+          "Coconut Flour Cookies"
+        ],
+        "detected_ingredients": [
+          "Wheat Flour",
+          "Semi-sweet Chocolate",
+          "Sugar",
+          "Vegetable Oil",
+          "Palm Oil",
+          "Blackstrap Molasses",
+          "Salt",
+          "Dried Whole Eggs",
+          "Baking Soda",
+          "Natural Flavor",
+          "Artificial Flavor",
+          "Ammonium Bicarbonate",
+          "Modified Milk Ingredients",
+          "Soy Lecithin"
+        ]
+      }
+    },
+    {
+      "id": "case_050",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 93.8794,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_051",
+      "image": "images.jpg",
+      "chronics": [],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 94.671,
+      "normalized": {
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Hummus",
+          "Brown Rice Bowl"
+        ],
+        "mark": 70,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutritional information provided indicates a product that is relatively high in added sugars and carbohydrates, which may not be ideal for a balanced diet. However, it does contain a moderate amount of fat and protein. Given your allergy to soy, it's important to ensure that the product does not contain any soy-derived ingredients, which are not listed here. Always check for hidden sources of allergens."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 70,
+        "level": 2,
+        "feedback": "The nutritional information provided indicates a product that is relatively high in added sugars and carbohydrates, which may not be ideal for a balanced diet. However, it does contain a moderate amount of fat and protein. Given your allergy to soy, it's important to ensure that the product does not contain any soy-derived ingredients, which are not listed here. Always check for hidden sources of allergens.",
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Hummus",
+          "Brown Rice Bowl"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_052",
+      "image": "Why-Do-Seafood-Labels-Matter.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 95.6246,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_047",
+      "image": "AdobeStock_389889678-scaled.webp",
+      "chronics": [],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "latency_s": 96.6962,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_054",
+      "image": "images.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 98.6549,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_053",
+      "image": "hq720.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 99.3003,
+      "normalized": {
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Hummus",
+          "Greek Yogurt with Berries"
+        ],
+        "mark": 85,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutritional information provided indicates a low-calorie food with minimal fat and no sugars, which is beneficial for managing prediabetes. However, it lacks dietary fiber and protein, which are important for blood sugar control. Overall, this product can be a part of a balanced diet, but consider pairing it with fiber-rich foods for better blood sugar management."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 85,
+        "level": 1,
+        "feedback": "The nutritional information provided indicates a low-calorie food with minimal fat and no sugars, which is beneficial for managing prediabetes. However, it lacks dietary fiber and protein, which are important for blood sugar control. Overall, this product can be a part of a balanced diet, but consider pairing it with fiber-rich foods for better blood sugar management.",
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Hummus",
+          "Greek Yogurt with Berries"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_056",
+      "image": "images.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 99.6341,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_060",
+      "image": "download (6).jpg",
+      "chronics": [],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "latency_s": 103.8535,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_055",
+      "image": "0007066240203.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 106.022,
+      "normalized": {
+        "recommendation": [
+          "Quinoa Salad",
+          "Grilled Chicken with Vegetables",
+          "Lentil Soup",
+          "Baked Salmon"
+        ],
+        "mark": 60,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutrition facts indicate a high sodium content, which may not be ideal for individuals with certain health conditions. Additionally, the saturated fat content is relatively high. However, the protein content is decent. It's important to consider these factors when making dietary choices, especially for managing PCOS. Overall, moderation is key."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 60,
+        "level": 2,
+        "feedback": "The nutrition facts indicate a high sodium content, which may not be ideal for individuals with certain health conditions. Additionally, the saturated fat content is relatively high. However, the protein content is decent. It's important to consider these factors when making dietary choices, especially for managing PCOS. Overall, moderation is key.",
+        "recommendation": [
+          "Quinoa Salad",
+          "Grilled Chicken with Vegetables",
+          "Lentil Soup",
+          "Baked Salmon"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_059",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 109.0717,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_057",
+      "image": "Cheerios-nutrition-facts-1.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 109.4675,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_062",
+      "image": "download (1).jpg",
+      "chronics": [],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 110.9601,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_063",
+      "image": "images (1).jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "latency_s": 114.3862,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_065",
+      "image": "images (1).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 115.9566,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_058",
+      "image": "nutella nutrition facts.jpg",
+      "chronics": [],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 116.7554,
+      "normalized": {
+        "recommendation": [
+          "Nutella Hazelnut Spread (Soy-Free)",
+          "SunButter Sunflower Spread",
+          "Almond Butter",
+          "Cocoa Almond Spread"
+        ],
+        "mark": 0,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The product contains soy lecithin, which is a known allergen for you. It's important to avoid any products that contain soy to prevent allergic reactions. Additionally, the ingredient list includes high sugar and fat content, which may not align with a healthy diet. Therefore, I recommend looking for alternatives that do not contain soy and have lower sugar and fat levels."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 0,
+        "level": 3,
+        "feedback": "The product contains soy lecithin, which is a known allergen for you. It's important to avoid any products that contain soy to prevent allergic reactions. Additionally, the ingredient list includes high sugar and fat content, which may not align with a healthy diet. Therefore, I recommend looking for alternatives that do not contain soy and have lower sugar and fat levels.",
+        "recommendation": [
+          "Nutella Hazelnut Spread (Soy-Free)",
+          "SunButter Sunflower Spread",
+          "Almond Butter",
+          "Cocoa Almond Spread"
+        ],
+        "detected_ingredients": [
+          "SUGAR",
+          "PALM OIL",
+          "HAZELNUTS",
+          "COCOA",
+          "SKIM MILK",
+          "REDUCED MINERALS WHEY (MILK)",
+          "LECITHIN AS EMULSIFIER (SOY)",
+          "VANILLIN"
+        ]
+      }
+    },
+    {
+      "id": "case_061",
+      "image": "nutella nutrition facts.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 118.5522,
+      "normalized": {
+        "recommendation": [
+          "Almond Butter",
+          "Coconut Oil",
+          "Dark Chocolate (70% cocoa or higher)"
+        ],
+        "mark": 60,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The product contains several ingredients that may not be ideal for someone with PCOS, such as sugar and palm oil, which can affect insulin levels. Additionally, it contains soy lecithin, which is a concern due to your allergy. It's important to choose products that are lower in sugar and free from allergens to better manage your condition."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 60,
+        "level": 2,
+        "feedback": "The product contains several ingredients that may not be ideal for someone with PCOS, such as sugar and palm oil, which can affect insulin levels. Additionally, it contains soy lecithin, which is a concern due to your allergy. It's important to choose products that are lower in sugar and free from allergens to better manage your condition.",
+        "recommendation": [
+          "Almond Butter",
+          "Coconut Oil",
+          "Dark Chocolate (70% cocoa or higher)"
+        ],
+        "detected_ingredients": [
+          "SUGAR",
+          "PALM OIL",
+          "HAZELNUTS",
+          "COCOA",
+          "SKIM MILK",
+          "REDUCED MINERALS WHEY (MILK)",
+          "LECITHIN AS EMULSIFIER (SOY)",
+          "VANILLIN"
+        ]
+      }
+    },
+    {
+      "id": "case_064",
+      "image": "hq720.jpg",
+      "chronics": [],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "latency_s": 120.9397,
+      "normalized": {
+        "recommendation": [
+          "Quinoa Salad",
+          "Brown Rice Bowl",
+          "Chickpea Salad"
+        ],
+        "mark": 80,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutritional information provided indicates a low-calorie option with minimal fat and no sugars, which can be beneficial for maintaining a balanced diet. However, it is important to consider the carbohydrate content, especially if you are monitoring your intake. Since you have a gluten allergy, ensure that the product does not contain any gluten-containing ingredients, which are not listed here."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 80,
+        "level": 1,
+        "feedback": "The nutritional information provided indicates a low-calorie option with minimal fat and no sugars, which can be beneficial for maintaining a balanced diet. However, it is important to consider the carbohydrate content, especially if you are monitoring your intake. Since you have a gluten allergy, ensure that the product does not contain any gluten-containing ingredients, which are not listed here.",
+        "recommendation": [
+          "Quinoa Salad",
+          "Brown Rice Bowl",
+          "Chickpea Salad"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_067",
+      "image": "download.jpg",
+      "chronics": [],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 121.4317,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_068",
+      "image": "Why-Do-Seafood-Labels-Matter.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 123.8996,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_066",
+      "image": "0007066240203.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 126.0594,
+      "normalized": {
+        "recommendation": [
+          "Quinoa Salad",
+          "Grilled Chicken with Vegetables",
+          "Lentil Soup",
+          "Chickpea Salad"
+        ],
+        "mark": 60,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutrition facts indicate a product that is relatively high in sodium and saturated fat, which may not be ideal for someone with PCOS. While it does provide some protein and iron, the overall nutritional profile suggests moderation is key. It's important to consider alternatives that are lower in sodium and saturated fat to better support your health."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 60,
+        "level": 2,
+        "feedback": "The nutrition facts indicate a product that is relatively high in sodium and saturated fat, which may not be ideal for someone with PCOS. While it does provide some protein and iron, the overall nutritional profile suggests moderation is key. It's important to consider alternatives that are lower in sodium and saturated fat to better support your health.",
+        "recommendation": [
+          "Quinoa Salad",
+          "Grilled Chicken with Vegetables",
+          "Lentil Soup",
+          "Chickpea Salad"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_071",
+      "image": "download.jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 127.2528,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_070",
+      "image": "Group-2998.png.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 129.1685,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_072",
+      "image": "Why-Do-Seafood-Labels-Matter.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 131.2709,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_069",
+      "image": "0007066240203.webp",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 136.5603,
+      "normalized": {
+        "recommendation": [
+          "Grilled chicken salad",
+          "Quinoa and black bean bowl",
+          "Baked salmon with vegetables"
+        ],
+        "mark": 60,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutrition facts indicate that this product is relatively high in sodium and saturated fat, which may not be ideal for someone with prediabetes. While it does provide some protein and iron, the overall nutritional profile suggests moderation is necessary. It's important to consider healthier alternatives that are lower in sodium and saturated fat to better manage blood sugar levels."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 60,
+        "level": 2,
+        "feedback": "The nutrition facts indicate that this product is relatively high in sodium and saturated fat, which may not be ideal for someone with prediabetes. While it does provide some protein and iron, the overall nutritional profile suggests moderation is necessary. It's important to consider healthier alternatives that are lower in sodium and saturated fat to better manage blood sugar levels.",
+        "recommendation": [
+          "Grilled chicken salad",
+          "Quinoa and black bean bowl",
+          "Baked salmon with vegetables"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_075",
+      "image": "nutrition-facts.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 137.3993,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_074",
+      "image": "Why-Do-Seafood-Labels-Matter.jpg",
+      "chronics": [],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 137.6463,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_078",
+      "image": "images (2).jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 143.0509,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_076",
+      "image": "0007066240203.webp",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 143.4426,
+      "normalized": {
+        "recommendation": [
+          "Quinoa Salad",
+          "Grilled Chicken with Vegetables",
+          "Brown Rice and Beans",
+          "Baked Sweet Potato"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "The extracted label text is readable, but it lacks specific ingredient details which are crucial for assessing suitability for the user.",
+        "audit": null,
+        "feedback": "While the nutrition facts provide some information, the absence of specific ingredients makes it difficult to determine if this product is safe for someone with hypertension and a soy allergy. High sodium content is concerning for hypertension, and without knowing the ingredients, I cannot ensure it is free from soy or other potential allergens."
+      },
+      "raw": {
+        "code": 1,
+        "message": "The extracted label text is readable, but it lacks specific ingredient details which are crucial for assessing suitability for the user.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "While the nutrition facts provide some information, the absence of specific ingredients makes it difficult to determine if this product is safe for someone with hypertension and a soy allergy. High sodium content is concerning for hypertension, and without knowing the ingredients, I cannot ensure it is free from soy or other potential allergens.",
+        "recommendation": [
+          "Quinoa Salad",
+          "Grilled Chicken with Vegetables",
+          "Brown Rice and Beans",
+          "Baked Sweet Potato"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_077",
+      "image": "download (6).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 144.487,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_073",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 145.4673,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_081",
+      "image": "download (6).jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 148.2385,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_079",
+      "image": "images (1).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 149.1063,
+      "normalized": {
+        "recommendation": [
+          "Greek yogurt",
+          "Quinoa salad",
+          "Chickpea stew"
+        ],
+        "mark": 70,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutrition label provided indicates a product with moderate calories and added sugars. While it contains some protein, the high amount of added sugars may not be ideal for someone managing thyroid health. It's important to focus on whole foods that support overall well-being and avoid excessive sugar intake."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 70,
+        "level": 2,
+        "feedback": "The nutrition label provided indicates a product with moderate calories and added sugars. While it contains some protein, the high amount of added sugars may not be ideal for someone managing thyroid health. It's important to focus on whole foods that support overall well-being and avoid excessive sugar intake.",
+        "recommendation": [
+          "Greek yogurt",
+          "Quinoa salad",
+          "Chickpea stew"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_082",
+      "image": "download (6).jpg",
+      "chronics": [],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 152.4678,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_084",
+      "image": "download (5).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 154.4678,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_083",
+      "image": "Group-2998.png.webp",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 156.8188,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_085",
+      "image": "Cheerios-nutrition-facts-1.jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 157.017,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_080",
+      "image": "0007667705717.webp",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "latency_s": 157.7407,
+      "normalized": {
+        "recommendation": [
+          "Almond Flour Cookies",
+          "Coconut Flour Brownies",
+          "Oatmeal Raisin Cookies",
+          "Dark Chocolate Bark"
+        ],
+        "mark": 60,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The ingredients list contains several components that may not be ideal for someone with thyroid issues, particularly the presence of soy and sugar. Additionally, the product contains allergens such as soy and may contain tree nuts, which could pose a risk for those with allergies. It's important to consider alternatives that are lower in sugar and free from soy to better align with your dietary needs."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 60,
+        "level": 2,
+        "feedback": "The ingredients list contains several components that may not be ideal for someone with thyroid issues, particularly the presence of soy and sugar. Additionally, the product contains allergens such as soy and may contain tree nuts, which could pose a risk for those with allergies. It's important to consider alternatives that are lower in sugar and free from soy to better align with your dietary needs.",
+        "recommendation": [
+          "Almond Flour Cookies",
+          "Coconut Flour Brownies",
+          "Oatmeal Raisin Cookies",
+          "Dark Chocolate Bark"
+        ],
+        "detected_ingredients": [
+          "Wheat Flour",
+          "Semi-sweet Chocolate",
+          "Sugar",
+          "Vegetable Oil",
+          "Palm Oil",
+          "Palm Kernel Oil",
+          "Blackstrap Molasses",
+          "Salt",
+          "Dried Whole Eggs",
+          "Baking Soda",
+          "Natural Flavor",
+          "Artificial Flavor",
+          "Ammonium Bicarbonate",
+          "Modified Milk Ingredients",
+          "Soy Lecithin"
+        ]
+      }
+    },
+    {
+      "id": "case_086",
+      "image": "Group-2998.png.webp",
+      "chronics": [],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 160.5108,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_089",
+      "image": "0007667705717.webp",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 172.4224,
+      "normalized": {
+        "recommendation": [
+          "Almond Flour Cookies",
+          "Coconut Flour Brownies",
+          "Sugar-Free Dark Chocolate",
+          "Oatmeal Raisin Cookies"
+        ],
+        "mark": 0,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The ingredients list includes several items that could negatively impact your health given your prediabetes and lactose allergy. The presence of sugar and modified milk ingredients is particularly concerning. It's important to avoid foods that can spike blood sugar levels and cause allergic reactions. Therefore, I recommend being cautious with this product."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 0,
+        "level": 3,
+        "feedback": "The ingredients list includes several items that could negatively impact your health given your prediabetes and lactose allergy. The presence of sugar and modified milk ingredients is particularly concerning. It's important to avoid foods that can spike blood sugar levels and cause allergic reactions. Therefore, I recommend being cautious with this product.",
+        "recommendation": [
+          "Almond Flour Cookies",
+          "Coconut Flour Brownies",
+          "Sugar-Free Dark Chocolate",
+          "Oatmeal Raisin Cookies"
+        ],
+        "detected_ingredients": [
+          "Wheat Flour",
+          "Semi-sweet Chocolate",
+          "Sugar",
+          "Vegetable Oil",
+          "Palm Oil",
+          "Blackstrap Molasses",
+          "Salt",
+          "Dried Whole Eggs",
+          "Baking Soda",
+          "Natural Flavor",
+          "Artificial Flavor",
+          "Ammonium Bicarbonate",
+          "Modified Milk Ingredients",
+          "Soy Lecithin"
+        ]
+      }
+    },
+    {
+      "id": "case_088",
+      "image": "nutrition-facts.jpg",
+      "chronics": [],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 173.6747,
+      "normalized": {
+        "recommendation": [
+          "Almond Milk Yogurt",
+          "Coconut Yogurt",
+          "Soy Yogurt"
+        ],
+        "mark": 85,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The extracted food label indicates a product that is relatively low in calories and contains a good amount of dietary fiber, which is beneficial for digestive health. The protein content is also decent, making it a filling option. However, it is important to ensure that the product does not contain lactose, given your allergy. Overall, this product appears to be a healthy choice."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 85,
+        "level": 1,
+        "feedback": "The extracted food label indicates a product that is relatively low in calories and contains a good amount of dietary fiber, which is beneficial for digestive health. The protein content is also decent, making it a filling option. However, it is important to ensure that the product does not contain lactose, given your allergy. Overall, this product appears to be a healthy choice.",
+        "recommendation": [
+          "Almond Milk Yogurt",
+          "Coconut Yogurt",
+          "Soy Yogurt"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_087",
+      "image": "nutella nutrition facts.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 174.8009,
+      "normalized": {
+        "recommendation": [
+          "Almond Butter",
+          "Coconut Cream",
+          "Dark Chocolate (dairy-free)",
+          "Nut-Based Spreads"
+        ],
+        "mark": 0,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The ingredients list includes skim milk and reduced minerals whey, both of which contain lactose. Since the user has a lactose allergy, these ingredients could cause adverse reactions. Additionally, the presence of sugar and palm oil may not align with dietary recommendations for managing PCOS. It's important to choose products that are free from lactose and lower in sugar to support overall health."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 0,
+        "level": 3,
+        "feedback": "The ingredients list includes skim milk and reduced minerals whey, both of which contain lactose. Since the user has a lactose allergy, these ingredients could cause adverse reactions. Additionally, the presence of sugar and palm oil may not align with dietary recommendations for managing PCOS. It's important to choose products that are free from lactose and lower in sugar to support overall health.",
+        "recommendation": [
+          "Almond Butter",
+          "Coconut Cream",
+          "Dark Chocolate (dairy-free)",
+          "Nut-Based Spreads"
+        ],
+        "detected_ingredients": [
+          "SUGAR",
+          "PALM OIL",
+          "HAZELNUTS",
+          "COCOA",
+          "SKIM MILK",
+          "REDUCED MINERALS WHEY",
+          "LECITHIN AS EMULSIFIER",
+          "VANILLIN"
+        ]
+      }
+    },
+    {
+      "id": "case_091",
+      "image": "AdobeStock_389889678-scaled.webp",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 177.0926,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_090",
+      "image": "nutella nutrition facts.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 177.5799,
+      "normalized": {
+        "recommendation": [
+          "Almond Butter",
+          "Coconut Cream",
+          "Dark Chocolate (dairy-free)",
+          "Nut-Based Spreads"
+        ],
+        "mark": 0,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The ingredients list includes sugar and skim milk, which may not be ideal for someone with prediabetes and lactose intolerance. It's important to avoid high-sugar foods and dairy products that can trigger allergic reactions. Consider looking for alternatives that are low in sugar and dairy-free to better align with your health goals."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 0,
+        "level": 3,
+        "feedback": "The ingredients list includes sugar and skim milk, which may not be ideal for someone with prediabetes and lactose intolerance. It's important to avoid high-sugar foods and dairy products that can trigger allergic reactions. Consider looking for alternatives that are low in sugar and dairy-free to better align with your health goals.",
+        "recommendation": [
+          "Almond Butter",
+          "Coconut Cream",
+          "Dark Chocolate (dairy-free)",
+          "Nut-Based Spreads"
+        ],
+        "detected_ingredients": [
+          "SUGAR",
+          "PALM OIL",
+          "HAZELNUTS",
+          "COCOA",
+          "SKIM MILK",
+          "REDUCED MINERALS WHEY",
+          "LECITHIN",
+          "VANILLIN"
+        ]
+      }
+    },
+    {
+      "id": "case_092",
+      "image": "images (2).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 178.9472,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_096",
+      "image": "download (1).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 183.388,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_094",
+      "image": "AdobeStock_389889678-scaled.webp",
+      "chronics": [],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "latency_s": 191.0575,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_095",
+      "image": "nutrition-facts.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 192.3942,
+      "normalized": {
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Stew",
+          "Lentil Soup"
+        ],
+        "mark": 85,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutritional information provided indicates a balanced profile with a good amount of dietary fiber and protein, which can be beneficial for managing blood sugar levels. The low sugar content is also favorable for someone with prediabetes. However, it's important to consider the overall meal context and portion sizes to ensure it fits within a healthy eating plan."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 85,
+        "level": 1,
+        "feedback": "The nutritional information provided indicates a balanced profile with a good amount of dietary fiber and protein, which can be beneficial for managing blood sugar levels. The low sugar content is also favorable for someone with prediabetes. However, it's important to consider the overall meal context and portion sizes to ensure it fits within a healthy eating plan.",
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Stew",
+          "Lentil Soup"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_097",
+      "image": "0007667705717.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 194.5019,
+      "normalized": {
+        "recommendation": [
+          "Almond Flour Cookies",
+          "Chickpea Flour Brownies",
+          "Oatmeal Raisin Cookies",
+          "Coconut Flour Muffins"
+        ],
+        "mark": 70,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The product contains several ingredients that may not be ideal for someone with PCOS, particularly due to the presence of refined sugars and wheat flour. These ingredients can potentially affect insulin levels and overall hormonal balance. It's important to consider alternatives that are lower in sugar and made with whole grains or alternative flours. Always consult with a healthcare provider for personalized advice."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 70,
+        "level": 2,
+        "feedback": "The product contains several ingredients that may not be ideal for someone with PCOS, particularly due to the presence of refined sugars and wheat flour. These ingredients can potentially affect insulin levels and overall hormonal balance. It's important to consider alternatives that are lower in sugar and made with whole grains or alternative flours. Always consult with a healthcare provider for personalized advice.",
+        "recommendation": [
+          "Almond Flour Cookies",
+          "Chickpea Flour Brownies",
+          "Oatmeal Raisin Cookies",
+          "Coconut Flour Muffins"
+        ],
+        "detected_ingredients": [
+          "Wheat Flour",
+          "Semi-sweet Chocolate",
+          "Sugar",
+          "Vegetable Oil",
+          "Palm Oil",
+          "Palm Kernel Oil",
+          "Blackstrap Molasses",
+          "Salt",
+          "Dried Whole Eggs",
+          "Baking Soda",
+          "Natural Flavor",
+          "Artificial Flavor",
+          "Ammonium Bicarbonate",
+          "Modified Milk Ingredients",
+          "Soy Lecithin"
+        ]
+      }
+    },
+    {
+      "id": "case_098",
+      "image": "0007667705717.webp",
+      "chronics": [],
+      "allergies": [],
+      "ok": true,
+      "latency_s": 196.9672,
+      "normalized": {
+        "recommendation": [
+          "Dark Chocolate Almonds",
+          "Oatmeal Cookies",
+          "Whole Wheat Banana Bread"
+        ],
+        "mark": 70,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The ingredients list indicates that this product contains wheat, soy, eggs, and milk, which are common allergens. While it may be suitable for some individuals, those with sensitivities to these ingredients should exercise caution. The presence of semi-sweet chocolate and added sugars may also be a concern for those monitoring their sugar intake. Overall, it is a moderately processed product with a mix of natural and artificial flavors."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 70,
+        "level": 2,
+        "feedback": "The ingredients list indicates that this product contains wheat, soy, eggs, and milk, which are common allergens. While it may be suitable for some individuals, those with sensitivities to these ingredients should exercise caution. The presence of semi-sweet chocolate and added sugars may also be a concern for those monitoring their sugar intake. Overall, it is a moderately processed product with a mix of natural and artificial flavors.",
+        "recommendation": [
+          "Dark Chocolate Almonds",
+          "Oatmeal Cookies",
+          "Whole Wheat Banana Bread"
+        ],
+        "detected_ingredients": [
+          "Wheat Flour",
+          "Semi-sweet Chocolate",
+          "Sugar",
+          "Vegetable Oil",
+          "Palm Oil",
+          "Palm Kernel Oil",
+          "Blackstrap Molasses",
+          "Salt",
+          "Dried Whole Eggs",
+          "Baking Soda",
+          "Natural Flavor",
+          "Artificial Flavor",
+          "Ammonium Bicarbonate",
+          "Modified Milk Ingredients",
+          "Soy Lecithin"
+        ]
+      }
+    },
+    {
+      "id": "case_093",
+      "image": "AdobeStock_389889678-scaled.webp",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "latency_s": 197.1989,
+      "normalized": {
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Stew",
+          "Brown Rice Bowl"
+        ],
+        "mark": 75,
+        "code": 0,
+        "message": "",
+        "audit": null,
+        "feedback": "The nutritional information provided indicates a low-calorie food with minimal fat and sugars, which can be suitable for someone with prediabetes. However, it is important to ensure that the food is gluten-free, as you have a gluten allergy. Always check for hidden gluten in processed foods."
+      },
+      "raw": {
+        "code": 0,
+        "message": "",
+        "mark": 75,
+        "level": 1,
+        "feedback": "The nutritional information provided indicates a low-calorie food with minimal fat and sugars, which can be suitable for someone with prediabetes. However, it is important to ensure that the food is gluten-free, as you have a gluten allergy. Always check for hidden gluten in processed foods.",
+        "recommendation": [
+          "Quinoa Salad",
+          "Chickpea Stew",
+          "Brown Rice Bowl"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_100",
+      "image": "download (2).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "latency_s": 198.4238,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_099",
+      "image": "download (5).jpg",
+      "chronics": [],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "latency_s": 199.2532,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "audit": null,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      "raw": {
+        "code": 1,
+        "message": "Ingredient list missing or unreadable.",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    }
+  ],
+  "summary": {
+    "scored_with_feedback_count": 24,
+    "unreadable_feedback_count": 64,
+    "scored_with_feedback_samples": [
+      {
+        "id": "case_009",
+        "image": "00113_SL_ShrpChddr_Ecomm_CarouselNutrition__CompressedW10.png",
+        "mark": 75.0,
+        "feedback": "The extracted ingredients indicate that this product primarily consists of dairy components, which can be suitable for many individuals. However, those with hypertension should be cautious about sodium intake, as salt is present. It's important to monitor overall dietary sodium levels. Since you have a peanut allergy, this product appears safe as it does not list peanuts as an ingredient."
+      },
+      {
+        "id": "case_010",
+        "image": "nutrition-facts.jpg",
+        "mark": 85.0,
+        "feedback": "The extracted nutrition facts indicate a balanced food option with a good amount of dietary fiber and protein, which can be beneficial for overall health. The low sodium and cholesterol levels are also positive aspects. However, it's important to consider the total carbohydrate content in relation to your thyroid condition. Always consult with a healthcare provider for personalized advice."
+      },
+      {
+        "id": "case_014",
+        "image": "hq720.jpg",
+        "mark": 70.0,
+        "feedback": "The nutritional information provided indicates a low-calorie option with minimal fat and no sugars, which can be beneficial for managing PCOS. However, the lack of protein and dietary fiber may not provide sufficient satiety or nutritional balance. It's important to consider incorporating more nutrient-dense foods that can help support overall health."
+      },
+      {
+        "id": "case_013",
+        "image": "0007667705717.webp",
+        "mark": 70.0,
+        "feedback": "The ingredients list indicates that this product contains wheat, soy, eggs, and milk, which may not be suitable for everyone, especially those with specific dietary restrictions. Additionally, the presence of sugar and oils may not align with dietary recommendations for managing PCOS. It's important to consider these factors when making food choices."
+      },
+      {
+        "id": "case_022",
+        "image": "hq720.jpg",
+        "mark": 70.0,
+        "feedback": "The nutritional information provided indicates a low-calorie food with minimal fat and no sugars, which can be beneficial for maintaining a balanced diet. However, it lacks protein and dietary fiber, which are important for overall health, especially for someone with thyroid concerns. It's advisable to incorporate foods that provide these nutrients to support your dietary needs."
+      },
+      {
+        "id": "case_026",
+        "image": "AdobeStock_389889678-scaled.webp",
+        "mark": 75.0,
+        "feedback": "The nutrition facts provided indicate a low-fat and low-sodium product, which is generally suitable for someone with hypertension. However, the absence of detailed ingredient information makes it difficult to fully assess its suitability, especially considering your soy allergy. It's important to ensure that no soy products are included in the ingredients list."
+      },
+      {
+        "id": "case_028",
+        "image": "0007667705717.webp",
+        "mark": 70.0,
+        "feedback": "The product contains several ingredients that may not be ideal for someone with PCOS, such as refined sugars and wheat flour. While it does include some fats and proteins, the overall nutritional profile may not support hormonal balance effectively. It's important to consider alternatives that are lower in sugar and refined carbohydrates."
+      },
+      {
+        "id": "case_033",
+        "image": "download (3).jpg",
+        "mark": 75.0,
+        "feedback": "The nutritional information provided indicates a moderate level of calories and fat, which may be suitable for someone managing PCOS. However, the balance of macronutrients could be improved, particularly with higher protein and fiber content. It's important to consider the overall dietary pattern rather than just individual foods."
+      },
+      {
+        "id": "case_040",
+        "image": "nutella nutrition facts.jpg",
+        "mark": 70.0,
+        "feedback": "The product contains several ingredients that may not be ideal for a balanced diet, such as sugar and palm oil. While it does include hazelnuts and cocoa, which can have some nutritional benefits, the overall composition leans towards being less healthy due to the high sugar content. It's important to consider moderation when consuming such products."
+      },
+      {
+        "id": "case_046",
+        "image": "00113_SL_ShrpChddr_Ecomm_CarouselNutrition__CompressedW10.png",
+        "mark": 75.0,
+        "feedback": "The extracted food label indicates that the product contains pasteurized milk, cheese culture, salt, enzymes, and annatto. While these ingredients are generally safe for most individuals, those with hypertension should be cautious about the salt content. It is advisable to monitor sodium intake to manage blood pressure effectively. Overall, this product can be enjoyed in moderation."
+      },
+      {
+        "id": "case_051",
+        "image": "images.jpg",
+        "mark": 70.0,
+        "feedback": "The nutritional information provided indicates a product that is relatively high in added sugars and carbohydrates, which may not be ideal for a balanced diet. However, it does contain a moderate amount of fat and protein. Given your allergy to soy, it's important to ensure that the product does not contain any soy-derived ingredients, which are not listed here. Always check for hidden sources of allergens."
+      },
+      {
+        "id": "case_053",
+        "image": "hq720.jpg",
+        "mark": 85.0,
+        "feedback": "The nutritional information provided indicates a low-calorie food with minimal fat and no sugars, which is beneficial for managing prediabetes. However, it lacks dietary fiber and protein, which are important for blood sugar control. Overall, this product can be a part of a balanced diet, but consider pairing it with fiber-rich foods for better blood sugar management."
+      },
+      {
+        "id": "case_055",
+        "image": "0007066240203.webp",
+        "mark": 60.0,
+        "feedback": "The nutrition facts indicate a high sodium content, which may not be ideal for individuals with certain health conditions. Additionally, the saturated fat content is relatively high. However, the protein content is decent. It's important to consider these factors when making dietary choices, especially for managing PCOS. Overall, moderation is key."
+      },
+      {
+        "id": "case_061",
+        "image": "nutella nutrition facts.jpg",
+        "mark": 60.0,
+        "feedback": "The product contains several ingredients that may not be ideal for someone with PCOS, such as sugar and palm oil, which can affect insulin levels. Additionally, it contains soy lecithin, which is a concern due to your allergy. It's important to choose products that are lower in sugar and free from allergens to better manage your condition."
+      },
+      {
+        "id": "case_064",
+        "image": "hq720.jpg",
+        "mark": 80.0,
+        "feedback": "The nutritional information provided indicates a low-calorie option with minimal fat and no sugars, which can be beneficial for maintaining a balanced diet. However, it is important to consider the carbohydrate content, especially if you are monitoring your intake. Since you have a gluten allergy, ensure that the product does not contain any gluten-containing ingredients, which are not listed here."
+      },
+      {
+        "id": "case_066",
+        "image": "0007066240203.webp",
+        "mark": 60.0,
+        "feedback": "The nutrition facts indicate a product that is relatively high in sodium and saturated fat, which may not be ideal for someone with PCOS. While it does provide some protein and iron, the overall nutritional profile suggests moderation is key. It's important to consider alternatives that are lower in sodium and saturated fat to better support your health."
+      },
+      {
+        "id": "case_069",
+        "image": "0007066240203.webp",
+        "mark": 60.0,
+        "feedback": "The nutrition facts indicate that this product is relatively high in sodium and saturated fat, which may not be ideal for someone with prediabetes. While it does provide some protein and iron, the overall nutritional profile suggests moderation is necessary. It's important to consider healthier alternatives that are lower in sodium and saturated fat to better manage blood sugar levels."
+      },
+      {
+        "id": "case_079",
+        "image": "images (1).jpg",
+        "mark": 70.0,
+        "feedback": "The nutrition label provided indicates a product with moderate calories and added sugars. While it contains some protein, the high amount of added sugars may not be ideal for someone managing thyroid health. It's important to focus on whole foods that support overall well-being and avoid excessive sugar intake."
+      },
+      {
+        "id": "case_080",
+        "image": "0007667705717.webp",
+        "mark": 60.0,
+        "feedback": "The ingredients list contains several components that may not be ideal for someone with thyroid issues, particularly the presence of soy and sugar. Additionally, the product contains allergens such as soy and may contain tree nuts, which could pose a risk for those with allergies. It's important to consider alternatives that are lower in sugar and free from soy to better align with your dietary needs."
+      },
+      {
+        "id": "case_088",
+        "image": "nutrition-facts.jpg",
+        "mark": 85.0,
+        "feedback": "The extracted food label indicates a product that is relatively low in calories and contains a good amount of dietary fiber, which is beneficial for digestive health. The protein content is also decent, making it a filling option. However, it is important to ensure that the product does not contain lactose, given your allergy. Overall, this product appears to be a healthy choice."
+      }
+    ],
+    "unreadable_feedback_samples": [
+      {
+        "id": "case_002",
+        "image": "download (1).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_005",
+        "image": "download (2).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_001",
+        "image": "images (2).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_004",
+        "image": "download.jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_003",
+        "image": "download (4).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_007",
+        "image": "download (6).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_006",
+        "image": "download (5).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_008",
+        "image": "Group-2998.png.webp",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_011",
+        "image": "download (5).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to gluten, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_012",
+        "image": "download.jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_015",
+        "image": "download (2).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given pcos, and possible sensitivity to lactose, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_016",
+        "image": "download (1).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_020",
+        "image": "download (3).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_021",
+        "image": "download (6).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given hypertension, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_019",
+        "image": "download (5).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_018",
+        "image": "Cheerios-nutrition-facts-1.jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given your health goals, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_023",
+        "image": "download (2).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_027",
+        "image": "images.jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to known allergens, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_029",
+        "image": "download (6).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given prediabetes, and possible sensitivity to peanut, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      },
+      {
+        "id": "case_031",
+        "image": "download (6).jpg",
+        "mark": 0,
+        "code": 1,
+        "feedback": "I could not read the full ingredient list clearly. Given thyroid, and possible sensitivity to soy, please upload a clearer ingredient-label photo or provide the ingredients in text so I can score this safely."
+      }
+    ]
+  },
+  "metrics": {
+    "n": 100,
+    "concurrency": 5,
+    "per_call_timeout_s": 45.0,
+    "fail_calls": 0,
+    "timeout_calls": 0,
+    "success_calls": 32,
+    "expected_fail_calls": 68,
+    "total_returned": 100,
+    "success_rate": 0.32,
+    "expected_fail_rate": 0.68,
+    "scored_with_feedback_count": 24,
+    "unreadable_feedback_count": 64,
+    "avg_latency_s": 95.6616739989999,
+    "p50_latency_s": 94.67097800000192,
+    "p95_latency_s": 192.3942360000001,
+    "min_success_rate": 0.6,
+    "max_p95_latency_s": null
+  }
+}

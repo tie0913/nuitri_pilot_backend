@@ -1,0 +1,3219 @@
+{
+  "failures": [],
+  "results": [
+    {
+      "id": "case_001",
+      "image": "images (2).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_002",
+      "image": "download (1).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_003",
+      "image": "download (2).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_004",
+      "image": "download (6).jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_005",
+      "image": "00113_SL_ShrpChddr_Ecomm_CarouselNutrition__CompressedW10.png",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_006",
+      "image": "download.jpg",
+      "chronics": [],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_007",
+      "image": "0007667705717.webp",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_008",
+      "image": "download (1).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_009",
+      "image": "download (5).jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_010",
+      "image": "hq720.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_011",
+      "image": "Cheerios-nutrition-facts-1.jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_012",
+      "image": "images.jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_013",
+      "image": "download (6).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_014",
+      "image": "0007667705717.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_015",
+      "image": "images (2).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_016",
+      "image": "download (2).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_017",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_018",
+      "image": "download (5).jpg",
+      "chronics": [],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_019",
+      "image": "00113_SL_ShrpChddr_Ecomm_CarouselNutrition__CompressedW10.png",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_020",
+      "image": "download (2).jpg",
+      "chronics": [],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_021",
+      "image": "Why-Do-Seafood-Labels-Matter.jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_022",
+      "image": "images.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_023",
+      "image": "images.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_024",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_025",
+      "image": "download (1).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_026",
+      "image": "images (1).jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_027",
+      "image": "Why-Do-Seafood-Labels-Matter.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_028",
+      "image": "Group-2998.png.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_029",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_030",
+      "image": "0007066240203.webp",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_031",
+      "image": "images (1).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_032",
+      "image": "download (6).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_033",
+      "image": "download (5).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_034",
+      "image": "nutella nutrition facts.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_035",
+      "image": "nutella nutrition facts.jpg",
+      "chronics": [],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_036",
+      "image": "AdobeStock_389889678-scaled.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_037",
+      "image": "download (1).jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_038",
+      "image": "0007667705717.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_039",
+      "image": "download (2).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_040",
+      "image": "images (1).jpg",
+      "chronics": [],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_041",
+      "image": "0007667705717.webp",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_042",
+      "image": "download (3).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_043",
+      "image": "download (1).jpg",
+      "chronics": [],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_044",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_045",
+      "image": "Why-Do-Seafood-Labels-Matter.jpg",
+      "chronics": [],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_046",
+      "image": "download (1).jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_047",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_048",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_049",
+      "image": "download (1).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_050",
+      "image": "images (1).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_051",
+      "image": "0007066240203.webp",
+      "chronics": [],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_052",
+      "image": "00113_SL_ShrpChddr_Ecomm_CarouselNutrition__CompressedW10.png",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_053",
+      "image": "00113_SL_ShrpChddr_Ecomm_CarouselNutrition__CompressedW10.png",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_054",
+      "image": "AdobeStock_389889678-scaled.webp",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_055",
+      "image": "nutella nutrition facts.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_056",
+      "image": "download (4).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_057",
+      "image": "download.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_058",
+      "image": "images (1).jpg",
+      "chronics": [],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_059",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_060",
+      "image": "images (1).jpg",
+      "chronics": [],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_061",
+      "image": "images.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_062",
+      "image": "0007066240203.webp",
+      "chronics": [],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_063",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_064",
+      "image": "download.jpg",
+      "chronics": [],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_065",
+      "image": "images (2).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_066",
+      "image": "hq720.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_067",
+      "image": "download (6).jpg",
+      "chronics": [],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_068",
+      "image": "download (5).jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_069",
+      "image": "AdobeStock_389889678-scaled.webp",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_070",
+      "image": "nutrition-facts.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_071",
+      "image": "Group-2998.png.webp",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_072",
+      "image": "real-simple-mushroom-black-bean-burgers-recipe-0c365277d4294e6db2daa3353d6ff605.webp",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_073",
+      "image": "download (1).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_074",
+      "image": "images.jpg",
+      "chronics": [],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_075",
+      "image": "download (4).jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_076",
+      "image": "images (2).jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_077",
+      "image": "real-simple-mushroom-black-bean-burgers-recipe-0c365277d4294e6db2daa3353d6ff605.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_078",
+      "image": "real-simple-mushroom-black-bean-burgers-recipe-0c365277d4294e6db2daa3353d6ff605.webp",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_079",
+      "image": "Group-2998.png.webp",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_080",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "peanut"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_081",
+      "image": "download (3).jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_082",
+      "image": "download (2).jpg",
+      "chronics": [],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_083",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_084",
+      "image": "Cheerios-nutrition-facts-1.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_085",
+      "image": "Cheerios-nutrition-facts-1.jpg",
+      "chronics": [
+        "hypertension"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_086",
+      "image": "Cheerios-nutrition-facts-1.jpg",
+      "chronics": [],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_087",
+      "image": "nutrition-facts.jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_088",
+      "image": "download (5).jpg",
+      "chronics": [],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_089",
+      "image": "hq720.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_090",
+      "image": "Why-Do-Seafood-Labels-Matter.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_091",
+      "image": "real-simple-mushroom-black-bean-burgers-recipe-0c365277d4294e6db2daa3353d6ff605.webp",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_092",
+      "image": "Why-Do-Seafood-Labels-Matter.jpg",
+      "chronics": [
+        "thyroid"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_093",
+      "image": "nutella nutrition facts.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_094",
+      "image": "download (4).jpg",
+      "chronics": [],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_095",
+      "image": "new-york-style-pizza2.jpg",
+      "chronics": [
+        "prediabetes"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_096",
+      "image": "images (2).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "lactose"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_097",
+      "image": "images (2).jpg",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_098",
+      "image": "download (1).jpg",
+      "chronics": [],
+      "allergies": [],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_099",
+      "image": "0007667705717.webp",
+      "chronics": [],
+      "allergies": [
+        "soy"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    },
+    {
+      "id": "case_100",
+      "image": "AdobeStock_389889678-scaled.webp",
+      "chronics": [
+        "pcos"
+      ],
+      "allergies": [
+        "gluten"
+      ],
+      "ok": true,
+      "normalized": {
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "mark": 0,
+        "audit": null
+      },
+      "raw": {
+        "code": 1,
+        "message": "Unable to process image: BadRequestError",
+        "mark": 0,
+        "level": 3,
+        "feedback": "I couldn't confidently read the ingredient list from the image. Please upload a clearer photo (good lighting, flat label, no glare) or paste the ingredient list as text so I can check for allergens and provide safer advice.",
+        "recommendation": [
+          "Greek salad",
+          "Vegetable soup",
+          "Oatmeal with fruit"
+        ],
+        "detected_ingredients": []
+      }
+    }
+  ]
+}
