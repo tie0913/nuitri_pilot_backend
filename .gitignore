@@ -32,6 +32,8 @@ Thumbs.db
 .mypy_cache/
 .coverage
 htmlcov/
+test_reports/
+tests/ai_eval/runs/
 
 # Jupyter (if ever used)
 .ipynb_checkpoints/

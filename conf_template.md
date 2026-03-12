@@ -34,3 +34,19 @@ MONGO_DEFAILT_REPLICA_SET_NAME=
 # OPENAI PARAM
 OPEN_AI_MODEL="gpt-4o-mini"
 OPEN_AI_API_KEY=
+OPEN_AI_TIMEOUT_S=15
+OPEN_AI_MAX_RETRIES=0
+OPEN_AI_TOTAL_TIMEOUT_S=50
+
+# Optional AI client overrides
+AI_MODEL="gpt-4o-mini"
+AI_TIMEOUT_SECONDS=30
+AI_TEMPERATURE=0
+
+# AI audit policy
+# 1 = fail-closed for code=1 outputs, 0 = do not auto-fail code=1 in audit
+AI_AUDIT_FAIL_CODE1=1
+# 1 = require grounded feedback terms, 0 = disable grounded-feedback check
+AI_AUDIT_REQUIRE_GROUNDED_FEEDBACK=1
+# minimum feedback words for successful (code=0) outputs
+AI_AUDIT_MIN_FEEDBACK_WORDS=20
