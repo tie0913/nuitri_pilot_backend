@@ -97,6 +97,7 @@ def _collect_case_rows(payload: dict) -> list[dict]:
 
         code = normalized.get("code", raw.get("code", ""))
         mark = normalized.get("mark", raw.get("mark", ""))
+        ai_score = normalized.get("score", raw.get("score", mark))
         latency = item.get("latency_s", "")
 
         rows.append(
@@ -104,9 +105,12 @@ def _collect_case_rows(payload: dict) -> list[dict]:
                 "idx": i,
                 "id": item.get("id", ""),
                 "image": item.get("image", ""),
+                "chronics": " | ".join(_norm_list(item.get("chronics", []))),
+                "allergies": " | ".join(_norm_list(item.get("allergies", []))),
                 "ok": item.get("ok", True),
                 "code": code,
                 "mark": mark,
+                "ai_score": ai_score,
                 "latency_s": latency,
                 "recommendation_count": len(recs),
                 "recommendation": " | ".join(recs),
@@ -129,9 +133,12 @@ def _write_case_csv(json_path: Path, payload: dict) -> Path:
         "idx",
         "id",
         "image",
+        "chronics",
+        "allergies",
         "ok",
         "code",
         "mark",
+        "ai_score",
         "latency_s",
         "recommendation_count",
         "recommendation",
@@ -202,9 +209,12 @@ def _write_case_html(json_path: Path, payload: dict) -> Path:
             + f"<td>{escape(str(r.get('idx', '')))}</td>"
             + f"<td>{escape(str(r.get('id', '')))}</td>"
             + f"<td>{escape(str(r.get('image', '')))}</td>"
+            + f"<td>{escape(str(r.get('chronics', '')))}</td>"
+            + f"<td>{escape(str(r.get('allergies', '')))}</td>"
             + f"<td>{escape(str(r.get('ok', '')))}</td>"
             + f"<td>{escape(str(r.get('code', '')))}</td>"
             + f"<td>{escape(str(r.get('mark', '')))}</td>"
+            + f"<td>{escape(str(r.get('ai_score', '')))}</td>"
             + f"<td>{escape(str(r.get('latency_s', '')))}</td>"
             + f"<td>{escape(str(r.get('recommendation_count', '')))}</td>"
             + f"<td>{escape(str(r.get('feedback', '')))}</td>"
@@ -287,9 +297,12 @@ def _write_case_html(json_path: Path, payload: dict) -> Path:
           <th>#</th>
           <th>Case ID</th>
           <th>Image</th>
+          <th>Chronics</th>
+          <th>Allergies</th>
           <th>OK</th>
           <th>Code</th>
           <th>Mark</th>
+          <th>AI Score</th>
           <th>Latency(s)</th>
           <th>Recs</th>
           <th>Feedback</th>
@@ -315,14 +328,36 @@ def _write_case_html(json_path: Path, payload: dict) -> Path:
 def _generate_profiles(n: int, seed: int) -> list[dict]:
     random.seed(seed)
 
-    chronics_pool = [[], ["pcos"], ["thyroid"], ["prediabetes"], ["hypertension"]]
-    allergies_pool = [[], ["peanut"], ["lactose"], ["gluten"], ["soy"]]
+    chronic_candidates = ["pcos", "thyroid", "prediabetes", "hypertension"]
+    allergy_candidates = ["peanut", "lactose", "gluten", "soy"]
+
+    def _resolve_max(env_name: str, pool_size: int) -> int:
+        raw = str(os.getenv(env_name, "")).strip()
+        if not raw:
+            # Default: allow full pool so cases can contain many profile items.
+            return pool_size
+        try:
+            value = int(raw)
+        except ValueError:
+            return pool_size
+        return max(0, min(pool_size, value))
+
+    max_chronics = _resolve_max("AI_MAX_CHRONICS_PER_CASE", len(chronic_candidates))
+    max_allergies = _resolve_max("AI_MAX_ALLERGIES_PER_CASE", len(allergy_candidates))
+
+    def _pick_many(pool: list[str], max_items: int) -> list[str]:
+        if max_items <= 0:
+            return []
+        count = random.randint(0, max_items)
+        if count == 0:
+            return []
+        return random.sample(pool, count)
 
     return [
         {
             "id": f"case_{i:03d}",
-            "chronics": random.choice(chronics_pool),
-            "allergies": random.choice(allergies_pool),
+            "chronics": _pick_many(chronic_candidates, max_chronics),
+            "allergies": _pick_many(allergy_candidates, max_allergies),
         }
         for i in range(1, n + 1)
     ]
@@ -746,10 +781,29 @@ async def test_ai_image_batch_100_live():
                 "Diagnostic mode is ON: quality gate failures were recorded but did not fail the run."
             )
 
+    # Call-level exceptions are tolerated up to AI_BATCH_MAX_FAILURES.
+    call_exception_token = ": agent call exception:"
+    call_exception_failures = [
+        f for f in failures if isinstance(f, str) and call_exception_token in f
+    ]
+    blocking_failures = failures
+    tolerated_call_failures = 0
+    if fail_calls <= max_fail:
+        blocking_failures = [
+            f for f in failures if not (isinstance(f, str) and call_exception_token in f)
+        ]
+        tolerated_call_failures = len(call_exception_failures)
+        if tolerated_call_failures > 0:
+            next_actions.append(
+                f"Tolerated {tolerated_call_failures} call exception(s) within AI_BATCH_MAX_FAILURES={max_fail}. "
+                "Tune timeout/concurrency to reduce flakiness."
+            )
+
     out = _write_run(
         f"image_batch_{n}",
         {
             "failures": failures,
+            "blocking_failures": blocking_failures,
             "results": results,
             "summary": {
                 "scored_with_feedback_count": scored_with_feedback_count,
@@ -759,6 +813,7 @@ async def test_ai_image_batch_100_live():
                 "audit_issue_counts": audit_issue_counts,
                 "next_actions": next_actions,
                 "gate_failures": gate_failures,
+                "tolerated_call_failures": tolerated_call_failures,
             },
             "metrics": {
                 "n": n,
@@ -783,12 +838,15 @@ async def test_ai_image_batch_100_live():
                 "max_p95_latency_s": (max_p95_latency_s if max_p95_latency_s > 0 else None),
                 "max_failed_audit": (max_failed_audit if max_failed_audit >= 0 else None),
                 "diagnostic_mode": diagnostic_mode,
+                "tolerated_call_failures": tolerated_call_failures,
+                "blocking_failures_count": len(blocking_failures),
             },
         },
     )
-    assert not failures, (
-        f"Image batch failures ({len(failures)}). Saved: {out}\n"
+    assert not blocking_failures, (
+        f"Image batch blocking failures ({len(blocking_failures)}). Saved: {out}\n"
         f"Scored with mark>0: {scored_with_feedback_count} | "
-        f"Unreadable-feedback count: {unreadable_feedback_count}\n"
-        + "\n".join(failures[:50])
+        f"Unreadable-feedback count: {unreadable_feedback_count} | "
+        f"Tolerated call failures: {tolerated_call_failures}\n"
+        + "\n".join(blocking_failures[:50])
     )

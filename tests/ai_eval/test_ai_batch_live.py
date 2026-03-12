@@ -47,20 +47,30 @@ def _write_run(tag: str, payload: dict) -> Path:
 def _generate_profiles(n: int, seed: int) -> list[dict]:
     random.seed(seed)
 
-    chronics_pool = [
-        [],
-        ["pcos"],
-        ["thyroid"],
-        ["prediabetes"],
-        ["hypertension"],
-    ]
-    allergies_pool = [
-        [],
-        ["peanut"],
-        ["lactose"],
-        ["gluten"],
-        ["soy"],
-    ]
+    chronic_candidates = ["pcos", "thyroid", "prediabetes", "hypertension"]
+    allergy_candidates = ["peanut", "lactose", "gluten", "soy"]
+
+    def _resolve_max(env_name: str, pool_size: int) -> int:
+        raw = str(os.getenv(env_name, "")).strip()
+        if not raw:
+            # Default: allow full pool so cases can contain many profile items.
+            return pool_size
+        try:
+            value = int(raw)
+        except ValueError:
+            return pool_size
+        return max(0, min(pool_size, value))
+
+    max_chronics = _resolve_max("AI_MAX_CHRONICS_PER_CASE", len(chronic_candidates))
+    max_allergies = _resolve_max("AI_MAX_ALLERGIES_PER_CASE", len(allergy_candidates))
+
+    def _pick_many(pool: list[str], max_items: int) -> list[str]:
+        if max_items <= 0:
+            return []
+        count = random.randint(0, max_items)
+        if count == 0:
+            return []
+        return random.sample(pool, count)
     goals = [
         "Analyze this food photo and suggest if it's suitable for me.",
         "Give healthier alternatives and portion guidance for this meal.",
@@ -76,8 +86,8 @@ def _generate_profiles(n: int, seed: int) -> list[dict]:
                 "id": f"case_{i:03d}",
                 "goal": random.choice(goals),
                 "user_profile": {
-                    "chronics": random.choice(chronics_pool),
-                    "allergies": random.choice(allergies_pool),
+                    "chronics": _pick_many(chronic_candidates, max_chronics),
+                    "allergies": _pick_many(allergy_candidates, max_allergies),
                 },
             }
         )
