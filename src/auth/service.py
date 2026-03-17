@@ -55,7 +55,7 @@ class AuthService:
         user_repo = UserRepository(self.db)
 
         otp_record = await otp_repo.get_otp_by_email_and_bus_id(email, bus_id=biz_id)
-        if otp_record is None:
+        if otp_record is None and biz_id == AUTH_SERVICE_FORGET_PASSWORD_BUS_ID:
             return (1, 'otp has expired')
         elif otp_record['otp'] != otp:
             return (2, 'otp is invalid')
@@ -91,7 +91,7 @@ class AuthService:
 
         prev_otp = await otp_repo.get_otp_by_email_and_bus_id(email=email, bus_id=biz_id)
 
-        if user is None:
+        if user is None and biz_id == AUTH_SERVICE_FORGET_PASSWORD_BUS_ID:
             return (1, "We cannot send OTP to this mailbox")
         elif prev_otp is not None:
             user_timezone = get_ctx().timezone
@@ -119,7 +119,7 @@ class AuthService:
                 return (1, "saving otp code has error")
         else:
             print('unkown biz id ')
-            return (1, "unknown biz id" + str(biz_id))
+            return (1, "unknown operation code")
 
     @classmethod
     def get_email_title(cls, biz_id) -> str:
