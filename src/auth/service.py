@@ -93,11 +93,11 @@ class AuthService:
         if user is None and biz_id == AUTH_SERVICE_FORGET_PASSWORD_BUS_ID:
             return (1, "We cannot send OTP to this mailbox")
         elif user is not None and biz_id == AUTH_SERVICE_SIGN_UP_BUS_ID:
-            return (1, "This email has been registed")
+            return (1, "We cannot send OTP to this mailbox")
         elif prev_otp is not None:
             user_timezone = get_ctx().timezone
             expire_at_user_local = prev_otp['expire_at'].astimezone(ZoneInfo(user_timezone))
-            return (1, f"You have sent an email before,\n don't send email again before {format_time(expire_at_user_local)}")
+            return (0, f"You have sent an OTP, you may use it before {format_time(expire_at_user_local)}")
         elif biz_id in REQUEST_OTP_ALLOWED_LIST:
             print('----------------------Here is Sending OTP-----------------')
             otp = generate_otp(6)
