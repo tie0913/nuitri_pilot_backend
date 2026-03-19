@@ -78,7 +78,6 @@ class AuthService:
                     await with_txn(self.db, delete_otp_and_create_user)
                     return (0, 'signing up succeed')
             except Exception as e:
-                print(e)
                 return (3, 'reset password has error')
 
 
@@ -93,6 +92,8 @@ class AuthService:
 
         if user is None and biz_id == AUTH_SERVICE_FORGET_PASSWORD_BUS_ID:
             return (1, "We cannot send OTP to this mailbox")
+        elif user is not None and biz_id == AUTH_SERVICE_SIGN_UP_BUS_ID:
+            return (1, "This email has been registed")
         elif prev_otp is not None:
             user_timezone = get_ctx().timezone
             expire_at_user_local = prev_otp['expire_at'].astimezone(ZoneInfo(user_timezone))
@@ -134,7 +135,7 @@ class AuthService:
     def get_email(cls, otp, expireAt, biz_id) -> str:
         reason = ""
         if biz_id == AUTH_SERVICE_FORGET_PASSWORD_BUS_ID:
-            reason = "Resetting Password"
+            reason = "Reseting Password"
         elif biz_id == AUTH_SERVICE_SIGN_UP_BUS_ID:
             reason = "Signing Up"
         else:
