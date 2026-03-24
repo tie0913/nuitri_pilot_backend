@@ -41,7 +41,7 @@ class OpenAIAgent(AIAgent):
             model=config.OPEN_AI_MODEL,
             messages=messages,
             temperature=0,
-            max_tokens=500,
+            max_completion_tokens=500,
             response_format={"type":"json_object"}
         )
 

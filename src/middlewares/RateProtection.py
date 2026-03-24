@@ -19,6 +19,7 @@ class RateProtection(BaseHTTPMiddleware):
         key = request.url.path + str(get_ctx().user_id)
         need_rate_control = request.url.path in self.path_dict
         start_at = datetime.now(timezone.utc)
+        locked = False
         try:
             if need_rate_control:
                 locked = await cooldown.lock(key=key, start_at=start_at)
@@ -31,5 +32,5 @@ class RateProtection(BaseHTTPMiddleware):
                     )
             return await call_next(request)
         finally:
-            if need_rate_control:
+            if need_rate_control and locked:
                 await cooldown.release(key=key, start_at=start_at, now=datetime.now(timezone.utc), cd=30);
