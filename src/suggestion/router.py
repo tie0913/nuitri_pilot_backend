@@ -16,19 +16,22 @@ async def ask_for_suggesstion(img:UploadFile=File(...), suggestion_service:Sugge
     enter_t = datetime.now().astimezone()
 
     logger = get_logger()
-    logger.info("enter suggestion method")
-    logger.info(enter_t.astimezone(ZoneInfo(user_timezone)))
+    print("enter suggestion method")
+    print(enter_t.astimezone(ZoneInfo(user_timezone)))
     try:
         user_id = get_ctx().user_id
         img_info = await dealwith_img(img=img, user_id=user_id)
         after_dealwith = datetime.now().astimezone()
-        logger.info("after deal with")
-        logger.info(after_dealwith.astimezone(ZoneInfo(user_timezone)))
+        print("after deal with")
+        print(after_dealwith.astimezone(ZoneInfo(user_timezone)))
         if img_info['success']:
             resp = await suggestion_service.get_suggestion(
                 img_info=img_info,
                 user_id=user_id)
 
+            feedback_t = datetime.now().astimezone()
+            print("after AI feedback")
+            print(feedback_t.astimezone(ZoneInfo(user_timezone)))
             if resp[0] == 0:
                 return generate_result((0, to_json(resp[1])))
             else:
