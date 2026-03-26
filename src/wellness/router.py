@@ -1,11 +1,10 @@
 from multiprocessing import get_logger
 from fastapi import APIRouter, Body, Depends
 from src.wellness.service import WellnessService, get_wellness_service
-from src.auth.filters import JWTUserGuard
 from src.util.json import generate_result, to_json
 
 
-wellness_router = APIRouter(prefix="/wellness", dependencies=[Depends(JWTUserGuard())])
+wellness_router = APIRouter(prefix="/wellness")
 
 @wellness_router.post("/get_user_wellness_and_items")
 async def get_user_wellness(catalogName, wellness_service: WellnessService=Depends(get_wellness_service)):

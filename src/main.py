@@ -10,8 +10,10 @@ from src.user.router import user_router
 from src.auth.router import auth_router
 from src.wellness.router import wellness_router
 from src.suggestion.router import suggestion_router
+
 from src.middlewares.ContextMiddleware import ContextMiddleware
-from src.middlewares.TimezoneMiddleware import TimezoneMiddleware
+from src.middlewares.TimezoneMiddleware import TimezoneMiddleware 
+from src.middlewares.TokenMiddleware import TokenMiddleware
 from src.middlewares.RateProtection import RateProtection
 
 app.include_router(user_router)
@@ -20,6 +22,7 @@ app.include_router(wellness_router)
 app.include_router(suggestion_router)
 
 app.add_middleware(RateProtection)
+app.add_middleware(TokenMiddleware)
 app.add_middleware(TimezoneMiddleware)
 app.add_middleware(ContextMiddleware)
 @app.get("/")

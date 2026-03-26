@@ -16,7 +16,7 @@ class RateProtection(BaseHTTPMiddleware):
 
     async def dispatch(self, request, call_next):
         cooldown = Cooldown(MongoDBPool.get_db())
-        key = request.url.path + str(get_ctx().user_id)
+        key = str(get_ctx().user_id) + ":" + request.url.path
         need_rate_control = request.url.path in self.path_dict
         start_at = datetime.now(timezone.utc)
         locked = False

@@ -1,6 +1,5 @@
 from fastapi import APIRouter, Depends, Body
-from src.auth.filters import JWTUserGuard
-from src.auth.service import AuthService, get_auth_service, SessionService, get_session_service
+from src.auth.service import AuthService, get_auth_service, get_session_service
 from src.util.json import generate_result
 from src.util.ctx import get_ctx
 auth_router = APIRouter(prefix="/auth")
@@ -23,7 +22,7 @@ async def confirm_password(body:dict = Body(...), service: AuthService = Depends
     result_tuple = await service.confirm_password(body['email'], body['otp'], body['password'], body['biz_id'])
     return generate_result(result_tuple)
 
-@auth_router.post("/sign-out", dependencies=[Depends(JWTUserGuard())])
+@auth_router.post("/sign-out")
 async def signout(auth_service:AuthService=Depends(get_auth_service)):
     try:
         await auth_service.signOut(get_ctx().user_id)
@@ -32,7 +31,7 @@ async def signout(auth_service:AuthService=Depends(get_auth_service)):
         print(e)
         return generate_result((1, False))
     
-@auth_router.post("/me", dependencies=[Depends(JWTUserGuard())])
+@auth_router.post("/me")
 async def me():
     return generate_result((0, True))
 

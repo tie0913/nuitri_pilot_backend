@@ -17,5 +17,5 @@ def get_ctx() -> RequestContext:
 def set_ctx(ctx: RequestContext):
     return _ctx.set(ctx)
 
-def reset_ctx(token):
-    _ctx.reset(token)
+def reset_ctx(ctx):
+    _ctx.reset(ctx)

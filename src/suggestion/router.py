@@ -1,14 +1,13 @@
-from datetime import datetime, timezone
+from datetime import datetime
 from zoneinfo import ZoneInfo
 from fastapi import APIRouter, Body, Depends, File, UploadFile
-from src.auth.filters import JWTUserGuard
 from src.suggestion.service import SuggestionService, get_suggestion_service
 from src.util.ctx import get_ctx
 from src.util.image_util import dealwith_img
 from src.util.json import bson_col_to_json, generate_result, to_json
 from src.util.logger import get_logger
 
-suggestion_router = APIRouter(prefix="/suggestion", dependencies=[Depends(JWTUserGuard())])
+suggestion_router = APIRouter(prefix="/suggestion")
 
 @suggestion_router.post('/ask')
 async def ask_for_suggesstion(img:UploadFile=File(...), suggestion_service:SuggestionService=Depends(get_suggestion_service)):
