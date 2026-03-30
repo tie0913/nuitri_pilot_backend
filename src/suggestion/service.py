@@ -29,16 +29,20 @@ class SuggestionService:
         chronics_repo = ChronicsRepo(self.db)
         allergies_repo = AllergiesRepo(self.db)
 
-        wellness = await wellness_repo.get_user_wellness_items_lists(user_id)
+        wellness = await wellness_repo.get_user_wellness_items_lists(user_id) or {}
 
-        chronics_ids = wellness['chronics'] or []
-        allergies_ids = wellness['allergies'] or []
+        chronics_ids = getattr(wellness, 'chronics', None)
+        allergies_ids = getattr(wellness, 'allergies', None) 
 
-        chronics_objs = await chronics_repo.get_item_list_by_ids(chronics_ids)
-        allergies_objs = await allergies_repo.get_item_list_by_ids(allergies_ids)
+        chronics_names = []
+        if chronics_ids is not None:        
+            chronics_objs = await chronics_repo.get_item_list_by_ids(chronics_ids)
+            chronics_names = list(map(lambda x : x['name'], chronics_objs))
 
-        chronics_names = list(map(lambda x : x['name'], chronics_objs))
-        allergies_names = list(map(lambda x : x['name'], allergies_objs))
+        allergies_names = []
+        if allergies_ids is not None:
+            allergies_objs = await allergies_repo.get_item_list_by_ids(allergies_ids)
+            allergies_names = list(map(lambda x : x['name'], allergies_objs))
 
         agent = get_agent()
         suggestion = await agent.get(img_info['base64_img'], chronics_names, allergies_names)
