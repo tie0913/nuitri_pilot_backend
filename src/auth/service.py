@@ -6,7 +6,7 @@ from src.auth.session_repository import SessionRepository
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 from src.util.date_format_util import format_time
-from src.util.email_sender import send_email
+from src.util.email_web_api import send_email
 from src.util.mongo import MongoDBPool
 from src.util.otp_generator import generate_otp
 from src.util.tx_executor import with_txn
@@ -111,7 +111,7 @@ class AuthService:
                 user_timezone = get_ctx().timezone
                 expire_at_user_local = expire_at.astimezone(ZoneInfo(user_timezone))
                 email_content = AuthService.get_email(otp, expire_at_user_local, biz_id)
-                email_send = send_email(email, email_title, email_content)
+                email_send = await send_email(email, email_title, email_content)
                 if email_send :
                     return (0, 'otp code has been sent')
                 else:
@@ -163,7 +163,7 @@ class AuthService:
             <tr>
             <td style="background:#F7FBF7; padding:32px; text-align:center; border-bottom:1px solid #E0E0E0;">
 
-            <img src="https://nutripilot.tech/assets/vite-cropped-C94ClCT6.svg" alt="Nutri Pilot" width="100" style="display:block; margin:auto;">
+            <img src="https://www.nutripilot.tech/assets/vite-cropped-C94ClCT6.svg" alt="Nutri Pilot" width="100" style="display:block; margin:auto;">
             <!--
             <img src="cid:logo" alt="Nutri Pilot" width="100" style="display:block; margin:auto;">
             -->

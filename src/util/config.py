@@ -15,6 +15,7 @@ class Settings(BaseSettings):
     SMTP_PASSWORD: Optional[str] = "jeic myvu opql afef"
     SMTP_FROM: Optional[str] = "nuitripilot@gmail.com"
     SMTP_STARTTLS: bool = True
+    SMTP_WEB_API_KEY: str = ""
 
     # Logger Configuration
     LOG_LEVEL: Literal["DEBUG", "INFO", "WARNING", "ERROR"] = "INFO"
