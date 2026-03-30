@@ -117,6 +117,7 @@ class AuthService:
                 else:
                     return (1, 'sending otp code has error')
             except Exception as e:
+                print(e)
                 return (1, "saving otp code has error")
         else:
             print('unkown biz id ')
