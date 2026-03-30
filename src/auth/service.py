@@ -161,7 +161,11 @@ class AuthService:
             <!-- Header -->
             <tr>
             <td style="background:#F7FBF7; padding:32px; text-align:center; border-bottom:1px solid #E0E0E0;">
+
+            <img src="https://nutripilot.tech/assets/vite-cropped-C94ClCT6.svg" alt="Nutri Pilot" width="100" style="display:block; margin:auto;">
+            <!--
             <img src="cid:logo" alt="Nutri Pilot" width="100" style="display:block; margin:auto;">
+            -->
             </td>
             </tr>
 

@@ -20,9 +20,9 @@ def send_email(to_email: str, subject: str, body: str) -> bool:
         msg["To"] = to_email
         msg["Subject"] = subject
 
-        logo = MIMEImage(open('static/email/favicon.png', 'rb').read())
-        logo.add_header('Content-ID', '<logo>')
-        msg.attach(logo)
+        #logo = MIMEImage(open('static/email/favicon.png', 'rb').read())
+        #logo.add_header('Content-ID', '<logo>')
+        #msg.attach(logo)
 
         msg.attach(MIMEText(body, "html"))
 
