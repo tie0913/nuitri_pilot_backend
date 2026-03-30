@@ -31,8 +31,8 @@ class SuggestionService:
 
         wellness = await wellness_repo.get_user_wellness_items_lists(user_id)
 
-        chronics_ids = wellness['chronics']
-        allergies_ids = wellness['allergies']
+        chronics_ids = wellness['chronics'] or []
+        allergies_ids = wellness['allergies'] or []
 
         chronics_objs = await chronics_repo.get_item_list_by_ids(chronics_ids)
         allergies_objs = await allergies_repo.get_item_list_by_ids(allergies_ids)
