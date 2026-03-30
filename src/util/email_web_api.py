@@ -6,6 +6,8 @@ SENDGRID_API_KEY = get_settings().SMTP_WEB_API_KEY
 
 async def send_email(to_email: str, subject: str, content: str):
     url = "https://api.sendgrid.com/v3/mail/send"
+
+    print(SENDGRID_API_KEY)
     headers = {
         "Authorization": f"Bearer {SENDGRID_API_KEY}",
         "Content-Type": "application/json"
@@ -21,7 +23,7 @@ async def send_email(to_email: str, subject: str, content: str):
         "subject": subject,
         "content": [
             {
-                "type": "text/plain",
+                "type": "text/html",
                 "value": content
             }
         ]
