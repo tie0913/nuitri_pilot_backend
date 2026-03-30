@@ -10,6 +10,4 @@ COPY requirements .
 RUN pip install --no-cache-dir -r requirements
 
 COPY ./src ./src
-COPY ./static ./static
-
 CMD ["python", "-m", "src.main"]
