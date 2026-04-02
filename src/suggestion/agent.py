@@ -91,6 +91,13 @@ class OpenAIAgent(AIAgent):
 
             - Consider chronics only for general risk adjustment (do not overanalyze)
 
+            Scoring constraints (IMPORTANT):
+            - Fried, deep-fried, or high-fat food → mark MUST be <= 40
+            - High sugar food (desserts, sugary drinks) → mark MUST be <= 40
+            - High salt or heavily processed food → mark MUST be <= 50
+            - Fast food or junk food → mark MUST be <= 50
+            - Fresh, natural, minimally processed food → mark SHOULD be >= 70
+
             Return JSON only:
             {{
               "code": 0,
