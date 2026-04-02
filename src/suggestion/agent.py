@@ -55,7 +55,8 @@ class OpenAIAgent(AIAgent):
         }
     
     def __get_user_instruction(self, base64_img, chronics, allergies):
-        instruction = self.__get_instruction(chronics, allergies)
+        #instruction = self.__get_instruction(chronics, allergies)
+        instruction = self.__get_fast_instruction(chronics, allergies)
         return {
             "role":"user",
             "content" : [{
@@ -68,6 +69,40 @@ class OpenAIAgent(AIAgent):
                 }
             }]
         }
+
+    def __get_fast_instruction(self, chronics, allergies):
+        return f"""
+            You are a food health advisor.
+
+            User conditions:
+            - Chronics: {chronics}
+            - Allergies: {allergies}
+
+            Task:
+            1. Identify food (or assume typical ingredients)
+            2. Evaluate health score (mark: 0–100, multiples of 10)
+
+            Rules:
+            - If NOT food or unreadable → code != 0
+            - Otherwise code = 0
+
+            - If food contains user's allergens → mark = 0 and say "DO NOT EAT"
+            - If allergen uncertain → mark <= 20
+
+            - Consider chronics only for general risk adjustment (do not overanalyze)
+
+            Return JSON only:
+            {{
+              "code": 0,
+              "message": "",
+              "mark": 0,
+              "feedback": {{
+                "level": 1,
+                "explaination": ""
+              }},
+              "recommendation": []
+            }}
+        """
 
     def __get_instruction(self, chronics, allergies):
         return f"""
