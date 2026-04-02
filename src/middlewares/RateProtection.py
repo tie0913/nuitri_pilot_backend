@@ -18,12 +18,13 @@ class RateProtection(BaseHTTPMiddleware):
         cooldown = Cooldown(MongoDBPool.get_db())
         key = str(get_ctx().user_id) + ":" + request.url.path
         need_rate_control = request.url.path in self.path_dict
-        start_at = datetime.now(timezone.utc)
-        cd = self.path_dict[request.url.path]
-        expire_at = start_at + timedelta(seconds=cd)
+       
         locked = False
         try:
-            if need_rate_control:
+            if need_rate_control: 
+                start_at = datetime.now(timezone.utc)
+                cd = self.path_dict[request.url.path]
+                expire_at = start_at + timedelta(seconds=cd)
                 locked = await cooldown.lock(key=key, start_at=start_at, expire_at=expire_at)
                 if locked is False:
                     return JSONResponse(
