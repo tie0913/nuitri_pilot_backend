@@ -12,12 +12,13 @@ class Cooldown(BaseRepository):
     def get_collection_name(self):
         return "cooldowns"
     
-    async def lock(self, key, start_at:datetime) -> bool:
+    async def lock(self, key, start_at:datetime, expire_at:datetime) -> bool:
         doc = await self.collection.find_one_and_update(
             {"_id": key},
             {
                 "$setOnInsert":{
-                    "start_at": start_at
+                    "start_at": start_at,
+                    "expire_at": expire_at
                 }
             },
             upsert=True,
@@ -25,16 +26,8 @@ class Cooldown(BaseRepository):
         )
         return doc is None
     
-    async def release(self, key, start_at: datetime, now: datetime, cd):
-
-        expire_at = max(start_at + timedelta(seconds=cd), now)
-
-        await self.collection.update_one(
-            {"_id": key},
-            {
-                "$set":{"expire_at": expire_at}
-            }
-        )
+    async def release(self, key):
+        await self.collection.delete({"_id": key})
 
 class SuggestionRepo(BaseRepository):
 

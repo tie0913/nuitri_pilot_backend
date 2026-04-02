@@ -2,7 +2,7 @@ from http.client import HTTPException
 
 from fastapi.responses import JSONResponse
 from starlette.middleware.base import BaseHTTPMiddleware
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 
 from src.suggestion.repo import Cooldown
 from src.util.ctx import get_ctx
@@ -19,18 +19,20 @@ class RateProtection(BaseHTTPMiddleware):
         key = str(get_ctx().user_id) + ":" + request.url.path
         need_rate_control = request.url.path in self.path_dict
         start_at = datetime.now(timezone.utc)
+        cd = self.path_dict[request.url.path]
+        expire_at = start_at + timedelta(seconds=cd)
         locked = False
         try:
             if need_rate_control:
-                locked = await cooldown.lock(key=key, start_at=start_at)
+                locked = await cooldown.lock(key=key, start_at=start_at, expire_at=expire_at)
                 if locked is False:
                     return JSONResponse(
                         status_code=429,
                         content={
-                            "message": "You visited this API too much, please wait for at least one minute"
+                            "message": f"You may request this service 1 time per {cd} seconds"
                         }
                     )
             return await call_next(request)
-        finally:
-            if need_rate_control and locked:
-                await cooldown.release(key=key, start_at=start_at, now=datetime.now(timezone.utc), cd=30);
+        except Exception:
+            if need_rate_control:
+                cooldown.release(key=key)
