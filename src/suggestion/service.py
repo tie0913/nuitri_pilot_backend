@@ -31,6 +31,8 @@ class SuggestionService:
 
         wellness = await wellness_repo.get_user_wellness_items_lists(user_id) or {}
 
+        print(wellness)
+        
         chronics_ids = getattr(wellness, 'chronics', None)
         allergies_ids = getattr(wellness, 'allergies', None) 
 
