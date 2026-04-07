@@ -27,7 +27,7 @@ async def dealwith_img(img: UploadFile, user_id:str):
         content_type=content_type,
         user_id=user_id)
     
-    convert_result = await image_to_base64_with_thumbnail(file_content=file_content, content_type=content_type)
+    convert_result = await image_to_thumbnail(file_content=file_content, content_type=content_type)
 
     if upload_result['success'] and convert_result['success']:
         return upload_result | convert_result
@@ -73,15 +73,11 @@ async def upload_to_r2(file_name, file_content, content_type, user_id: str) -> s
         }
 
 
-async def image_to_base64_with_thumbnail(file_content, content_type, max_size=(200, 200), quality=35):
+async def image_to_thumbnail(file_content, content_type, max_size=(200, 200), quality=35):
     try:
         # ---- 读取上传内容 ----
         if not file_content:
             raise ValueError("Uploaded file is empty.")
-
-        # ---- 原图 Base64 ----
-        original_base64 = base64.b64encode(file_content).decode("utf-8")
-        original_b64_url = f"data:{content_type};base64,{original_base64}"
 
         # ---- 生成缩略图 ----
         try:
@@ -104,7 +100,6 @@ async def image_to_base64_with_thumbnail(file_content, content_type, max_size=(2
 
         return {
             "success": True,
-            "base64_img": original_b64_url,
             "base64_thumbnail": thumbnail_b64_url,
         }
 

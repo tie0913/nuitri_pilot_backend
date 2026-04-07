@@ -29,9 +29,9 @@ class OpenAIAgent(AIAgent):
         self.config = get_settings()
         self.client = AsyncOpenAI(api_key=self.config.OPEN_AI_API_KEY)
 
-    async def get(self, base64_img, chronics, allergies):
+    async def get(self, image_url, chronics, allergies):
         system_ins = self.__get_system_instruction()
-        user_ins = self.__get_user_instruction(base64_img, chronics, allergies)
+        user_ins = self.__get_user_instruction(image_url, chronics, allergies)
         messages = [system_ins, user_ins]
 
         resp = await self.client.chat.completions.create(
@@ -51,7 +51,7 @@ class OpenAIAgent(AIAgent):
             "content" : "You are a nutrition and health management assistant. Please provide JSON format content"
         }
     
-    def __get_user_instruction(self, base64_img, chronics, allergies):
+    def __get_user_instruction(self, image_url, chronics, allergies):
         #instruction = self.__get_instruction(chronics, allergies)
         instruction = self.__get_fast_instruction(chronics, allergies)
         return {
@@ -61,39 +61,44 @@ class OpenAIAgent(AIAgent):
                 "text": (instruction)
             },{
                 "type":"image_url",
-                "image_url": {
-                    "url":base64_img
-                }
+                "image_url": image_url
             }]
         }
 
     def __get_fast_instruction(self, chronics, allergies):
         return f"""
-            You are a food health advisor.
-
-            User conditions:
-            - Chronics: {chronics}
-            - Allergies: {allergies}
-
             Task:
-            1. Identify food (or assume typical ingredients)
-            2. Evaluate health score (mark: 0–100, multiples of 10)
-
+            1. Identify the food and main ingredients from the image.
+            2. Assign a health score (0–100, multiples of 10).
+            
+            User:
+            - Chronic: {chronics}
+            - Allergies: {allergies}
+            
             Rules:
-            - If NOT food or unreadable → code != 0
-            - Otherwise code = 0
-
-            - If food contains user's allergens → mark = 0 and say "DO NOT EAT"
-            - If allergen uncertain → mark <= 20
-
-            - Consider chronics only for general risk adjustment (do not overanalyze)
-
-            Scoring constraints (IMPORTANT):
-            - Fried, deep-fried, or high-fat food → mark MUST be <= 40
-            - High sugar food (desserts, sugary drinks) → mark MUST be <= 40
-            - High salt or heavily processed food → mark MUST be <= 50
-            - Fast food or junk food → mark MUST be <= 50
-            - Fresh, natural, minimally processed food → mark SHOULD be >= 70
+            - If not food or unclear → code = 1
+            - Otherwise → code = 0
+            
+            Allergy:
+            - If contains allergens → mark = 0 and include "DO NOT EAT"
+            - If unsure about allergens → mark <= 20
+            - If allergens are present → explicitly mention them in reason
+            
+            Chronic:
+            - If food negatively affects chronic conditions → lower the mark
+            - Explicitly mention the related chronic condition in reason
+            - Do not overanalyze
+            
+            Scoring:
+            - Fried / high-fat → max 40
+            - High sugar → max 40
+            - High salt / processed → max 50
+            - Fast food → max 50
+            - Fresh / natural → min 70
+            
+            General:
+            - Be conservative if unsure
+            - Keep output concise
 
             Return JSON only:
             {{
