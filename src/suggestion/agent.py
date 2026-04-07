@@ -52,8 +52,8 @@ class OpenAIAgent(AIAgent):
         }
     
     def __get_user_instruction(self, image_url, chronics, allergies):
-        #instruction = self.__get_instruction(chronics, allergies)
-        instruction = self.__get_fast_instruction(chronics, allergies)
+        instruction = self.__get_instruction(chronics, allergies)
+        #instruction = self.__get_fast_instruction(chronics, allergies)
         return {
             "role":"user",
             "content" : [{
