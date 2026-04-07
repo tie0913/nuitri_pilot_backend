@@ -61,7 +61,9 @@ class OpenAIAgent(AIAgent):
                 "text": (instruction)
             },{
                 "type":"image_url",
-                "image_url": image_url
+                "image_url": {
+                    "url":image_url
+                }
             }]
         }
 
@@ -70,32 +72,32 @@ class OpenAIAgent(AIAgent):
             Task:
             1. Identify the food and main ingredients from the image.
             2. Assign a health score (0–100, multiples of 10).
-            
+
             User:
             - Chronic: {chronics}
             - Allergies: {allergies}
-            
+
             Rules:
             - If not food or unclear → code = 1
             - Otherwise → code = 0
-            
+
             Allergy:
             - If contains allergens → mark = 0 and include "DO NOT EAT"
             - If unsure about allergens → mark <= 20
             - If allergens are present → explicitly mention them in reason
-            
+
             Chronic:
             - If food negatively affects chronic conditions → lower the mark
             - Explicitly mention the related chronic condition in reason
             - Do not overanalyze
-            
+
             Scoring:
             - Fried / high-fat → max 40
             - High sugar → max 40
             - High salt / processed → max 50
             - Fast food → max 50
             - Fresh / natural → min 70
-            
+
             General:
             - Be conservative if unsure
             - Keep output concise
