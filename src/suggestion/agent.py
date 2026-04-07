@@ -98,9 +98,12 @@ class OpenAIAgent(AIAgent):
             - Fast food → max 50
             - Fresh / natural → min 70
 
-            General:
-            - Be conservative if unsure
-            - Keep output concise
+            Guidelines:
+            - Keep responses concise but specific
+            - Mention allergens or chronic conditions if relevant
+            - Avoid generic advice (e.g., "eat in moderation")
+            - Provide practical recommendations (portion, alternatives, or avoidance)
+            - Be conservative if uncertain
 
             Return JSON only:
             {{
