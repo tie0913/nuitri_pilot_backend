@@ -33,6 +33,7 @@ class OpenAIAgent(AIAgent):
         system_ins = self.__get_system_instruction()
         user_ins = self.__get_user_instruction(image_url, chronics, allergies)
         messages = [system_ins, user_ins]
+        print(messages)
 
         resp = await self.client.chat.completions.create(
             model=self.config.OPEN_AI_MODEL,
