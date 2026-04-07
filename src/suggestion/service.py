@@ -31,14 +31,13 @@ class SuggestionService:
 
         wellness = await wellness_repo.get_user_wellness_items_lists(user_id) or {}
 
-        print(wellness)
-        
-        chronics_ids = getattr(wellness, 'chronics', None)
-        allergies_ids = getattr(wellness, 'allergies', None) 
-
-        print("------------user settings ids -----")
-        print(chronics_ids)
-        print(allergies_ids)
+        chronics_ids = []
+        allergies_ids = []
+        if wellness is not None:
+            if 'chronics' in wellness:
+                chronics_ids = wellness['chronics']
+            if 'allergies' in wellness:
+                allergies_ids = wellness['allergies']
 
         chronics_names = []
         if chronics_ids is not None:        
