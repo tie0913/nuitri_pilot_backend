@@ -30,12 +30,6 @@ class OpenAIAgent(AIAgent):
         self.client = AsyncOpenAI(api_key=self.config.OPEN_AI_API_KEY)
 
     async def get(self, image_url, chronics, allergies):
-
-        print("----------------------------users settings")
-        print(chronics)
-        print(allergies)
-        print("----------------------------users settings")
-
         system_ins = self.__get_system_instruction()
         user_ins = self.__get_user_instruction(image_url, chronics, allergies)
         messages = [system_ins, user_ins]

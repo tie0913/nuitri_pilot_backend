@@ -34,6 +34,10 @@ class SuggestionService:
         chronics_ids = getattr(wellness, 'chronics', None)
         allergies_ids = getattr(wellness, 'allergies', None) 
 
+        print("------------user settings ids -----")
+        print(chronics_ids)
+        print(allergies_ids)
+
         chronics_names = []
         if chronics_ids is not None:        
             chronics_objs = await chronics_repo.get_item_list_by_ids(chronics_ids)
