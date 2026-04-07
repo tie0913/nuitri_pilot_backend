@@ -23,7 +23,7 @@ class SuggestionService:
         suggestion_repo = SuggestionRepo(self.db)
         return await suggestion_repo.find_suggestions_page(user_id, last_id)
 
-    #path, b64_result['base64_img'], b64_result['base64_thumbnail'], 
+    #path, b64_result['base64_thumbnail'], 
     async def get_suggestion(self, img_info:dict, user_id):
         wellness_repo = WellnessRepo(self.db)
         chronics_repo = ChronicsRepo(self.db)
@@ -45,7 +45,7 @@ class SuggestionService:
             allergies_names = list(map(lambda x : x['name'], allergies_objs))
 
         agent = get_agent()
-        suggestion = await agent.get(img_info['base64_img'], chronics_names, allergies_names)
+        suggestion = await agent.get(img_info['path'], chronics_names, allergies_names)
 
         suggestion_repo = SuggestionRepo(self.db)
 
