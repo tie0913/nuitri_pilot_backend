@@ -26,19 +26,16 @@ class AIAgent:
 class OpenAIAgent(AIAgent):
 
     def __init__(self):
-        config = get_settings()
-        self.client = AsyncOpenAI(api_key=config.OPEN_AI_API_KEY)
+        self.config = get_settings()
+        self.client = AsyncOpenAI(api_key=self.config.OPEN_AI_API_KEY)
 
     async def get(self, base64_img, chronics, allergies):
-
-        config = get_settings()
-
         system_ins = self.__get_system_instruction()
         user_ins = self.__get_user_instruction(base64_img, chronics, allergies)
         messages = [system_ins, user_ins]
 
         resp = await self.client.chat.completions.create(
-            model=config.OPEN_AI_MODEL,
+            model=self.config.OPEN_AI_MODEL,
             messages=messages,
             temperature=0,
             max_completion_tokens=500,
