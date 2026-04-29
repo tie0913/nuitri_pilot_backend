@@ -20,7 +20,7 @@ import json
 #}}
 class AIAgent:
     @abstractmethod
-    def get(self, base64_img, chronics, allergies):
+    async def get(self, image_url, chronics, allergies):
         pass
 
 class OpenAIAgent(AIAgent):
@@ -223,6 +223,190 @@ class OpenAIAgent(AIAgent):
             Return ONLY valid JSON. Do not include any extra text before or after the JSON.
             """
 
+
+class OpenAIAgentV2:
+
+    def __init__(self):
+        self.config = get_settings()
+        self.client = AsyncOpenAI(api_key=self.config.OPEN_AI_API_KEY)
+
+    async def get(self, image_url, chronics, allergies):
+        # Step 0: Fast detect
+        food_flag = await self.__detect_food(image_url)
+
+        if food_flag == "not_food":
+            return {
+                "code": 1,
+                "message": "Not food",
+                "mark": 0,
+                "feedback": {
+                    "level": 1,
+                    "explaination": "The image does not appear to contain food."
+                },
+                "recommendation": []
+            }
+
+        # Step 1: Identify
+        food_info = await self.__identify_food(image_url)
+
+        # Step 2: Analyze
+        result = await self.__analyze_food(food_info, chronics, allergies)
+
+        return result
+
+    # ---------------------------
+    # Step 0: Fast detection
+    # ---------------------------
+    async def __detect_food(self, image_url):
+        resp = await self.client.chat.completions.create(
+            model=self.config.OPEN_AI_MODEL,
+            temperature=0,
+            max_completion_tokens=10,
+            messages=[
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": "Is this image food or food-related? Answer only: food / not_food / uncertain"
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": {"url": image_url}
+                        }
+                    ]
+                }
+            ]
+        )
+
+        answer = resp.choices[0].message.content.strip().lower()
+
+        if "food" in answer:
+            return "food"
+        elif "not" in answer:
+            return "not_food"
+        else:
+            return "uncertain"
+
+    # ---------------------------
+    # Step 1: Identify food
+    # ---------------------------
+    async def __identify_food(self, image_url):
+        resp = await self.client.chat.completions.create(
+            model=self.config.OPEN_AI_MODEL,
+            temperature=0,
+            max_completion_tokens=200,
+            response_format={"type": "json_object"},
+            messages=[
+                {
+                    "role": "system",
+                    "content": "Extract food information in JSON."
+                },
+                {
+                    "role": "user",
+                    "content": [
+                        {
+                            "type": "text",
+                            "text": """
+                                Identify food from the image.
+
+                                Return JSON:
+                                {
+                                  "foods": ["..."],
+                                  "ingredients": ["..."]
+                                }
+
+                                If unsure, guess common ingredients.
+                                Be concise.
+                            """
+                        },
+                        {
+                            "type": "image_url",
+                            "image_url": {"url": image_url}
+                        }
+                    ]
+                }
+            ]
+        )
+
+        return json.loads(resp.choices[0].message.content)
+
+    # ---------------------------
+    # Step 2: Health analysis
+    # ---------------------------
+    async def __analyze_food(self, food_info, chronics, allergies):
+        system_ins = {
+            "role": "system",
+            "content": "You are a nutrition and health management assistant. Please provide JSON format content"
+        }
+
+        instruction = self.__get_instruction(chronics, allergies)
+
+        food_text = f"""
+            Detected foods: {food_info.get("foods", [])}
+            Possible ingredients: {food_info.get("ingredients", [])}
+        """
+
+        messages = [
+            system_ins,
+            {
+                "role": "user",
+                "content": food_text + "\n" + instruction
+            }
+        ]
+
+        resp = await self.client.chat.completions.create(
+            model=self.config.OPEN_AI_MODEL,
+            messages=messages,
+            temperature=0,
+            max_completion_tokens=500,
+            response_format={"type": "json_object"}
+        )
+
+        return json.loads(resp.choices[0].message.content)
+
+    # ---------------------------
+    # Reuse your original instruction
+    # ---------------------------
+    def __get_instruction(self, chronics, allergies):
+        return f"""
+            You are a professional health food advisor.
+
+            CRITICAL RULES:
+
+            1. code:
+            - Only for system error
+            - Not food → code = 1
+            - Otherwise → code = 0
+
+            2. mark:
+            - Must be one of:
+            0,10,20,30,40,50,60,70,80,90,100
+
+            3. Allergy:
+            - If contains allergens → mark = 0 + DO NOT EAT
+            - If uncertain → mark <= 20
+
+            4. Chronic:
+            - Reduce score if conflict
+
+            Return JSON:
+            {{
+                "code": 0,
+                "message": "",
+                "mark": 0,
+                "feedback": {{
+                    "level": 1,
+                    "explaination": ""
+                }},
+                "recommendation": []
+            }}
+
+            User chronics: {chronics}
+            User allergies: {allergies}
+            """
+
+
 @lru_cache
 def get_agent():
-    return OpenAIAgent()
+    return OpenAIAgentV2()
