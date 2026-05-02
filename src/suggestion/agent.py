@@ -51,8 +51,7 @@ class OpenAIAgent(AIAgent):
         }
     
     def __get_user_instruction(self, image_url, chronics, allergies):
-        instruction = self.__get_instruction(chronics, allergies)
-        #instruction = self.__get_fast_instruction(chronics, allergies)
+        instruction = self.__get_instruction_v2(chronics, allergies)
         return {
             "role":"user",
             "content" : [{
@@ -65,57 +64,92 @@ class OpenAIAgent(AIAgent):
                 }
             }]
         }
-
-    def __get_fast_instruction(self, chronics, allergies):
+    
+    def __get_instruction_v2(self, chronics, allergies):
         return f"""
-            Task:
-            1. Identify the food and main ingredients from the image.
-            2. Assign a health score (0–100, multiples of 10).
+            You are a professional health food advisor.
 
-            User:
-            - Chronic: {chronics}
-            - Allergies: {allergies}
-
-            Rules:
-            - If not food or unclear → code = 1
-            - Otherwise → code = 0
-
-            Allergy:
-            - If contains allergens → mark = 0 and include "DO NOT EAT"
-            - If unsure about allergens → mark <= 20
-            - If allergens are present → explicitly mention them in reason
-
-            Chronic:
-            - If food negatively affects chronic conditions → lower the mark
-            - Explicitly mention the related chronic condition in reason
-            - Do not overanalyze
-
-            Scoring:
-            - Fried / high-fat → max 40
-            - High sugar → max 40
-            - High salt / processed → max 50
-            - Fast food → max 50
-            - Fresh / natural → min 70
-
-            Guidelines:
-            - Keep responses concise but specific
-            - Mention allergens or chronic conditions if relevant
-            - Avoid generic advice (e.g., "eat in moderation")
-            - Provide practical recommendations (portion, alternatives, or avoidance)
-            - Be conservative if uncertain
-
-            Return JSON only:
+            --------------------------------
+            FAST DECISION RULE (HIGH PRIORITY)
+            --------------------------------
+            If the image is clearly NOT food:
+            - Return immediately with:
             {{
-              "code": 0,
-              "message": "",
-              "mark": 0,
-              "feedback": {{
-                "level": 1,
-                "explaination": ""
-              }},
-              "recommendation": []
+                "code": 1,
+                "message": "Not food",
+                "mark": 0,
+                "feedback": {{
+                    "level": 1,
+                    "explaination": "Image is not food"
+                }},
+                "recommendation": []
             }}
-        """
+            - Do NOT perform further analysis
+
+            --------------------------------
+            TASK
+            --------------------------------
+            - Identify the food or ingredients in ONE step
+            - Use best effort (no multi-step reasoning)
+            - If unclear, assume common version of the food
+
+            --------------------------------
+            RULES
+            --------------------------------
+
+            1. CODE
+            - Only use for system errors
+            - code != 0 ONLY if image is not food or unreadable
+
+            2. MARK (ONLY choose from):
+            0,10,20,30,40,50,60,70,80,90,100
+
+            - If definite allergen → mark = 0
+            - If uncertain allergen → mark <= 20
+
+            3. ZERO SCORE RULE
+            If mark = 0:
+            - MUST include "DO NOT EAT"
+            - MUST explain risk
+
+            4. CONDITIONS
+            - Consider chronics and allergies
+            - Do NOT change code because of health risk
+
+            5. ASSUMPTION
+            If ingredients not visible:
+            - Briefly say: "Assuming typical ingredients"
+
+            6. RECOMMENDATION
+            - Provide 1–2 short, practical suggestions
+            - If mark = 0 → suggest safe alternatives only
+
+            --------------------------------
+            STYLE
+            --------------------------------
+            - Be SHORT and DIRECT
+            - Do NOT over-analyze
+
+            --------------------------------
+            OUTPUT (JSON ONLY)
+            --------------------------------
+            {{
+                "code": 0,
+                "message": "",
+                "mark": 0,
+                "feedback": {{
+                    "level": 1,
+                    "explaination": ""
+                }},
+                "recommendation": []
+            }}
+
+            --------------------------------
+            USER INFO
+            --------------------------------
+            Chronics: {chronics}
+            Allergies: {allergies}
+            """
 
     def __get_instruction(self, chronics, allergies):
         return f"""
@@ -409,4 +443,4 @@ class OpenAIAgentV2:
 
 @lru_cache
 def get_agent():
-    return OpenAIAgentV2()
+    return OpenAIAgent()
