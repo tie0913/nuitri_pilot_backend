@@ -6,12 +6,11 @@ from src.auth.session_repository import SessionRepository
 from datetime import datetime, timedelta, timezone
 from zoneinfo import ZoneInfo
 from src.util.date_format_util import format_time
-from src.util.email_web_api import send_email
 from src.util.mongo import MongoDBPool
 from src.util.otp_generator import generate_otp
 from src.util.tx_executor import with_txn
 from src.util.ctx import get_ctx
-from src.util.send_email import send_email_2, EmailRequest
+from src.util.send_email import send_email, EmailRequest
 
 AUTH_SERVICE_FORGET_PASSWORD_BUS_ID = "1"
 AUTH_SERVICE_SIGN_UP_BUS_ID = "2"
@@ -78,7 +77,7 @@ class AuthService:
                 elif biz_id == AUTH_SERVICE_SIGN_UP_BUS_ID:
                     await with_txn(self.db, delete_otp_and_create_user)
                     return (0, 'signing up succeed')
-            except Exception as e:
+            except Exception:
                 return (3, 'reset password has error')
 
 
@@ -114,7 +113,7 @@ class AuthService:
                 email_content = AuthService.get_email(otp, expire_at_user_local, biz_id)
 
 
-                result = await send_email_2(EmailRequest(
+                result = await send_email(EmailRequest(
                     to=email,
                     subject=email_title,
                     message=email_content

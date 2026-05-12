@@ -17,7 +17,7 @@ class EmailResponse(BaseModel):
 
 resend.api_key = get_settings().EMAIL_API_KEY
 
-async def send_email_2(email_request: EmailRequest):
+async def send_email(email_request: EmailRequest):
     """Send an email."""
     try:
         result = resend.Emails.send({
@@ -34,7 +34,7 @@ async def send_email_2(email_request: EmailRequest):
 
 if __name__ == "__main__":
     asyncio.run(
-        send_email_2(
+        send_email(
             EmailRequest(
                 to="wangtie0913@gmail.com",
                 subject="Test",
