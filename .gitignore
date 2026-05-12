@@ -35,3 +35,5 @@ htmlcov/
 
 # Jupyter (if ever used)
 .ipynb_checkpoints/
+
+.idea/

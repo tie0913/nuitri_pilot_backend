@@ -11,6 +11,7 @@ from src.util.mongo import MongoDBPool
 from src.util.otp_generator import generate_otp
 from src.util.tx_executor import with_txn
 from src.util.ctx import get_ctx
+from src.util.send_email import send_email_2, EmailRequest
 
 AUTH_SERVICE_FORGET_PASSWORD_BUS_ID = "1"
 AUTH_SERVICE_SIGN_UP_BUS_ID = "2"
@@ -111,8 +112,16 @@ class AuthService:
                 user_timezone = get_ctx().timezone
                 expire_at_user_local = expire_at.astimezone(ZoneInfo(user_timezone))
                 email_content = AuthService.get_email(otp, expire_at_user_local, biz_id)
-                email_send = await send_email(email, email_title, email_content)
-                if email_send :
+
+
+                result = await send_email_2(EmailRequest(
+                    to=email,
+                    subject=email_title,
+                    message=email_content
+                ))
+
+                #email_send = await send_email(email, email_title, email_content)
+                if result.success :
                     return (0, 'otp code has been sent')
                 else:
                     return (1, 'sending otp code has error')

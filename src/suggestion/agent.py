@@ -1,5 +1,5 @@
 from functools import lru_cache
-from src.util.config import get_settings;
+from src.util.config import get_settings
 from abc import abstractmethod
 from openai import AsyncOpenAI
 import json
