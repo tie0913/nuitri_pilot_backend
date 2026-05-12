@@ -17,6 +17,7 @@ cycler==0.12.1
 distro==1.9.0
 dnspython==2.8.0
 ecdsa==0.19.1
+email-validator==2.3.0
 fastapi==0.116.1
 fonttools==4.61.1
 h11==0.16.0
@@ -52,6 +53,7 @@ python-multipart==0.0.20
 python-slugify==8.0.4
 PyYAML==6.0.2
 requests==2.32.5
+resend==2.30.0
 rich==14.1.0
 rsa==4.9.1
 s3transfer==0.16.0
